@@ -1,13 +1,13 @@
 name: SurvivalGamesV2
 main: SurvivalGamesV2\SurvivalGamesV2
-version: 1.0.0
+version: 1.0.2
 api: 1.1.0
 author: 
 
 
 commands:
     sg:
-        usage: /sg
+        usage: /sg make
         description: SurvivalGames-Commands
     setrank:
         usage: /setrank
