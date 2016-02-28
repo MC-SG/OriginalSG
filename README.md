@@ -5,3 +5,4 @@ Commands:
 **/sg make [WORLD]** Creates an arena in the specified world!Do not use your Hub or Default World as the arena!
 ~~**/setrank [RANK] [PLAYER]**~~
 
+[Orignal Creator](http://forums.bukkitpe.net/index.php?plugins/authors/austin.9/)
