@@ -37,6 +37,7 @@ class SurvivalGamesV2 extends PluginBase implements Listener {
 	public function onEnable()
 	{
         $this->getServer()->getPluginManager()->registerEvents($this ,$this);
+        $this->getLogger()->info(TextFormat::GREEN . "SurvivalGamesV2 Loaded!");
 		@mkdir($this->getDataFolder());
 		$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 		$config2->save();
