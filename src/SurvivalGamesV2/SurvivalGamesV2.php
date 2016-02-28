@@ -415,6 +415,7 @@ class GameSender extends PluginTask {
 								{
 									foreach($playersArena as $pl)
 									{
+										$p1->giveMoney(money);
 										$pl->sendMessage($this->prefix . TextFormat::GREEN . "You won!");
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
