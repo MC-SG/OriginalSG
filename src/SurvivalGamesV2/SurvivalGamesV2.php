@@ -24,8 +24,10 @@ use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\entity\Effect;
+use pocketmine\event\entity\EntityLevelChangeEvent ; 
 use pocketmine\tile\Chest;
 use pocketmine\inventory\ChestInventory;
+use pocketmine\event\plugin\PluginEvent;
 
 class SurvivalGamesV2 extends PluginBase implements Listener {
 
@@ -37,7 +39,7 @@ class SurvivalGamesV2 extends PluginBase implements Listener {
 	public function onEnable()
 	{
         $this->getServer()->getPluginManager()->registerEvents($this ,$this);
-        $this->getLogger()->info(TextFormat::GREEN . "SurvivalGamesV2 Loaded!");
+		$this->getLogger()->info(TextFormat::GREEN . "SurvivalGames Loaded!");
 		@mkdir($this->getDataFolder());
 		$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 		$config2->save();
@@ -77,16 +79,17 @@ class SurvivalGamesV2 extends PluginBase implements Listener {
 			}
 		}
 	}
-	
-	public function onLogin(PlayerLoginEvent $event)
-	{
-		$player = $event->getPlayer();
-		$player->getInventory()->clearAll();
-		$spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
-		$this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), $spawn->getFloorZ());
-		$player->teleport($spawn,0,0);
-	}
-	
+
+   // Public function onLevelChange(EntityLevelChangeEvent $event) {
+   /// $entity = $event->getEntity();
+
+   // If($entity instanceof pocketmine\Player) {
+   // Foreach($event->getTarget()->getPlayers() as $p) {
+     // $p->sendMessage($entity->getName() . " has joined the match.");
+   // }
+  //}
+//}
+   
 	public function onBlockBreak(BlockBreakEvent $event)
 	{
 		$player = $event->getPlayer();
@@ -416,7 +419,7 @@ class GameSender extends PluginTask {
 								{
 									foreach($playersArena as $pl)
 									{
-										$p1->giveMoney(money);
+									    $p1->giveMoney(money);
 										$pl->sendMessage($this->prefix . TextFormat::GREEN . "You won!");
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
@@ -504,7 +507,6 @@ class GameSender extends PluginTask {
 							{
 								foreach($playersArena as $pl)
 								{
-									$pl->sendMessage($this->prefix . TextFormat::GREEN . "You won!");
 									$pl->getInventory()->clearAll();
 									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
@@ -517,7 +519,9 @@ class GameSender extends PluginTask {
 							{
 								foreach($playersArena as $pl)
 								{
-									$pl->sendPopup(TextFormat::RED . "More players needed!");
+								$pl->sendPopup(TextFormat::RED . "More players needed");
+                                //$this->getServer();
+                                //$server->broadcastMessage(TextFormat::RED . "SurvivalGames needs players! Come Play!");
 								}
 								$config->set($arena . "PlayTime", 780);
 								$config->set($arena . "StartTime", 60);
