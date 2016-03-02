@@ -520,8 +520,7 @@ class GameSender extends PluginTask {
 								foreach($playersArena as $pl)
 								{
 								$pl->sendPopup(TextFormat::RED . "More players needed");
-                                //$this->getServer();
-                                //$server->broadcastMessage(TextFormat::RED . "SurvivalGames needs players! Come Play!");
+                                                                //$this->getServer(broadcastMessage(TextFormat::RED . "SurvivalGames needs players! Come Play!"));
 								}
 								$config->set($arena . "PlayTime", 780);
 								$config->set($arena . "StartTime", 60);
