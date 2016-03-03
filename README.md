@@ -16,4 +16,7 @@ Commands:
 # Fixed Issues
 
 
+# Looking for devs
+If you think you can contribute make a pull request with the modifications and you could assit me with this, I'm very busy and I won't be working on this plug for much longer.
+
 
