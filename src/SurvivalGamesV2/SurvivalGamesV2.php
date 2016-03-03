@@ -80,16 +80,7 @@ class SurvivalGamesV2 extends PluginBase implements Listener {
 		}
 	}
 
-   // Public function onLevelChange(EntityLevelChangeEvent $event) {
-   /// $entity = $event->getEntity();
 
-   // If($entity instanceof pocketmine\Player) {
-   // Foreach($event->getTarget()->getPlayers() as $p) {
-     // $p->sendMessage($entity->getName() . " has joined the match.");
-   // }
-  //}
-//}
-   
 	public function onBlockBreak(BlockBreakEvent $event)
 	{
 		$player = $event->getPlayer();
