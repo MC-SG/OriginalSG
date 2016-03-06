@@ -417,7 +417,7 @@ class GameSender extends PluginTask {
 										$pl->setNameTag($pl->getName());
 										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-										$pl->teleport($spawn,0,0);
+										$pl->teleport($spawn);
 									}
 									$config->set($arena . "PlayTime", 780);
 									$config->set($arena . "StartTime", 60);
@@ -511,7 +511,8 @@ class GameSender extends PluginTask {
 								foreach($playersArena as $pl)
 								{
 								$pl->sendPopup(TextFormat::RED . "More players needed");
-                                                                //$this->getServer(broadcastMessage(TextFormat::RED . "SurvivalGames needs players! Come Play!"));
+								$p1-> onHurt(EntityDamageEvent)->setCancelled(); 
+								
 								}
 								$config->set($arena . "PlayTime", 780);
 								$config->set($arena . "StartTime", 60);
