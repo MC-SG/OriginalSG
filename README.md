@@ -1,4 +1,4 @@
-# SurvivalGamesV2
+# SurvivalGamesV2  V2.0.8
 SurvivalGames plugin for PocketMine - ImagicalMine
 
 Commands:
