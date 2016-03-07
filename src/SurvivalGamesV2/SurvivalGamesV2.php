@@ -410,14 +410,13 @@ class GameSender extends PluginTask {
 								{
 									foreach($playersArena as $pl)
 									{
-									    $p1->giveMoney(money);
 										$pl->sendMessage($this->prefix . TextFormat::GREEN . "You won!");
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
 										$pl->setNameTag($pl->getName());
 										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-										$pl->teleport($spawn);
+										$pl->teleport($spawn,0,0);
 									}
 									$config->set($arena . "PlayTime", 780);
 									$config->set($arena . "StartTime", 60);
