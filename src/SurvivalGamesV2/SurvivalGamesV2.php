@@ -402,6 +402,11 @@ class GameSender extends PluginTask {
 									$this->refillChests($levelArena);
 								}
 								$config->set($arena . "StartTime", $timeToStart);
+								
+								if($timeToStart=0)
+								{
+									$pl->sendMessage($this->prefix . TextFormat::GREEN . "Go! Go! Go!");
+								}
 							}
 							else
 							{
@@ -414,9 +419,8 @@ class GameSender extends PluginTask {
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
 										$pl->setNameTag($pl->getName());
-										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
-										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-										$pl->teleport($spawn,0,0);
+										$pl->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
+										
 									}
 									$config->set($arena . "PlayTime", 780);
 									$config->set($arena . "StartTime", 60);
@@ -477,11 +481,9 @@ class GameSender extends PluginTask {
 									}
 									if($time <= 0)
 									{
-										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
-										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 										foreach($playersArena as $pl)
 										{
-											$pl->teleport($spawn,0,0);
+											$pl->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 											$pl->sendMessage($this->prefix . "No winner this time!");
 											$pl->getInventory()->clearAll();
 										}
@@ -498,9 +500,7 @@ class GameSender extends PluginTask {
 								foreach($playersArena as $pl)
 								{
 									$pl->getInventory()->clearAll();
-									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
-									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-									$pl->teleport($spawn);
+									$pl->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 								}
 								$config->set($arena . "PlayTime", 780);
 								$config->set($arena . "StartTime", 60);
