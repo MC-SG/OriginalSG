@@ -419,7 +419,7 @@ class GameSender extends PluginTask {
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
 										$pl->setNameTag($pl->getName());
-										$pl->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
+										$player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 										
 									}
 									$config->set($arena . "PlayTime", 780);
