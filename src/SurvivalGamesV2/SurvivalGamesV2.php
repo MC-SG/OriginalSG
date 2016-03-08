@@ -1,11 +1,8 @@
 <?php
-
 namespace SurvivalGamesV2;
-
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\event\Listener;
-
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\command\CommandSender;
@@ -28,9 +25,7 @@ use pocketmine\event\entity\EntityLevelChangeEvent ;
 use pocketmine\tile\Chest;
 use pocketmine\inventory\ChestInventory;
 use pocketmine\event\plugin\PluginEvent;
-
 class SurvivalGamesV2 extends PluginBase implements Listener {
-
     public $prefix = TextFormat::GRAY . "[" . TextFormat::WHITE . TextFormat::BOLD . "S" . TextFormat::RED . "G" . TextFormat::RESET . TextFormat::GRAY . "] ";
 	public $mode = 0;
 	public $arenas = array();
@@ -79,8 +74,6 @@ class SurvivalGamesV2 extends PluginBase implements Listener {
 			}
 		}
 	}
-
-
 	public function onBlockBreak(BlockBreakEvent $event)
 	{
 		$player = $event->getPlayer();
@@ -321,7 +314,6 @@ class SurvivalGamesV2 extends PluginBase implements Listener {
 		$config->save();
 	}
 }
-
 class RefreshSigns extends PluginTask {
     public $prefix = TextFormat::GRAY . "[" . TextFormat::WHITE . TextFormat::BOLD . "S" . TextFormat::RED . "G" . TextFormat::RESET . TextFormat::GRAY . "] ";
 	public function __construct($plugin)
@@ -358,7 +350,6 @@ class RefreshSigns extends PluginTask {
 		}
 	}
 }
-
 class GameSender extends PluginTask {
     public $prefix = TextFormat::GRAY . "[" . TextFormat::WHITE . TextFormat::BOLD . "S" . TextFormat::RED . "G" . TextFormat::RESET . TextFormat::GRAY . "] ";
 	public function __construct($plugin)
@@ -418,9 +409,8 @@ class GameSender extends PluginTask {
 										$pl->sendMessage($this->prefix . TextFormat::GREEN . "You won!");
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
-										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
-										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-										$pl->teleport($spawn,0,0);
+										$pl->setNameTag($pl->getName());
+										$pl->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 										
 									}
 									$config->set($arena . "PlayTime", 780);
@@ -487,7 +477,6 @@ class GameSender extends PluginTask {
 											$pl->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 											$pl->sendMessage($this->prefix . "No winner this time!");
 											$pl->getInventory()->clearAll();
-											
 										}
 										$time = 780;
 									}
@@ -502,9 +491,7 @@ class GameSender extends PluginTask {
 								foreach($playersArena as $pl)
 								{
 									$pl->getInventory()->clearAll();
-									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
-									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-									$pl->teleport($spawn);
+									$pl->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 								}
 								$config->set($arena . "PlayTime", 780);
 								$config->set($arena . "StartTime", 60);
