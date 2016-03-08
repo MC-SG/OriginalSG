@@ -418,8 +418,9 @@ class GameSender extends PluginTask {
 										$pl->sendMessage($this->prefix . TextFormat::GREEN . "You won!");
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
-										$pl->setNameTag($pl->getName());
-										$player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
+										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
+										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
+										$pl->teleport($spawn,0,0);
 										
 									}
 									$config->set($arena . "PlayTime", 780);
@@ -486,6 +487,7 @@ class GameSender extends PluginTask {
 											$pl->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 											$pl->sendMessage($this->prefix . "No winner this time!");
 											$pl->getInventory()->clearAll();
+											
 										}
 										$time = 780;
 									}
