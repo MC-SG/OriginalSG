@@ -500,7 +500,8 @@ class GameSender extends PluginTask {
 								foreach($playersArena as $pl)
 								{
 									$pl->getInventory()->clearAll();
-									$pl->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
+									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
+									$player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 								}
 								$config->set($arena . "PlayTime", 780);
 								$config->set($arena . "StartTime", 60);
