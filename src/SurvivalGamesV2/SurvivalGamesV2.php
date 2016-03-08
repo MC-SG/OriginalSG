@@ -510,7 +510,6 @@ class GameSender extends PluginTask {
 								foreach($playersArena as $pl)
 								{
 								$pl->sendPopup(TextFormat::RED . "More players needed");
-								$p1-> onHurt(EntityDamageEvent)->setCancelled(); 
 								
 								}
 								$config->set($arena . "PlayTime", 780);
