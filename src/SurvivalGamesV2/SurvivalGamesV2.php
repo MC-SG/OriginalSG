@@ -503,7 +503,8 @@ class GameSender extends PluginTask {
 								{
 									$pl->getInventory()->clearAll();
 									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
-									$player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
+									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
+									$pl->teleport($spawn);
 								}
 								$config->set($arena . "PlayTime", 780);
 								$config->set($arena . "StartTime", 60);
