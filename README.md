@@ -1,3 +1,7 @@
+![alt tag](http://i.imgur.com/xEzMkd7.jpg)
+
+
+
 # SurvivalGames  V3.0.1
 SurvivalGames plugin for PocketMine - ImagicalMine
 
