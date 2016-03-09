@@ -5,13 +5,10 @@ api:
 - 1.0.0
 - 1.1.0
 - 2.0.0
-author: 
+author: ImagicalGamer
 
 
 commands:
     sg:
         usage: /sg make
         description: SurvivalGames-Commands
-    setrank:
-        usage: /setrank
-        description: Rank-Commands
