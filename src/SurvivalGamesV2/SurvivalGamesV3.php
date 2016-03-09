@@ -1,5 +1,5 @@
 <?php
-namespace SurvivalGamesV2;
+namespace SurvivalGamesV3;
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\event\Listener;
@@ -25,7 +25,7 @@ use pocketmine\event\entity\EntityLevelChangeEvent ;
 use pocketmine\tile\Chest;
 use pocketmine\inventory\ChestInventory;
 use pocketmine\event\plugin\PluginEvent;
-class SurvivalGamesV2 extends PluginBase implements Listener {
+class SurvivalGamesV3 extends PluginBase implements Listener {
     public $prefix = TextFormat::GRAY . "[" . TextFormat::WHITE . TextFormat::BOLD . "S" . TextFormat::RED . "G" . TextFormat::RESET . TextFormat::GRAY . "] ";
 	public $mode = 0;
 	public $arenas = array();
