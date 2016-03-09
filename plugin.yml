@@ -1,7 +1,10 @@
-name: SurvivalGamesV2
-main: SurvivalGamesV2\SurvivalGamesV2
-version: 2.0.8
-api: 1.1.0
+name: SurvivalGamesV3
+main: SurvivalGamesV3\SurvivalGamesV3
+version: 3.0.1
+api: 
+- 1.0.0
+- 1.1.0
+- 2.0.0
 author: 
 
 
