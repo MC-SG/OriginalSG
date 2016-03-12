@@ -1,15 +1,15 @@
-name: SurvivalGamesV3 BETA
+name: SurvivalGamesV3
 main: SurvivalGamesV3\SurvivalGamesV3
-version: 3.0.1
+version: 3.0.2
 api: 
 - 1.0.0
 - 1.1.0
-- 1.14.0
+- 2.0.0
 author: ImagicalGamer
-co-authors: remotevase
 
 
 commands:
-    sghelp:
-        usage: /sghelp
-        description: All SurvivalGamesV3 Commands!
+    sg:
+        usage: /sg make
+        description: SurvivalGames-Commands
+
