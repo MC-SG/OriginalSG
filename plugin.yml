@@ -1,9 +1,10 @@
-name: SurvivalGamesV3
+name: SurvivalGamesV3 BETA
 main: SurvivalGamesV3\SurvivalGamesV3
 version: 3.0.1
 api: 
 - 1.0.0
 - 1.1.0
+- 1.14.0
 author: ImagicalGamer
 
 
