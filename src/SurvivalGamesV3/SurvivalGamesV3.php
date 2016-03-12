@@ -97,9 +97,6 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	public function onCommand(CommandSender $player, Command $cmd, $label, array $args) {
         switch($cmd->getName()){
 			case "sg":
-				if(!$sender instanceof Player){ // Basically this checks if the Command Sender is NOT a player
-          				$sender->sendMessage("This Command Only Works for players!"); // For Console Command Sender
-					 }else{
 				if($player->isOp())
 				{
 					if(!empty($args[0]))
@@ -138,7 +135,6 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 					{
 						$player->sendMessage($this->prefix . "Missing parameters.");
 					}
-				     }
 				}
 			return true;
 			case "setrank":
@@ -181,15 +177,6 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				}
 				}
 			return true;
-			case "sghelp":
-    				$sender->sendMessage($this->plugin->translateColors("&", "&c== &eAvailable Commands &c=="));
-    				$sender->sendMessage($this->plugin->translateColors("&", "&a/cc sg make [WORLD] &c->&e Creates an arena in the specified world!"));
-    				$sender->sendMessage($this->plugin->translateColors("&", "&a/cc sghelp &c->&e Shows all of the possible SurvivalGamesV3 Commands"));
-    				$sender->sendMessage($this->plugin->translateColors("&", "&a/cc setrank VIP [PLAYER] &c->&e Makes the player a VIP rank"));
-    				$sender->sendMessage($this->plugin->translateColors("&", "&a/cc setrank VIP+ [PLAYER] &c->&e Makes the player a VIP+ rank"));
-    				$sender->sendMessage($this->plugin->translateColors("&", "&a/cc setrank YouTuber [PLAYER] &c->&e Makes the player a YouTuber rank"));
-    				$sender->sendMessage($this->plugin->translateColors("&", "&a/cc setrank YouTuber+ [PLAYER] &c->&e Makes the player a YouTuber+ rank"));
-    				$sender->sendMessage($this->plugin->translateColors("&", "&c== &eRank commands are not yet available in ImagicalMine &c=="));
 		}
 	}
 	
@@ -304,7 +291,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
 			$level = $this->getServer()->getLevelByName($this->currentLevel);
-			$level->setSpawn(new Vector3($block->getX(),$block->getY()+2,$block->getZ()));
+			$level->setSpawn = (new Vector3($block->getX(),$block->getY()+2,$block->getZ()));
 			$config->set("arenas",$this->arenas);
 			$player->sendMessage($this->prefix . "You've been teleported back. Tap a sign to register it for the arena!");
 			$spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
