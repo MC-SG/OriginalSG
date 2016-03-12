@@ -10,4 +10,4 @@ author: ImagicalGamer
 commands:
     sg:
         usage: /sg make
-        description: SurvivalGames-Commands
+        description: Make an SG arena!
