@@ -10,10 +10,10 @@ Commands:
 
 # Known Issues
 
-*PC Players can't open chests or inventory when running V2.0.4 on Genisys PHP7 (Believed to be a Genisys issue)
+*PHP7 issues with ImagicalMine
 
 # Fixed Issues
 
 *Fixed PHP7 issues when teleporting to hub!
 
-*Fixed PHP7 issues when running ImagicalMine or Genisys
+*Fixed "some" PHP7 issues when running ImagicalMine
