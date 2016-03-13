@@ -107,14 +107,10 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				if($player->isOp())
 				{
 					if(!empty($args[0]))
-					    				$player->sendMessage($this->plugin->translateColors("&", "&c== &eAvailable Commands &c=="));
-    				$player->sendMessage($this->plugin->translateColors("&", "&a/cc sg make [WORLD] &c->&e Creates an arena in the specified world!"));
-    				$player->sendMessage($this->plugin->translateColors("&", "&a/cc sghelp &c->&e Shows all of the possible SurvivalGamesV3 Commands"));
-    				$player->sendMessage($this->plugin->translateColors("&", "&a/cc setrank VIP [PLAYER] &c->&e Makes the player a VIP rank"));
-    				$player->sendMessage($this->plugin->translateColors("&", "&a/cc setrank VIP+ [PLAYER] &c->&e Makes the player a VIP+ rank"));
-    				$player->sendMessage($this->plugin->translateColors("&", "&a/cc setrank YouTuber [PLAYER] &c->&e Makes the player a YouTuber rank"));
-    				$player->sendMessage($this->plugin->translateColors("&", "&a/cc setrank YouTuber+ [PLAYER] &c->&e Makes the player a YouTuber+ rank"));
-    				$player->sendMessage($this->plugin->translateColors("&", "&c== &eRank commands are not yet available in ImagicalMine &c=="));
+
+                                        $player->sendMessage($this->prefix . "Avalible commands for SurvivalGames");
+                                        $player->sendMessage($this->prefix . "Create an arena! usage: /sg make [world]");
+                                        $player->sendMessage($this->prefix . "Set a players rank! usage: /setrank [player] [rank]");
 					{
 						if($args[0]=="make")
 						{
