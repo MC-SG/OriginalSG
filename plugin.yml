@@ -10,5 +10,5 @@ author: ImagicalGamer
 
 commands:
     sg:
-        usage: /sg make
+        usage: /sg create
         description: SurvivalGames-Commands
