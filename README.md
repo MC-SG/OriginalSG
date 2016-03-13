@@ -13,10 +13,10 @@ SurvivalGames plugin for PocketMine - ImagicalMine
 
 # Known Issues
 
-*PHP7 issues with ImagicalMine
+*
 
 # Fixed Issues
 
 *Fixed PHP7 issues when teleporting to hub!
 
-*Fixed "some" PHP7 issues when running ImagicalMine
+*Fixed PHP7 issues with ImagicalMine
