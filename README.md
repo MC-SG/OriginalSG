@@ -7,7 +7,7 @@ SurvivalGames plugin for PocketMine - ImagicalMine
 
 # Commands:
 
-**/sghelp** Displays all of the possible SurvivalGamesV3 commands!
+~~**/sghelp** Displays all of the possible SurvivalGamesV3 commands!~~
 
 **/setrank [VIP+, VIP] [PLAYER]** Sets the players rank as VIP and/or VIP+! Also gives player in game kit based on their rank!
 
