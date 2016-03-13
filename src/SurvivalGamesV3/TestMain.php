@@ -548,3 +548,22 @@ class GameSender extends PluginTask {
 		}
 	}
 }
+/*
+Code for wait task
+	In this file:
+		$player->sendPopup("Stuff");
+		$this->getServer()->getScheduler()->scheduleDelayedTask(new WaitTask($this, $player), 20); // There are 20 ticks in a second
+	
+	In "WaitTask.php"
+		class WaitTask extends PluginTask{
+    			private $player;
+			public function __construct($plugin, $player){
+				parent::__construct($plugin);
+        			$this->player = $player;
+    			}
+    			public function onRun($tick){
+        			$this->player->sendPopup("More stuff");
+    			}   
+		}
+		
+	*/
