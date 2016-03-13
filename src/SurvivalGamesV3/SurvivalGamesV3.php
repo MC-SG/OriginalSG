@@ -409,10 +409,9 @@ class GameSender extends PluginTask {
 									foreach($playersArena as $pl)
 									{
 										$pl->sendMessage($this->prefix . TextFormat::GREEN . "You won!");
-										$p1->broadcastMessage($p1 . TextFormat::AQUA . "has won a SurvivalGames match!");
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
-										$p1->economy->addMoney($p1, 100, "SurvivalGamesV3");
+										$p1->economy->addMoney($p1, 100);
 										$pl->setNameTag($pl->getName());
 										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
