@@ -567,3 +567,10 @@ Code for wait task
 		}
 		
 	*/
+/*
+Cancel player move event (taken from SimpleAuth)
+public function onPlayerMove(PlayerMoveEvent $event){
+	if(!$this->plugin->isPlayerAuthenticated($event->getPlayer())){
+		$event->setCancelled(true);
+		$event->getPlayer()->onGround = true;
+		*/
