@@ -109,7 +109,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 					if(!empty($args[0]))
                                        
 					{
-						if($args[0]=="make")
+						if($args[0]=="create")
 						{
 							if(!empty($args[1]))
 							{
