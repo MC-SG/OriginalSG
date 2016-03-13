@@ -107,10 +107,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				if($player->isOp())
 				{
 					if(!empty($args[0]))
-
-                                        $player->sendMessage($this->prefix . "Avalible commands for SurvivalGames");
-                                        $player->sendMessage($this->prefix . "Create an arena! usage: /sg make [world]");
-                                        $player->sendMessage($this->prefix . "Set a players rank! usage: /setrank [player] [rank]");
+                                       
 					{
 						if($args[0]=="make")
 						{
