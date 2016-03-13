@@ -3,7 +3,7 @@
 
 
 # SurvivalGames  V3.0.2
-SurvivalGames plugin for PocketMine - ImagicalMine
+SurvivalGames plugin for PocketMine - ImagicalMine 
 
 # Commands:
 
@@ -22,3 +22,7 @@ SurvivalGames plugin for PocketMine - ImagicalMine
 *Fixed PHP7 issues when teleporting to hub!
 
 *Fixed PHP7 issues with ImagicalMine
+
+
+
+**Possibly dumping Pocketmine in the master branch, and creating branch exclusive to pocketmine
