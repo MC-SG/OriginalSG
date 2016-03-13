@@ -12,4 +12,7 @@ commands:
     sg:
         usage: /sg make
         description: SurvivalGames-Commands
+     setrank:
+        usage: /setrank [rank]
+        description: Set's a players rank!
 
