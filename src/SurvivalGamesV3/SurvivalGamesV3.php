@@ -5,6 +5,7 @@ namespace SurvivalGamesV3;
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\command\CommandSender;
