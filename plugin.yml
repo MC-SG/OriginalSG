@@ -12,3 +12,6 @@ commands:
     sg:
         usage: /sg create
         description: SurvivalGames-Commands
+    setrank:
+        usage: /setrank
+        description: Rank-Commands
