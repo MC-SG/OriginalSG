@@ -22,6 +22,7 @@ use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerChatEvent;
+use pocketmine\event\player\PlayerRespawnEvent;
 use pocketmine\entity\Effect;
 use pocketmine\event\entity\EntityLevelChangeEvent ; 
 use pocketmine\tile\Chest;
