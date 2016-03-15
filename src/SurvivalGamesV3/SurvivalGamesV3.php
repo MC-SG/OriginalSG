@@ -5,6 +5,7 @@ use pocketmine\scheduler\PluginTask;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerLoginEvent;
+use pocketmine\event\player\PlayerRespawnEvent;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\utils\TextFormat;
@@ -56,6 +57,12 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		$config->save();
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 20);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 10);
+	}
+	
+	public function playerRespawn($spawn){
+		$spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn(); 
+        $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
+        $spawn->getFloorZ()); $player->teleport($spawn,0,0);
 	}
 	
 	Public function playerDeath($spawn) {
