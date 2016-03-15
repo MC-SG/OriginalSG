@@ -22,7 +22,7 @@ use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerChatEvent;
-use pocketmine\event\player\PlayerRespawnEvent;
+use pocketmine\event\player\PlayerRespawnEvent
 use pocketmine\entity\Effect;
 use pocketmine\event\entity\EntityLevelChangeEvent ; 
 use pocketmine\tile\Chest;
@@ -60,12 +60,6 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		$config->save();
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 20);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 10);
-	}
-	
-	public function playerRespawn(PlayerRespawnEvent $spawn){
-	$spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn(); 
-        $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
-        $spawn->getFloorZ()); $player->teleport($spawn,0,0);
 	}
 
 	Public function playerDeath($spawn) {
