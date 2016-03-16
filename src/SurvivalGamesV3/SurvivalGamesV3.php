@@ -129,9 +129,10 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 							}
 							else
 							{
-								$player->sendMessage($this->"§f§lSurvival§4Games");
-								$player->sendMessage($this->"§f/sg §4§lcreate§R§f [world]");
-								$player->sendMessage($this->"§f/setrank §4§l[rank] [player]");
+							                                             $player->sendMessage($this->prefix . "SurvivalGames Commands!");
+                                             $player->sendMessage($this->prefix . "/sg create [world] Creates an arena in the specified world!");
+                                             $player->sendMessage($this->prefix . "/setrank [rank] [player] sets a players rank!");
+                                             $player->sendMessage($this->prefix . "/ranks shows a list of ranks! <- under dev");	
 							}
 						}
 						else
@@ -141,9 +142,10 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 					}
 					else
 					{
-								$player->sendMessage($this->"§f§lSurvival§4Games");
-								$player->sendMessage($this->"§f/sg §4§lcreate§R§f [world]");
-								$player->sendMessage($this->"§f/setrank §4§l[rank] [player]");
+                                             $player->sendMessage($this->prefix . "SurvivalGames Commands!");
+                                             $player->sendMessage($this->prefix . "/sg create [world] Creates an arena in the specified world!");
+                                             $player->sendMessage($this->prefix . "/setrank [rank] [player] sets a players rank!");
+                                             $player->sendMessage($this->prefix . "/ranks shows a list of ranks! <- under dev");
 					}
 				}
 			return true;
