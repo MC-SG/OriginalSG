@@ -6,7 +6,7 @@
 SurvivalGames plugin for PocketMine - ImagicalMine 
 
 # Test Server!
-**SG.NarwhalCraft.net:26625**
+**BuildMCPE.eu:19132**
 
 # Commands:
 
