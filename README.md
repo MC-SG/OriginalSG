@@ -10,6 +10,6 @@ SurvivalGames plugin for PocketMine - ImagicalMine
 
 # Commands:
 
-~~**/sg** Displays all of the possible SurvivalGamesV3 commands!~~
+**/sg** Displays all of the possible SurvivalGamesV3 commands!
 
 
