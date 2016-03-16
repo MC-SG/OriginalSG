@@ -129,7 +129,11 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 							}
 							else
 							{
-								$player->sendMessage($this->prefix . "Missing parameters.");
+								$player->sendMessage($this->"§8==============================");
+								$player->sendMessage($this->"§f§lSurvival§4Games");
+								$player->sendMessage($this->"§f/sg §4§lcreate§R§f [world]");
+								$player->sendMessage($this->"§f/setrank §4§l[rank] [player]");
+								$player->sendMessage($this->"§8===============================");
 							}
 						}
 						else
@@ -139,7 +143,11 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 					}
 					else
 					{
-						$player->sendMessage($this->prefix . "Missing parameters.");
+													$player->sendMessage($this->"§8==============================");
+								$player->sendMessage($this->"§f§lSurvival§4Games");
+								$player->sendMessage($this->"§f/sg §4§lcreate§R§f [world]");
+								$player->sendMessage($this->"§f/setrank §4§l[rank] [player]");
+								$player->sendMessage($this->"§8===============================");
 					}
 				}
 			return true;
