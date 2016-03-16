@@ -392,7 +392,7 @@ class GameSender extends PluginTask {
 								$timeToStart--;
 								foreach($playersArena as $pl)
 								{
-									$pl->sendPopup(TextFormat::GOLD . $timeToStart . " seconds");
+									$pl->sendTip(TextFormat::GOLD . $timeToStart . " seconds");
 								}
 								if($timeToStart<=0)
 								{
@@ -507,7 +507,7 @@ class GameSender extends PluginTask {
 							{
 								foreach($playersArena as $pl)
 								{
-								$pl->sendPopup(TextFormat::RED . "More players needed");
+								$pl->sendTip(TextFormat::RED . "More players needed");
 								
 								}
 								$config->set($arena . "PlayTime", 780);
