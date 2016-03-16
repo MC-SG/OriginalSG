@@ -4,7 +4,6 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
-use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\event\player\PlayerRespawnEvent;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
@@ -64,11 +63,6 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
         $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
         $spawn->getFloorZ()); $player->teleport($spawn,0,0);
 	}
-        public function playerLogin(PlayerLoginEvent $spawn){
-        $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn(); 
-        $this->getServer() = getDefaultLevel()->loadChunk($spawn->getFloorX(), 
-        $spawn->getFloorZ()); $spawn->teleport($spawn,0,0);
-		}
         
 	public function onMove(PlayerMoveEvent $event)
 	{
