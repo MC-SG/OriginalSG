@@ -59,13 +59,6 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 10);
 	}
 	
-	public function onRespawn(PlayerRespawnEvent $spawn){
-		$spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn(); 
-        $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
-        $player = $event->getPlayer(),
-        $spawn->getFloorZ()); $player->teleport($spawn,0,0);
-	}
-	
 	Public function playerDeath($spawn) {
         $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn(); 
         $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
