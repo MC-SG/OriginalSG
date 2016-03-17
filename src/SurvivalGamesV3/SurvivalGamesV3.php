@@ -275,7 +275,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 							$player->getInventory()->setItem(0, Item::get(Item::IRON_AXE, 0, 1));
 							$player->getInventory()->setHotbarSlotIndex(0, 0);
 						}
-						else if($rank == "§b[§aVIP§b]")
+						else if($rank == "§b[§4You§7Tuber§4+§b]")
 						{
 							$player->getInventory()->setContents(array(Item::get(0, 0, 0)));
 							$player->getInventory()->setHelmet(Item::get(Item::DIAMOND_HELMET));
