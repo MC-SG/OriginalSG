@@ -1,5 +1,4 @@
 <?php
-//Genisys branch!
 namespace SurvivalGamesV3;
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\PluginTask;
@@ -143,7 +142,10 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 						}
 						else
 						{
-							$player->sendMessage($this->prefix . "There is no such command.");
+					         $player->sendMessage($this->prefix . "SurvivalGames Commands!");
+                                             $player->sendMessage($this->prefix . "/sg create [world] Creates an arena in the specified world!");
+                                             $player->sendMessage($this->prefix . "/setrank [rank] [player] sets a players rank!");
+                                             $player->sendMessage($this->prefix . "/ranks shows a list of ranks! <- under dev");");
 						}
 					}
 					else
