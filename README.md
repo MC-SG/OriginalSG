@@ -7,7 +7,7 @@ SurvivalGames plugin for ImagicalMine - Genysis
 
 # Test Server!
 **BuildMCPE.eu:19132**
-This server uses an updated version of the plugin which has the grace period
+This server uses an edited version of the plugin which has the grace period. Sorry, we can't get this code and use it...
 
 # Commands:
 
