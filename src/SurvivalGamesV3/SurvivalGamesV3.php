@@ -142,14 +142,15 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 						}
 						else
 						{
-					         $player->sendMessage($this->prefix . "SurvivalGames Commands!");
-                                             $player->sendMessage($this->prefix . "/sg create [world] Creates an arena in the specified world!");
-                                             $player->sendMessage($this->prefix . "/setrank [rank] [player] sets a players rank!");
-                                             $player->sendMessage($this->prefix . "/ranks shows a list of ranks! <- under dev");");
+							$player->sendMessage($this->prefix . "There is no such command.");
 						}
 					}
 					else
 					{
+                                             $player->sendMessage($this->prefix . "SurvivalGames Commands!");
+                                             $player->sendMessage($this->prefix . "/sg create [world] Creates an arena in the specified world!");
+                                             $player->sendMessage($this->prefix . "/setrank [rank] [player] sets a players rank!");
+                                             $player->sendMessage($this->prefix . "/ranks shows a list of ranks! <- under dev");
 					}
 				}
 			return true;
@@ -273,7 +274,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 							$player->getInventory()->setItem(0, Item::get(Item::IRON_AXE, 0, 1));
 							$player->getInventory()->setHotbarSlotIndex(0, 0);
 						}
-						else if($rank == "§b[§4You§7Tuber§4+§b]")
+						else if($rank == "§b[§aVIP§b]")
 						{
 							$player->getInventory()->setContents(array(Item::get(0, 0, 0)));
 							$player->getInventory()->setHelmet(Item::get(Item::DIAMOND_HELMET));
@@ -557,3 +558,4 @@ class GameSender extends PluginTask {
 		}
 	}
 }
+
