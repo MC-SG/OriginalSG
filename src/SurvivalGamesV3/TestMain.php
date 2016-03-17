@@ -547,13 +547,12 @@ class GameSender extends PluginTask {
 			}
 		}
 	}
-}
-/*
-$startTime = time();
+	$startTime = time();
 
 Cancel player move event (taken from SimpleAuth)
 public function onPlayerMove(PlayerMoveEvent $event){
-	if(time() - $startTime <= 5) // if less than or equal to 5 seconds{
+	if(time() - $startTime <= 30) // if less than or equal to 30 seconds{
 		$event->setCancelled(true);
 		$event->getPlayer()->onGround = true;
-*/
+		$player->sendMessage($this->prefix . "The match will start soon!");
+}
