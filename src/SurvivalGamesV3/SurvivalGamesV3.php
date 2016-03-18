@@ -422,7 +422,7 @@ class GameSender extends PluginTask {
 										$pl->sendTip($this->prefix . TextFormat::GREEN . "You won!");
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
-							                        $this->economy->addMoney($p1, 1000, false, "SurvivalGamesV3")
+							                        $p1->economy->addMoney($p1, 1000, false, "SurvivalGamesV3")
 										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 										$pl->teleport($spawn,0,0);
