@@ -14,7 +14,6 @@ use pocketmine\level\Position;
 use pocketmine\Player;
 use pocketmine\block\Block;
 use pocketmine\tile\Sign;
-use onebone\economyapi\EconomyAPI;
 use pocketmine\level\Level;
 use pocketmine\item\Item;
 use pocketmine\event\block\BlockBreakEvent;
@@ -422,7 +421,6 @@ class GameSender extends PluginTask {
 										$pl->sendTip($this->prefix . TextFormat::GREEN . "You won!");
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
-							                        $p1->economy->addMoney($p1, 1000, false, "SurvivalGamesV3")
 										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 										$pl->teleport($spawn,0,0);
