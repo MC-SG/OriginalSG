@@ -487,7 +487,7 @@ class GameSender extends PluginTask {
 										$this->noDamageTicks = 300;
 										$pl->sendMessage($this->prefix . "You have 15 seconds of invincibility!");
 									}
-									if(time = 765)
+									if($time = 765)
 									{
 										$p1->sendMessage($this->prefix . "You are no longer invincible!");
 									}	
