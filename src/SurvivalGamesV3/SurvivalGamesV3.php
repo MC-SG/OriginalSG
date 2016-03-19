@@ -137,7 +137,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 							                                             $player->sendMessage($this->prefix . "SurvivalGames Commands!");
                                              $player->sendMessage($this->prefix . "/sg create [world] Creates an arena in the specified world!");
                                              $player->sendMessage($this->prefix . "/setrank [rank] [player] sets a players rank!");
-                                             $player->sendMessage($this->prefix . "/ranks shows a list of ranks! <- under dev");	
+                                             $player->sendMessage($this->prefix . "/ranks shows a list of ranks! <- In Dev");	
 							}
 						}
 						else
@@ -150,7 +150,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
                                              $player->sendMessage($this->prefix . "SurvivalGames Commands!");
                                              $player->sendMessage($this->prefix . "/sg create [world] Creates an arena in the specified world!");
                                              $player->sendMessage($this->prefix . "/setrank [rank] [player] sets a players rank!");
-                                             $player->sendMessage($this->prefix . "/ranks shows a list of ranks! <- under dev");
+                                             $player->sendMessage($this->prefix . "/ranks shows a list of ranks! <- In Dev");
 					}
 				}
 			return true;
@@ -481,6 +481,11 @@ class GameSender extends PluginTask {
 										{
 											$pl->sendMessage($this->prefix . $time . " seconds remaining");
 										}
+									}
+									if($time = 1)
+									{
+										$this->noDamageTicks = 300;
+										$pl->sendMessage($this->prefix . "You have 15 seconds of invincibility!");
 									}
 									if($time <= 0)
 									{
