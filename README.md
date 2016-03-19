@@ -13,4 +13,6 @@ This server uses an edited version of the plugin which has the grace period. Sor
 
 **/sg** Displays all of the possible SurvivalGamesV3 commands!
 
-
+# Authors
+**@austina1212 is the original author, but @ImagicalGamer took over**
+remote_vase has also been helping out with ImagicalMine related things
