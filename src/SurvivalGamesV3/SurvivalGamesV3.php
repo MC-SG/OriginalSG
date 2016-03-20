@@ -407,7 +407,6 @@ class GameSender extends PluginTask {
 								}
 								if($timeToStart<=0)
 								{
-									$this->noDamageTicks > 300;
 									$this->refillChests($levelArena);
 								}
 								$config->set($arena . "StartTime", $timeToStart);
