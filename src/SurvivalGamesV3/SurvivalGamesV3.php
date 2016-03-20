@@ -407,6 +407,7 @@ class GameSender extends PluginTask {
 								}
 								if($timeToStart<=0)
 								{
+									$this->noDamageTicks = 300;
 									$this->refillChests($levelArena);
 								}
 								$config->set($arena . "StartTime", $timeToStart);
@@ -484,13 +485,8 @@ class GameSender extends PluginTask {
 									}
 									if($time <= 780)
 									{
-										$this->noDamageTicks = 300;
-										$pl->sendMessage($this->prefix . "You have 15 seconds of invincibility!");
 									}
-									if($time <= 765)
-									{
-										$p1->sendMessage($this->prefix . "You are no longer invincible!");
-									}	
+	
 									if($time <= 0)
 									{
 										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
