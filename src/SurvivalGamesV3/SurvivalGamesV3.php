@@ -403,8 +403,10 @@ class GameSender extends PluginTask {
 								$timeToStart--;
 								foreach($playersArena as $pl)
 								{
-									$pl->sendTip(TextFormat::GOLD . $timeToStart . " seconds");
+									$pl->sendPopup("§7Starting in " . $timeToStart . " Seconds");
 								}
+								if($timeToStart<=0)
+								{
 								if($timeToStart<=0)
 								{
 									$this->noDamageTicks = 300;
