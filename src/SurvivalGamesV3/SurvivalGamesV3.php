@@ -404,8 +404,6 @@ class GameSender extends PluginTask {
 								foreach($playersArena as $pl)
 								{
 									$pl->sendPopup(TextFormat::GRAY . "Starting in " . $timeToStart . " Seconds");
-								}
-								if($timeToStart<=0)
 								{
 								if($timeToStart<=0)
 								{
