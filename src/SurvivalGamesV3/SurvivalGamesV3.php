@@ -223,7 +223,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 			if($this->mode==26)
 			{
-				$tile->setText(TextFormat::AQUA . "[Join]",TextFormat::YELLOW  . "0 / 24",$this->currentLevel,$this->prefix);
+				$tile->setText(TextFormat::GRAY . "[§2Join§7]",TextFormat::BLUE  . "0 / 24",$this->currentLevel,$this->prefix);
 				$this->refreshArenas();
 				$this->currentLevel = "";
 				$this->mode = 0;
@@ -234,7 +234,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$text = $tile->getText();
 				if($text[3] == $this->prefix)
 				{
-					if($text[0]==TextFormat::AQUA . "[Join]")
+					if($text[0]==TextFormat::GRAY . "[§3Join§7]")
 					{
 						$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
 						$level = $this->getServer()->getLevelByName($text[2]);
@@ -354,17 +354,17 @@ class RefreshSigns extends PluginTask {
 				{
 					$aop = 0;
 					foreach($allplayers as $player){if($player->getLevel()->getFolderName()==$text[2]){$aop=$aop+1;}}
-					$ingame = TextFormat::AQUA . "[Join]";
+					$ingame = TextFormat::GRAY . "[§3Join§7]";
 					$config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
 					if($config->get($text[2] . "PlayTime")!=780)
 					{
-						$ingame = TextFormat::DARK_PURPLE . "[Running]";
+						$ingame = TextFormat::GRAY . "[§cRunning§7]";
 					}
 					else if($aop>=24)
 					{
-						$ingame = TextFormat::GOLD . "[Full]";
+						$ingame = TextFormat::GRAY . "[§4Full§7]";
 					}
-					$t->setText($ingame,TextFormat::YELLOW  . $aop . " / 24",$text[2],$this->prefix);
+					$t->setText($ingame,TextFormat::BLUE  . $aop . " / 24",$text[2],$this->prefix);
 				}
 			}
 		}
