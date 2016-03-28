@@ -248,6 +248,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 						$player->teleport($spawn,0,0);
 						$player->setNameTag($player->getName());
 						$player->getInventory()->clearAll();
+                                                $player->sendMessage("§7[§fS§4G§7] You have Successfully Joined a Match!");
 						$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 						$rank = $config2->get($player->getName());
 						if($rank == "§b[§aVIP§4+§b]")
