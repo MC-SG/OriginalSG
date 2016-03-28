@@ -528,7 +528,7 @@ class GameSender extends PluginTask {
 							{
 								foreach($playersArena as $pl)
 								{
-								$pl->sendTip(TextFormat::RED . "More players needed");
+								$pl->sendPopup(TextFormat::RED . "A game requires 2 players!");
 								
 								}
 								$config->set($arena . "PlayTime", 780);
