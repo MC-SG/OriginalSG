@@ -61,10 +61,22 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 10);
 	}
 	
-	Public function playerDeath($spawn) {
-        $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn(); 
-        $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
-        $spawn->getFloorZ()); $player->teleport($spawn,0,0);
+	Public function PlayerDeath(PlayerDeathEvent $event){
+        foreach($this->getServer()->getOnlinePlayers() as $pl){
+        //$k=$event->getCause();
+        $p = $event->getEntity();
+        $light = new AddEntityPacket();
+        $light->type = 93;
+        $light->eid = Entity::$entityCount++;
+        $light->metadata = array();
+        $light->speedX = 0;
+        $light->speedY = 0;
+        $light->speedZ = 0;
+        $light->x = $p->x;
+        $light->y = $p->y;
+        $light->z = $p->z;
+        $pl->dataPacket($light);
+        $event->setDeathMessage("§3>§7 {$event->getEntity()->getName()} was demolished ");//$k Might not work
 	}
         
     public function playerJoin($spawn){
