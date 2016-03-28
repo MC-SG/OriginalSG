@@ -61,10 +61,22 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 10);
 	}
 	
-	Public function playerDeath($spawn) {
-        $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn(); 
-        $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
-        $spawn->getFloorZ()); $player->teleport($spawn,0,0);
+	Public function PlayerDeath(PlayerDeathEvent $event){
+        foreach($this->getServer()->getOnlinePlayers() as $pl){
+        //$k=$event->getCause();
+        $p = $event->getEntity();
+        $light = new AddEntityPacket();
+        $light->type = 93;
+        $light->eid = Entity::$entityCount++;
+        $light->metadata = array();
+        $light->speedX = 0;
+        $light->speedY = 0;
+        $light->speedZ = 0;
+        $light->x = $p->x;
+        $light->y = $p->y;
+        $light->z = $p->z;
+        $pl->dataPacket($light);
+        $event->setDeathMessage("§3>§7 {$event->getEntity()->getName()} was demolished ");//$k Might not work
 	}
         
     public function playerJoin($spawn){
@@ -83,7 +95,10 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			$sofar = $config->get($level . "StartTime");
 			if($sofar > 0)
 			{
-                          $event->setCancelled(true);
+				$to = clone $event->getFrom();
+				$to->yaw = $event->getTo()->yaw;
+				$to->pitch = $event->getTo()->pitch;
+				$event->setTo($to);
 			}
 		}
 	}
@@ -245,6 +260,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 						$player->teleport($spawn,0,0);
 						$player->setNameTag($player->getName());
 						$player->getInventory()->clearAll();
+                                                $player->sendMessage("§7[§fS§4G§7] You have Successfully Joined a Match!");
 						$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 						$rank = $config2->get($player->getName());
 						if($rank == "§b[§aVIP§4+§b]")
@@ -524,7 +540,7 @@ class GameSender extends PluginTask {
 							{
 								foreach($playersArena as $pl)
 								{
-								$pl->sendTip(TextFormat::RED . "More players needed");
+								$pl->sendPopup(TextFormat::RED . "A game requires 2 players!");
 								
 								}
 								$config->set($arena . "PlayTime", 780);
