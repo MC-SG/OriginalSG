@@ -77,8 +77,8 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
         $light->z = $p->z;
         $pl->dataPacket($light);
         $event->setDeathMessage("§3>§7 {$event->getEntity()->getName()} was demolished ");//$k Might not work
+		}
 	}
-        
     public function playerJoin($spawn){
 	    $spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn(); 
         $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
