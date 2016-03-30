@@ -247,7 +247,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$text = $tile->getText();
 				if($text[3] == $this->prefix)
 				{
-					if($text[0]==TextFormat::GRAY . "[§3Join§7]")
+					if($text[0]==TextFormat::WHITE . "[§bJoin§f]")
 					{
 						$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
 						$level = $this->getServer()->getLevelByName($text[2]);
