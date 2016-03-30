@@ -77,7 +77,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
         $light->y = $p->y;
         $light->z = $p->z;
         $pl->dataPacket($light);
-        $event->setDeathMessage("§3>§7 {$event->getEntity()->getName()} was demolished ");//$k Might not work
+        $event->setDeathMessage("§3>§7" . $event->getEntity()->getName() . " was demolished ");//$k Might not work
 		}
 	}
     public function playerJoin($spawn){
@@ -258,7 +258,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 						$player->teleport($spawn,0,0);
 						$player->setNameTag($player->getName());
 						$player->getInventory()->clearAll();
-                                                $player->sendMessage("§7[§fS§4G§7] You have Successfully Joined a Match!");
+                                                $player->sendMessage("§7§l[§fS§cG§7] You have Successfully Joined a Match!");
 						$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 						$rank = $config2->get($player->getName());
 						if($rank == "§b[§aVIP§4+§b]")
