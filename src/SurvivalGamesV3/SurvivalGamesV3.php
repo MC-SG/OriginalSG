@@ -7,6 +7,7 @@ use pocketmine\scheduler\PluginTask;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\utils\TextFormat;
@@ -84,7 +85,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
         $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
         $spawn->getFloorZ()); $player->teleport($spawn,0,0);
 	}
-		
+           }	
 	public function onMove(PlayerMoveEvent $event)
 	{
 		$player = $event->getPlayer();
