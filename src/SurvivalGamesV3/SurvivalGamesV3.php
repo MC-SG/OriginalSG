@@ -368,7 +368,7 @@ class RefreshSigns extends PluginTask {
 				{
 					$aop = 0;
 					foreach($allplayers as $player){if($player->getLevel()->getFolderName()==$text[2]){$aop=$aop+1;}}
-					$ingame = TextFormat::GRAY . "[§3Join§7]";
+					$ingame = TextFormat::WHITE . "[§bJoin§f]";
 					$config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
 					if($config->get($text[2] . "PlayTime")!=780)
 					{
