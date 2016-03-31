@@ -19,5 +19,6 @@ SurvivalGames plugin for ImagicalMine - Genysis
 # CopyRight
 The license does not state the following but these terms apply to SurvivalGamesV3
 
-**Under no circumstances do you have the right to modify and/or re-distribute this resource!**
-**Forking this repo and removing creator credits and/or not stating the Plugins owner can and/will get your GitHub account reported and banned!**
+- **Under no circumstances do you have the right to modify and/or re-distribute this resource!**
+
+- **Forking this repo and removing creator credits and/or not stating the Plugins owner can and/will get your GitHub account reported and banned!**
