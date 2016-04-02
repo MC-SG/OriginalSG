@@ -39,7 +39,6 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	{
         $this->getServer()->getPluginManager()->registerEvents($this ,$this);
 		$this->getLogger()->info(TextFormat::GREEN . "SurvivalGames Loaded!");
-		$this->economy = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
 		@mkdir($this->getDataFolder());
 		$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 		$config2->save();
@@ -427,7 +426,7 @@ class GameSender extends PluginTask {
 								}
 								if($timeToStart<=0)
 								{
-									$this->noDamageTicks = 300;
+                                                                        $p1->sendMessage($this->prefix . TextFormat::GRAY . "Let the games begin!");
 									$this->refillChests($levelArena);
 								}
 								$config->set($arena . "StartTime", $timeToStart);
