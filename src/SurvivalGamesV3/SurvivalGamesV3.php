@@ -10,7 +10,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
-use pocketmine\utils\TextFormat;
+use pocketmine\utils\C as C;
 use pocketmine\utils\Config;
 use pocketmine\math\Vector3;
 use pocketmine\level\Position;
@@ -30,7 +30,7 @@ use pocketmine\inventory\ChestInventory;
 use pocketmine\event\plugin\PluginEvent;
 
 class SurvivalGamesV3 extends PluginBase implements Listener {
-    public $prefix = TextFormat::GRAY . "[" . TextFormat::WHITE . TextFormat::BOLD . "S" . TextFormat::RED . "G" . TextFormat::RESET . TextFormat::GRAY . "] ";
+    public $prefix = C::GRAY . "[" . C::WHITE . C::BOLD . "S" . C::RED . "G" . C::RESET . C::GRAY . "] ";
 	public $mode = 0;
 	public $arenas = array();
 	public $currentLevel = "";
@@ -38,7 +38,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	public function onEnable()
 	{
         $this->getServer()->getPluginManager()->registerEvents($this ,$this);
-		$this->getLogger()->info(TextFormat::GREEN . "SurvivalGames Loaded!");
+		$this->getLogger()->info(C::GREEN . "SurvivalGames Loaded!");
 		@mkdir($this->getDataFolder());
 		$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 		$config2->save();
@@ -225,7 +225,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 			$rank = $config->get($player->getName());
 		}
-		$event->setFormat($rank . TextFormat::WHITE . $player->getName() . " §d:§f " . $message);
+		$event->setFormat($rank . C::WHITE . $player->getName() . " §d:§f " . $message);
 	}
 	
 	public function onInteract(PlayerInteractEvent $event)
@@ -238,7 +238,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 			if($this->mode==26)
 			{
-				$tile->setText(TextFormat::GRAY . "[§2Join§7]",TextFormat::BLUE  . "0 / 24",$this->currentLevel,$this->prefix);
+				$tile->setText(C::GRAY . "[§2Join§7]",C::BLUE  . "0 / 24",$this->currentLevel,$this->prefix);
 				$this->refreshArenas();
 				$this->currentLevel = "";
 				$this->mode = 0;
@@ -249,7 +249,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$text = $tile->getText();
 				if($text[3] == $this->prefix)
 				{
-					if($text[0]==TextFormat::WHITE . "[§bJoin§f]")
+					if($text[0]==C::WHITE . "[§bJoin§f]")
 					{
 						$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
 						$level = $this->getServer()->getLevelByName($text[2]);
@@ -351,7 +351,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	}
 }
 class RefreshSigns extends PluginTask {
-    public $prefix = TextFormat::GRAY . "[" . TextFormat::WHITE . TextFormat::BOLD . "S" . TextFormat::RED . "G" . TextFormat::RESET . TextFormat::GRAY . "] ";
+    public $prefix = C::GRAY . "[" . C::WHITE . C::BOLD . "S" . C::RED . "G" . C::RESET . C::GRAY . "] ";
 	public function __construct($plugin)
 	{
 		$this->plugin = $plugin;
@@ -370,24 +370,24 @@ class RefreshSigns extends PluginTask {
 				{
 					$aop = 0;
 					foreach($allplayers as $player){if($player->getLevel()->getFolderName()==$text[2]){$aop=$aop+1;}}
-					$ingame = TextFormat::WHITE . "[§bJoin§f]";
+					$ingame = C::WHITE . "[§bJoin§f]";
 					$config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
 					if($config->get($text[2] . "PlayTime")!=780)
 					{
-						$ingame = TextFormat::GRAY . "[§cRunning§7]";
+						$ingame = C::GRAY . "[§cRunning§7]";
 					}
 					else if($aop>=24)
 					{
-						$ingame = TextFormat::GRAY . "[§4Full§7]";
+						$ingame = C::GRAY . "[§4Full§7]";
 					}
-					$t->setText($ingame,TextFormat::BLUE  . $aop . " / 24",$text[2],$this->prefix);
+					$t->setText($ingame,C::BLUE  . $aop . " / 24",$text[2],$this->prefix);
 				}
 			}
 		}
 	}
 }
 class GameSender extends PluginTask {
-    public $prefix = TextFormat::GRAY . "[" . TextFormat::WHITE . TextFormat::BOLD . "S" . TextFormat::RED . "G" . TextFormat::RESET . TextFormat::GRAY . "] ";
+    public $prefix = C::GRAY . "[" . C::WHITE . C::BOLD . "S" . C::RED . "G" . C::RESET . C::GRAY . "] ";
 	public function __construct($plugin)
 	{
 		$this->plugin = $plugin;
@@ -422,11 +422,11 @@ class GameSender extends PluginTask {
 								$timeToStart--;
 								foreach($playersArena as $pl)
 								{
-									$pl->sendPopup(TextFormat::GRAY . "Starting in " . $timeToStart . " Seconds");
+									$pl->sendPopup(C::GRAY . "Starting in " . $timeToStart . " Seconds");
 								}
 								if($timeToStart<=0)
 								{
-                                                                        $p1->sendMessage($this->prefix . TextFormat::GRAY . "Let the games begin!");
+                                                                        $p1->sendMessage($this->prefix . C::GRAY . "Let the games begin!");
 									$this->refillChests($levelArena);
 								}
 								$config->set($arena . "StartTime", $timeToStart);
@@ -438,7 +438,7 @@ class GameSender extends PluginTask {
 								{
 									foreach($playersArena as $pl)
 									{
-										$pl->sendTip($this->prefix . TextFormat::GREEN . "You won!");
+										$pl->sendTip($this->prefix . C::GREEN . "You won!");
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
 										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
@@ -540,7 +540,7 @@ class GameSender extends PluginTask {
 							{
 								foreach($playersArena as $pl)
 								{
-								$pl->sendPopup(TextFormat::RED . "A game requires 2 players!");
+								$pl->sendPopup(C::RED . "A game requires 2 players!");
 								
 								}
 								$config->set($arena . "PlayTime", 780);
