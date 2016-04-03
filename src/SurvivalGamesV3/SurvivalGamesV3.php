@@ -10,7 +10,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
-use pocketmine\utils\C as C;
+use pocketmine\utils\TextFormat as C;
 use pocketmine\utils\Config;
 use pocketmine\math\Vector3;
 use pocketmine\level\Position;
