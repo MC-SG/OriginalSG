@@ -270,6 +270,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 							$player->getInventory()->setLeggings(Item::get(Item::CHAIN_LEGGINGS));
 							$player->getInventory()->setBoots(Item::get(Item::CHAIN_BOOTS));
 							$player->getInventory()->setItem(0, Item::get(Item::DIAMOND_AXE, 0, 1));
+							$player->getInventory()->sendArmorContents($player);
 							$player->getInventory()->setHotbarSlotIndex(0, 0);
 						}
 						else if($rank == "§b[§aVIP§b]")
@@ -280,6 +281,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 							$player->getInventory()->setLeggings(Item::get(Item::LEATHER_PANTS));
 							$player->getInventory()->setBoots(Item::get(Item::LEATHER_BOOTS));
 							$player->getInventory()->setItem(0, Item::get(Item::IRON_AXE, 0, 1));
+								$player->getInventory()->sendArmorContents($player);
 							$player->getInventory()->setHotbarSlotIndex(0, 0);
 						}
 						else if($rank == "§b[§4You§7Tuber§b]")
@@ -290,6 +292,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 							$player->getInventory()->setLeggings(Item::get(Item::GOLD_LEGGINGS));
 							$player->getInventory()->setBoots(Item::get(Item::GOLD_BOOTS));
 							$player->getInventory()->setItem(0, Item::get(Item::IRON_AXE, 0, 1));
+								$player->getInventory()->sendArmorContents($player);
 							$player->getInventory()->setHotbarSlotIndex(0, 0);
 						}
 						else if($rank == "§b[§aVIP§b]")
@@ -300,6 +303,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 							$player->getInventory()->setLeggings(Item::get(Item::CHAIN_LEGGINGS));
 							$player->getInventory()->setBoots(Item::get(Item::DIAMOND_BOOTS));
 							$player->getInventory()->setItem(0, Item::get(Item::DIAMOND_AXE, 0, 1));
+								$player->getInventory()->sendArmorContents($player);
 							$player->getInventory()->setHotbarSlotIndex(0, 0);
 						}
 					}
@@ -313,7 +317,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		else if($this->mode>=1&&$this->mode<=24)
 		{
 			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-			$config->set($this->currentLevel . "Spawn" . $this->mode, array($block->getX(),$block->getY()+2,$block->getZ()));
+			$config->set($this->currentLevel . "Spawn" . $this->mode, array($block->getX(),$block->getY()+1,$block->getZ()));
 			$player->sendMessage($this->prefix . "Spawn " . $this->mode . " has been registered!");
 			$this->mode++;
 			if($this->mode==25)
@@ -326,7 +330,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
 			$level = $this->getServer()->getLevelByName($this->currentLevel);
-			$level->setSpawn = (new Vector3($block->getX(),$block->getY()+2,$block->getZ()));
+			$level->setSpawn = (new Vector3($block->getX(),$block->getY()+1,$block->getZ()));
 			$config->set("arenas",$this->arenas);
 			$player->sendMessage($this->prefix . "You've been teleported back. Tap a sign to register it for the arena!");
 			$spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn();
@@ -452,6 +456,10 @@ class GameSender extends PluginTask {
 								{
 								$time2 = $time - 180;
 								$minutes = $time2 / 60;
+									foreach($playersArena as $pl)
+									{
+										$pl->sendPopup($this->prefix . $time2 . " left in the match!");
+									}
 								if(is_int($minutes) && $minutes>0)
 								{
 									foreach($playersArena as $pl)
