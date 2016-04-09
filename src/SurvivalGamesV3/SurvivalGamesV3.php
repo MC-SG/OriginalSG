@@ -61,7 +61,42 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 10);
 	}
 	
-	Public function PlayerDeath(PlayerDeathEvent $event){
+	public function giveRandomKit(PlayerJoinEvent $e){
+		$p = $e->getPlayer();
+		$kit = rand(1,3);
+		switch($kit){
+			case 1:
+				$p->getInventory()->addItem(Item::get(302,0,1));
+				$p->getInventory()->addItem(Item::get(303,0,1));
+				$p->getInventory()->addItem(Item::get(304,0,1));
+				$p->getInventory()->addItem(Item::get(305,0,1));
+				$p->getInventory()->addItem(Item::get(279,0,1));
+				$p->sendMessage(C::GREEN."You Randomly Got The ".C::BLUE."Blue Chain".C::GREEN." Kit!");
+			break;
+			
+			case 2:
+				$p->getInventory()->addItem(Item::get(298,0,1));
+				$p->getInventory()->addItem(Item::get(299,0,1));
+				$p->getInventory()->addItem(Item::get(300,0,1));
+				$p->getInventory()->addItem(Item::get(301,0,1));
+				$p->getInventory()->addItem(Item::get(268,0,1));
+				$p->sendMessage(C::GREEN."You Randomly Got The ".C::BLUE."Beginnerz".C::GREEN." Kit!");
+			break;
+			
+			case 3:
+				$effect = Effect::getEffect(1);
+				$effect->setDurability(3897493264217854); 
+				$p->addEffect($effect);
+				$effect2 = Effect::getEffect(8);
+				$effect2->setDurability(3897493264217854); 
+				$p->addEffect($effect2);
+				$p->getInventory()->addItem(Item::get(267,0,1));
+				$p->sendMessage(C::GREEN."You Randomly Got The ".C::BLUE."Athlete".C::GREEN." Kit!");
+			break;
+		}
+	}
+	
+	public function PlayerDeath(PlayerDeathEvent $event){
         foreach($this->getServer()->getOnlinePlayers() as $pl){
         $p = $event->getEntity();
         $light = new AddEntityPacket();
