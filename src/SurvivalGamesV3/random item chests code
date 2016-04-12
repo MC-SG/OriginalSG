@@ -1,0 +1,9 @@
+##DO NOT INCLUDE WHEN COMPILING THE SRC!!!!!!!!!!!!!!!!!
+public function addchests{
+  $chest = $level->createTile("chest", new Vector3($randX+4, $randY+1, $Z+4));
+  $chestInv = $chest->getInventory();
+  $config = $this->getConfig()->get("Items");
+  foreach($config as $i){
+      $chestInv->addItem($i);
+  }
+}
