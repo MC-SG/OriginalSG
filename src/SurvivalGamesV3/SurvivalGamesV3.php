@@ -618,6 +618,22 @@ class GameSender extends PluginTask {
 						}
 					}									
 				}
+			}else{
+				$chest = $level->createTile("chest", new Vector3($randX+4, $randY+1, $Z+4));
+				$chest->getInventory()->clearAll();
+				if($chest->getInventory() instanceof ChestInventory)
+				{
+					for($i=0;$i<=26;$i++)
+					{
+						$rand = rand(1,3);
+						if($rand==1)
+						{
+							$k = array_rand($config->get("chestitems"));
+							$v = $config->get("chestitems")[$k];
+							$chest->getInventory()->setItem($i, Item::get($v[0],$v[1],$v[2]));
+						}
+					}									
+				}
 			}
 		}
 	}
