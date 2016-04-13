@@ -476,7 +476,6 @@ class GameSender extends PluginTask {
 								{
 									foreach($playersArena as $pl)
 									{
-										$pl->sendTip($this->prefix . C::GREEN . "You won!");
 										$pl->getInventory()->clearAll();
 										$pl->removeAllEffects();
 										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
@@ -571,6 +570,7 @@ class GameSender extends PluginTask {
 								foreach($playersArena as $pl)
 								{
 									$pl->getInventory()->clearAll();
+                                                                        $pl->sendMessage($this->prefix . C::GRAY . "You won the match!");
 									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 									$pl->teleport($spawn);
