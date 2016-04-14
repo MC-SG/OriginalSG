@@ -573,7 +573,7 @@ class GameSender extends PluginTask {
                                                                         $pl->sendMessage($this->prefix . C::GRAY . "You won the match!");
 									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-									$pl->teleport($spawn);
+									$pl->teleport($spawn,0,0);
 								}
 								$config->set($arena . "PlayTime", 780);
 								$config->set($arena . "StartTime", 60);
