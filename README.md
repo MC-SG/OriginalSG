@@ -5,9 +5,6 @@
 # SurvivalGames  V3.0.6
 SurvivalGames plugin for ImagicalMine - Genysis
 
-# Test Server!
-**BuildMCPE.eu:19132**
-
 # Commands:
 
 **/sg** Displays all of the possible SurvivalGamesV3 commands!
