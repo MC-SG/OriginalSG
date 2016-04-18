@@ -23,7 +23,7 @@ use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerChatEvent;
-use pocketmine\event\player\PlayerDamageEvent;
+use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\entity\Effect;
 use pocketmine\event\entity\EntityLevelChangeEvent ; 
 use pocketmine\tile\Chest;
@@ -137,7 +137,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			}
 		}
 	}
-		public function cancelDamage(PlayerDamageEvent $event)
+		public function cancelDamage(EntityDamageEvent $event)
 	{
 		$player = $event->getPlayer();
 		$level = $player->getLevel()->getFolderName();
