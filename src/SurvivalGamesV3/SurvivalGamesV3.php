@@ -466,7 +466,7 @@ class GameSender extends PluginTask {
 								{
                                                                         $pl->sendMessage($this->prefix . C::GREEN . "Let the games" . C::RED . C::BOLD . "begin!");
 									$this->refillChests($levelArena);
-									$playersarena->noDamageTicks = 300;
+									$this->noDamageTicks = 300;
 								}
 								$config->set($arena . "StartTime", $timeToStart);
 							}
