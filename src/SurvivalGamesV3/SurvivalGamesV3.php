@@ -145,7 +145,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
 			$sofar = $config->get($level . "StartTime");
-			if($sofar > 480)
+			if($sofar > 300)
 			{
 				$event->setCancelled(true);
 			}
@@ -481,7 +481,6 @@ class GameSender extends PluginTask {
 								{
                                                                         $pl->sendMessage($this->prefix . C::GREEN . "Let the games" . C::RED . C::BOLD . "begin!");
 									$this->refillChests($levelArena);
-									$this->noDamageTicks = 300;
 								}
 								$config->set($arena . "StartTime", $timeToStart);
 							}
