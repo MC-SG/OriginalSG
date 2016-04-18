@@ -11,7 +11,10 @@ SurvivalGames plugin for ImagicalMine - Genysis
 
 # Authors
 **@austina1212 is the original author, but @ImagicalGamer took over**
+
 **@remote_vase has also been helping out with ImagicalMine related things**
+
+**@Taki21 has also been helping with small tweaks here and there**
 
 # CopyRight
 The license does not state the following but these terms apply to SurvivalGamesV3
