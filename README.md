@@ -2,7 +2,7 @@
 
 
 
-# SurvivalGames  V3.0.2
+# SurvivalGames  V3.0.6
 SurvivalGames plugin for ImagicalMine - Genysis
 
 # Test Server!
