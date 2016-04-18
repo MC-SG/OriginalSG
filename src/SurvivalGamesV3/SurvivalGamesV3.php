@@ -1,7 +1,5 @@
 <?php
-
 namespace SurvivalGamesV3;
-
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\event\Listener;
@@ -29,7 +27,6 @@ use pocketmine\event\entity\EntityLevelChangeEvent ;
 use pocketmine\tile\Chest;
 use pocketmine\inventory\ChestInventory;
 use pocketmine\event\plugin\PluginEvent;
-
 class SurvivalGamesV3 extends PluginBase implements Listener {
     public $prefix = C::GRAY . "[" . C::WHITE . C::BOLD . "S" . C::RED . "G" . C::RESET . C::GRAY . "] ";
 	public $mode = 0;
@@ -60,6 +57,47 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		$config->save();
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 20);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 10);
+	}
+	
+	public function giveRandomKit(PlayerJoinEvent $e){
+		$p = $e->getPlayer();
+		$kit = rand(1,3);
+		switch($kit){
+			case 1:
+				$p->getInventory()->addItem(Item::get(302,0,1));
+				$p->getInventory()->addItem(Item::get(303,0,1));
+				$p->getInventory()->addItem(Item::get(304,0,1));
+				$p->getInventory()->addItem(Item::get(305,0,1));
+				$p->getInventory()->addItem(Item::get(279,0,1));
+				$p->sendMessage(C::GREEN."You Randomly Got The ".C::BLUE."Blue Chain".C::GREEN." Kit!");
+			break;
+			
+			case 2:
+				$p->getInventory()->addItem(Item::get(298,0,1));
+				$p->getInventory()->addItem(Item::get(299,0,1));
+				$p->getInventory()->addItem(Item::get(300,0,1));
+				$p->getInventory()->addItem(Item::get(301,0,1));
+				$p->getInventory()->addItem(Item::get(268,0,1));
+				$p->sendMessage(C::GREEN."You Randomly Got The ".C::BLUE."Beginnerz".C::GREEN." Kit!");
+			break;
+			
+			case 3:
+				$effect = Effect::getEffect(1);
+				$effect->setDurability(3897493264217854); 
+				$p->addEffect($effect);
+				$effect2 = Effect::getEffect(8);
+				$effect2->setDurability(3897493264217854); 
+				$p->addEffect($effect2);
+				$p->getInventory()->addItem(Item::get(267,0,1));
+				$p->sendMessage(C::GREEN."You Randomly Got The ".C::BLUE."Athlete".C::GREEN." Kit!");
+			break;
+		}
+	}
+    public function playerJoin($spawn){
+	$player->teleport(new Vector3($x, $y, $z, $level));	
+	$spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn(); 
+        $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
+        $spawn->getFloorZ()); $player->teleport($spawn,0,0);
 	}
 	public function onMove(PlayerMoveEvent $event)
 	{
@@ -163,7 +201,61 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
                                              $player->sendMessage($this->prefix . "/ranks shows a list of ranks! <- In Dev");
 					}
 				}
+			return true;
+			case "setrank":
+				if($player->isOp())
+				{
+				if(!empty($args[0]))
+				{
+					if(!empty($args[1]))
+					{
+					$rank = "";
+					if($args[0]=="VIP+")
+					{
+						$rank = "§b[§aVIP§4+§b]";
+					}
+					else if($args[0]=="YouTuber")
+					{
+						$rank = "§b[§4You§7Tuber§b]";
+					}
+					else if($args[0]=="YouTuber+")
+					{
+						$rank = "§b[§4You§7Tuber§4+§b]";
+					}
+					else
+					{
+						$rank = "§b[§a" . $args[0] . "§b]";
+					}
+					$config = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
+					$config->set($args[1],$rank);
+					$config->save();
+					$player->sendMessage($args[1] . " got this rank: " . $rank);
+					}
+					else
+					{
+						$player->sendMessage("Missing parameter(s)");
+					}
+				}
+				else
+				{
+					$player->sendMessage("Missing parameter(s)");
+				}
+				}
+			return true;
 		}
+	}
+	
+	public function onChat(PlayerChatEvent $event)
+	{
+		$player = $event->getPlayer();
+		$message = $event->getMessage();
+		$config = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
+		$rank = "";
+		if($config->get($player->getName()) != null)
+		{
+			$rank = $config->get($player->getName());
+		}
+		$event->setFormat($rank . C::WHITE . $player->getName() . " §d:§f " . $message);
 	}
 	
 	public function onInteract(PlayerInteractEvent $event)
@@ -199,6 +291,53 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 						$player->setNameTag($player->getName());
 						$player->getInventory()->clearAll();
                                                 $player->sendMessage("§7§l[§fS§cG§7] You have Successfully Joined a Match!");
+						$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
+						$rank = $config2->get($player->getName());
+						if($rank == "§b[§aVIP§4+§b]")
+						{
+							$player->getInventory()->setContents(array(Item::get(0, 0, 0)));
+							$player->getInventory()->setHelmet(Item::get(Item::CHAIN_HELMET));
+							$player->getInventory()->setChestplate(Item::get(Item::CHAIN_CHESTPLATE));
+							$player->getInventory()->setLeggings(Item::get(Item::CHAIN_LEGGINGS));
+							$player->getInventory()->setBoots(Item::get(Item::CHAIN_BOOTS));
+							$player->getInventory()->setItem(0, Item::get(Item::DIAMOND_AXE, 0, 1));
+							$player->getInventory()->sendArmorContents($player);
+							$player->getInventory()->setHotbarSlotIndex(0, 0);
+						}
+						else if($rank == "§b[§aVIP§b]")
+						{
+							$player->getInventory()->setContents(array(Item::get(0, 0, 0)));
+							$player->getInventory()->setHelmet(Item::get(Item::GOLD_HELMET));
+							$player->getInventory()->setChestplate(Item::get(Item::GOLD_CHESTPLATE));
+							$player->getInventory()->setLeggings(Item::get(Item::LEATHER_PANTS));
+							$player->getInventory()->setBoots(Item::get(Item::LEATHER_BOOTS));
+							$player->getInventory()->setItem(0, Item::get(Item::IRON_AXE, 0, 1));
+								$player->getInventory()->sendArmorContents($player);
+							$player->getInventory()->setHotbarSlotIndex(0, 0);
+						}
+						else if($rank == "§b[§4You§7Tuber§b]")
+						{
+							$player->getInventory()->setContents(array(Item::get(0, 0, 0)));
+							$player->getInventory()->setHelmet(Item::get(Item::GOLD_HELMET));
+							$player->getInventory()->setChestplate(Item::get(Item::GOLD_CHESTPLATE));
+							$player->getInventory()->setLeggings(Item::get(Item::GOLD_LEGGINGS));
+							$player->getInventory()->setBoots(Item::get(Item::GOLD_BOOTS));
+							$player->getInventory()->setItem(0, Item::get(Item::IRON_AXE, 0, 1));
+								$player->getInventory()->sendArmorContents($player);
+							$player->getInventory()->setHotbarSlotIndex(0, 0);
+						}
+						else if($rank == "§b[§aVIP§b]")
+						{
+							$player->getInventory()->setContents(array(Item::get(0, 0, 0)));
+							$player->getInventory()->setHelmet(Item::get(Item::DIAMOND_HELMET));
+							$player->getInventory()->setChestplate(Item::get(Item::CHAIN_CHESTPLATE));
+							$player->getInventory()->setLeggings(Item::get(Item::CHAIN_LEGGINGS));
+							$player->getInventory()->setBoots(Item::get(Item::DIAMOND_BOOTS));
+							$player->getInventory()->setItem(0, Item::get(Item::DIAMOND_AXE, 0, 1));
+								$player->getInventory()->sendArmorContents($player);
+							$player->getInventory()->setHotbarSlotIndex(0, 0);
+						}
+					}
 					else
 					{
 						$player->sendMessage($this->prefix . "You can not join this match.");
