@@ -139,7 +139,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	}
 		public function cancelDamage(EntityDamageEvent $event)
 	{
-		$player = $event->getPlayer();
+		$player = $event->getEntity();
 		$level = $player->getLevel()->getFolderName();
 		if(in_array($level,$this->arenas))
 		{
@@ -147,7 +147,9 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			$sofar = $config->get($level . "StartTime");
 			if($sofar > 300)
 			{
+				if($player instanceof Player){
 				$event->setCancelled(true);
+				}
 			}
 		}
 	}
