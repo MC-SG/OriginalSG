@@ -69,7 +69,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	
 	public function giveRandomKit(PlayerJoinEvent $e){
 		$p = $e->getPlayer();
-		$kit = rand(1,3);
+		$kit = rand(1,4);
 		switch($kit){
 			case 1:
 				$p->getInventory()->addItem(Item::get(302,0,1));
@@ -77,6 +77,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$p->getInventory()->addItem(Item::get(304,0,1));
 				$p->getInventory()->addItem(Item::get(305,0,1));
 				$p->getInventory()->addItem(Item::get(279,0,1));
+				
 				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Athlete".C::BLUE." Kit!");
 			break;
 			
@@ -86,18 +87,38 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$p->getInventory()->addItem(Item::get(300,0,1));
 				$p->getInventory()->addItem(Item::get(301,0,1));
 				$p->getInventory()->addItem(Item::get(268,0,1));
+				
 				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Beginnerz".C::BLUE." Kit!");
 			break;
 			
 			case 3:
 				$effect = Effect::getEffect(1);
-				$effect->setDurability(3897493264217854); 
+				$effect->setDuration(2184728365782365723642365723652); 
+				$effect->setVisible(true);
+				$effect->setAmplifier(2);
 				$p->addEffect($effect);
+				
 				$effect2 = Effect::getEffect(8);
-				$effect2->setDurability(3897493264217854); 
+				$effect2->setDuration(2184728365782365723642365723652); 
+				$effect2->setVisible(true);
+				$effect2->setAmplifier(2);
 				$p->addEffect($effect2);
+				
 				$p->getInventory()->addItem(Item::get(267,0,1));
-				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Pro".C::BLUE." Kit!");
+				
+				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Athlete".C::BLUE." Kit!");
+			break;
+			
+			case 4:
+				$ef = Effect::getEffect(8);
+				$ef->setDuration(2184728365782365723642365723652); 
+				$ef->setVisible(true);
+				$ef->setAmplifier(4);
+				$p->addEffect($ef);
+				
+				$p->getInventory()->addItem(Item::get(293,0,1));
+				
+				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Rabbit".C::BLUE." Kit!");
 			break;
 		}
 	}
