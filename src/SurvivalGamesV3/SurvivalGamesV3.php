@@ -1,5 +1,7 @@
 <?php
+
 namespace SurvivalGamesV3;
+
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\event\Listener;
@@ -27,7 +29,11 @@ use pocketmine\event\entity\EntityLevelChangeEvent ;
 use pocketmine\tile\Chest;
 use pocketmine\inventory\ChestInventory;
 use pocketmine\event\plugin\PluginEvent;
+use pockemine\entity\Entity;
+use pocketmine\network\protocal\AddEntityPacket;
+
 class SurvivalGamesV3 extends PluginBase implements Listener {
+	
     public $prefix = C::GRAY . "[" . C::WHITE . C::BOLD . "S" . C::RED . "G" . C::RESET . C::GRAY . "] ";
 	public $mode = 0;
 	public $arenas = array();
@@ -37,6 +43,8 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	{
         $this->getServer()->getPluginManager()->registerEvents($this ,$this);
 		$this->getLogger()->info(C::GREEN . "SurvivalGames Loaded!");
+		$this->saveResource("rank.yml");
+		$this->saveResource("config.yml");
 		@mkdir($this->getDataFolder());
 		$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 		$config2->save();
@@ -399,6 +407,12 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			$config->set($arena . "StartTime", 60);
 		}
 		$config->save();
+	}
+	
+	public function onDisable()
+	{
+		$this->saveResource("config.yml");
+		$this->saveResource("rank.yml");
 	}
 }
 class RefreshSigns extends PluginTask {
