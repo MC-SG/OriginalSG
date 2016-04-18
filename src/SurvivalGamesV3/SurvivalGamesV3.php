@@ -460,7 +460,9 @@ class GameSender extends PluginTask {
 								}
 								if($timeToStart<=0)
 								{
-                                                                        $pl->sendMessage($this->prefix . C::GREEN . "Let the games" . C::RED . C::BOLD . "begin!");
+									foreach($playersArena as $pl)
+									{
+                                                                        $pl->sendMessage($this->prefix . C::GREEN . "Let the games" . C::RED . C::BOLD . "begin!");}
 									$this->refillChests($levelArena);
 								}
 								$config->set($arena . "StartTime", $timeToStart);
