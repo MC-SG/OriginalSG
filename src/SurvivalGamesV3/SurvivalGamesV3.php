@@ -69,7 +69,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$p->getInventory()->addItem(Item::get(304,0,1));
 				$p->getInventory()->addItem(Item::get(305,0,1));
 				$p->getInventory()->addItem(Item::get(279,0,1));
-				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."VIP+".C::BLUE." Kit!");
+				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Athlete".C::BLUE." Kit!");
 			break;
 			
 			case 2:
@@ -78,7 +78,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$p->getInventory()->addItem(Item::get(300,0,1));
 				$p->getInventory()->addItem(Item::get(301,0,1));
 				$p->getInventory()->addItem(Item::get(268,0,1));
-				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Leather".C::BLUE." Kit!");
+				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Beginnerz".C::BLUE." Kit!");
 			break;
 			
 			case 3:
@@ -89,7 +89,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$effect2->setDurability(3897493264217854); 
 				$p->addEffect($effect2);
 				$p->getInventory()->addItem(Item::get(267,0,1));
-				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Athlete".C::BLUE." Kit!");
+				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Pro".C::BLUE." Kit!");
 			break;
 		}
 	}
