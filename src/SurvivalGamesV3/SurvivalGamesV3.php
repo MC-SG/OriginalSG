@@ -61,7 +61,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			$config->set("chestitems",$items);
 		}
                 if($config->get("lightning_effect")==null){
-                $config->set("lightning_effect","true");
+                $config->set("lightning_effect","ON");
                 }
 		$config->save();
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 20);
@@ -126,7 +126,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
  	public function PlayerDeath(PlayerDeathEvent $event){
           foreach($this->getServer()->getOnlinePlayers() as $pl){
 	  $config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
-                 if($config->get("lightning_effect")=="true"){
+                 if($config->get("lightning_effect")=="ON"){
               $p = $event->getEntity();
           $light = new AddEntityPacket();
           $light->type = 93;
