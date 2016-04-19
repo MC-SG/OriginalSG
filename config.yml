@@ -24,4 +24,7 @@ chestitems:
 - - 283
   - 0
   - 1
+#If ON, then on player death, lightning will strike the ground where they died
+#If OFF, then no lightning
+lightning_effect: ON
 ...
