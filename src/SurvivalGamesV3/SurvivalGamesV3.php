@@ -29,7 +29,7 @@ use pocketmine\tile\Chest;
 use pocketmine\inventory\ChestInventory;
 use pocketmine\event\plugin\PluginEvent;
 use pockemine\entity\Entity;
-use pocketmine\network\protocal\AddEntityPacket;
+use pocketmine\network\protocol\AddEntityPacket;
 class SurvivalGamesV3 extends PluginBase implements Listener {
 	
     public $prefix = C::GRAY . "[" . C::WHITE . C::BOLD . "S" . C::RED . "G" . C::RESET . C::GRAY . "] ";
