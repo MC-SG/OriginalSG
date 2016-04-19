@@ -1,5 +1,4 @@
 <?php
-
 namespace SurvivalGamesV3;
 
 use pocketmine\plugin\PluginBase;
@@ -31,7 +30,6 @@ use pocketmine\inventory\ChestInventory;
 use pocketmine\event\plugin\PluginEvent;
 use pockemine\entity\Entity;
 use pocketmine\network\protocal\AddEntityPacket;
-
 class SurvivalGamesV3 extends PluginBase implements Listener {
 	
     public $prefix = C::GRAY . "[" . C::WHITE . C::BOLD . "S" . C::RED . "G" . C::RESET . C::GRAY . "] ";
@@ -62,6 +60,9 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 			$config->set("chestitems",$items);
 		}
+                if($config->get("lightning_effect")==null){
+                $config->set("lightning_effect","true");
+                }
 		$config->save();
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 20);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 10);
@@ -124,7 +125,9 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	}
  	public function PlayerDeath(PlayerDeathEvent $event){
           foreach($this->getServer()->getOnlinePlayers() as $pl){
-          $p = $event->getEntity();
+	  $config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
+                 if($config->get("lightning_effect")=="true"){
+              $p = $event->getEntity();
           $light = new AddEntityPacket();
           $light->type = 93;
           $light->eid = Entity::$entityCount++;
@@ -137,6 +140,8 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
           $light->z = $p->z;
           $pl->dataPacket($light);
           $event->setDeathMessage("§3>§7" . $event->getEntity()->getName() . " was demolished ");
+          }
+          
  		}
  	}
     public function playerJoin($spawn){
