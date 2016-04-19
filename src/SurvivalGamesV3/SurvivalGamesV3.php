@@ -125,7 +125,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	}
  	public function PlayerDeath(PlayerDeathEvent $event){
           foreach($this->getServer()->getOnlinePlayers() as $pl){
-	  $config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
+	  $config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
                  if($config->get("lightning_effect")=="ON"){
               $p = $event->getEntity();
           $light = new AddEntityPacket();
