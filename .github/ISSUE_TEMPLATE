@@ -1,10 +1,11 @@
-<!--LEAVE THIS IN YOUR ISSUE -->
+<!--LEAVE THIS ENTIRE THING IN YOUR ISSUE -->
 <!--Before you make an issue, make sure your issue matches the criteria below.-->
 <!-- PLEASE TICK THE CHECKBOXES (They'll appear once the issue is submitted) -->
 - [ ] This issue isn't duplicated - you can check if it is by using the search bar located at the top left hand corner and select "Issues" on the left.
 - [ ] This issue includes appropriate markdown for sections - e.g. code blocks for crash dumps.
 - [ ] This issue is understandable - feel free to use your native language to write issues if you are not comfortable with English.
 - [ ] This issue is for SurvivalGamesV3, and not any other plugin.
+- [ ] This is not a suggestion, but an actual issue NOTE: If it is a suggestion, title it [SUGGESTION] ______
 
 XX = required
 <!-- If all the checkboxes are checked, congratulations! Fill out the fields below -->
