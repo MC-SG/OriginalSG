@@ -340,7 +340,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 						$spawn = new Position($thespawn[0]+0.5,$thespawn[1],$thespawn[2]+0.5,$level);
 						$level->loadChunk($spawn->getFloorX(), $spawn->getFloorZ());
 						$player->teleport($spawn,0,0);
-						$player->setNameTag($player->getName());
+						$player->setNameTag(C::BOLD . C::RED . $player->getName());
 						$player->getInventory()->clearAll();
                                                 $player->sendMessage("§7§l[§fS§cG§7] You have Successfully Joined a Match!");
 						$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
