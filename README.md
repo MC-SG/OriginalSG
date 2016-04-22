@@ -14,7 +14,7 @@ SurvivalGames plugin for ImagicalMine - Genysis
 
 **@remote_vase has also been helping out with ImagicalMine related things**
 
-**@Taki21 has also been helping with small tweaks here and there**
+**@Taki21 & @EpicSteve33 has been helping with small tweaks here and there**
 
 # CopyRight
 The license does not state the following but these terms apply to SurvivalGamesV3
@@ -22,4 +22,5 @@ The license does not state the following but these terms apply to SurvivalGamesV
 - **Under no circumstances do you have the right to modify and/or re-distribute this resource!**
 
 # Gitter Chat
-**Want to chat? Join our Gitter https://gitter.im/EpicSteve33/SurvivalGames**
+Want to chat? Join our
+[![Join the chat at https://gitter.im/EpicSteve33/SurvivalGames](https://badges.gitter.im/EpicSteve33/SurvivalGames.svg)](https://gitter.im/EpicSteve33/SurvivalGames?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
