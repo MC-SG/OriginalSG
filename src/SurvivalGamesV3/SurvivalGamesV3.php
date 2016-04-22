@@ -528,7 +528,7 @@ class GameSender extends PluginTask {
 								{
                                                                         $level=$pl->getLevel();
 									$level->addSound(new FizzSound($pl));
-									$pl->setExp($timeToStart
+									$pl->setExp($timeToStart);
 									$pl->sendPopup(C::GRAY . "Starting in " . $timeToStart . " Seconds");
 								}
 								if($timeToStart<=0)
