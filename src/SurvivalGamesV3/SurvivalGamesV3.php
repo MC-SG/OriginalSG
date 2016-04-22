@@ -315,7 +315,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 		$event->setRecipients($player->getLevel()->getPlayers());
 		}
-		$event->setFormat($rank . "§f" . $player->getName() . " §3:§7 " . $message);
+ 		$event->setFormat($rank . C::WHITE . $player->getName() . " §d:§f " . $message)
 	}
 	
 	public function onInteract(PlayerInteractEvent $event)
