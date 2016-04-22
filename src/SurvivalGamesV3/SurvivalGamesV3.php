@@ -4,6 +4,7 @@ namespace SurvivalGamesV3;
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\event\Listener;
+use pocketmine\level\sound\FizzSound;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerDeathEvent;
@@ -310,7 +311,12 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 			$rank = $config->get($player->getName());
 		}
-		$event->setFormat($rank . C::WHITE . $player->getName() . " §d:§f " . $message);
+			$level = $player->getLevel()->getFolderName();
+		if(in_array($level,$this->arenas))
+		{
+		$event->setRecipients($player->getLevel()->getPlayers());
+		}
+ 		$event->setFormat($rank . C::WHITE . $player->getName() . " §d:§f " . $message)
 	}
 	
 	public function onInteract(PlayerInteractEvent $event)
@@ -517,6 +523,9 @@ class GameSender extends PluginTask {
 								$timeToStart--;
 								foreach($playersArena as $pl)
 								{
+                                                                        $level=$pl->getLevel();
+									$level->addSound(new FizzSound($pl));
+									$pl->setExp($timeToStart
 									$pl->sendPopup(C::GRAY . "Starting in " . $timeToStart . " Seconds");
 								}
 								if($timeToStart<=0)
