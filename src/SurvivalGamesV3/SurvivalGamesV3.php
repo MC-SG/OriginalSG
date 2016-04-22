@@ -316,7 +316,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 		$event->setRecipients($player->getLevel()->getPlayers());
 		}
- 		$event->setFormat($rank . C::WHITE . $player->getName() . " §d:§f " . $message)
+ 		$event->setFormat($rank . C::WHITE . $player->getName() . " §d:§f " . $message);
  		if(in_array($level,$this->arenas) === false){
  			$event->setRecipients($player->getLevel()->getPlayers());
  		}
