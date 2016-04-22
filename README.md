@@ -22,4 +22,4 @@ The license does not state the following but these terms apply to SurvivalGamesV
 - **Under no circumstances do you have the right to modify and/or re-distribute this resource!**
 
 # Gitter Chat
-**want to chat? Join our Gitter https://gitter.im/EpicSteve33/SurvivalGames**
+**Want to chat? Join our Gitter https://gitter.im/EpicSteve33/SurvivalGames**
