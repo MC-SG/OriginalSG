@@ -31,6 +31,7 @@ use pocketmine\event\plugin\PluginEvent;
 use pocketmine\entity\Entity;
 use pocketmine\network\protocol\AddEntityPacket;
 use onebone\economyapi\EconomyAPI;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
 
 class SurvivalGamesV3 extends PluginBase implements Listener {
 	
@@ -171,22 +172,21 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			}
 		}
 	}
-		public function cancelDamage(EntityDamageEvent $event)
-	{
-		$player = $event->getEntity();
-		$level = $player->getLevel()->getFolderName();
-		if(in_array($level,$this->arenas))
-		{
-			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-			$sofar = $config->get($level . "StartTime");
-			if($sofar > 75)
-			{
-				if($player instanceof Player){
-				$event->setCancelled(true);
+	
+	public function onDamage(EntityDamageEvent $event) {
+	if ($event instanceof EntityDamageByEntityEvent) {
+		if ($event->getEntity() instanceof Player && $event->getDamager() instanceof Player) {
+			$level = $event->getEntity()->getLevel()->getFolderName();
+				$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
+				if ($config->get($level . "PlayTime") != null) {
+					if ($config->get($level . "PlayTime") > 750) {
+						$event->setCancelled(true);
+					}
 				}
 			}
 		}
 	}
+	
 	public function onBlockBreak(BlockBreakEvent $event)
 	{
 		$player = $event->getPlayer();
