@@ -310,7 +310,12 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		{
 			$rank = $config->get($player->getName());
 		}
-		$event->setFormat($rank . C::WHITE . $player->getName() . " §d:§f " . $message);
+			$level = $player->getLevel()->getFolderName();
+		if(in_array($level,$this->arenas))
+		{
+		$event->setRecipients($player->getLevel()->getPlayers());
+		}
+		$event->setFormat($rank . "§f" . $player->getName() . " §3:§7 " . $message);
 	}
 	
 	public function onInteract(PlayerInteractEvent $event)
