@@ -4,6 +4,7 @@ namespace SurvivalGamesV3;
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\event\Listener;
+use pocketmine\level\sound\FizzSound;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerDeathEvent;
@@ -522,6 +523,9 @@ class GameSender extends PluginTask {
 								$timeToStart--;
 								foreach($playersArena as $pl)
 								{
+                                                                        $level=$pl->getLevel();
+									$level->addSound(new FizzSound($pl));
+									$pl->setExp($timeToStart
 									$pl->sendPopup(C::GRAY . "Starting in " . $timeToStart . " Seconds");
 								}
 								if($timeToStart<=0)
