@@ -27,4 +27,8 @@ chestitems:
 #If ON, then on player death, lightning will strike the ground where they died
 #If OFF, then no lightning
 lightning_effect: ON
+
+#If True, You Will get The SG 'Ratio' Chat Format Like -> Name : Message
+#If False, You will have your regular ChatFormat as Default or From the ChatFormat of a Plugin...
+EnableChatFormat: false
 ...
