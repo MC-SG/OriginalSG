@@ -31,7 +31,6 @@ use pocketmine\inventory\ChestInventory;
 use pocketmine\event\plugin\PluginEvent;
 use pocketmine\entity\Entity;
 use pocketmine\network\protocol\AddEntityPacket;
-use onebone\economyapi\EconomyAPI;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 
 class SurvivalGamesV3 extends PluginBase implements Listener {
@@ -74,7 +73,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	
 	public function giveRandomKit(PlayerJoinEvent $e){
 		$p = $e->getPlayer();
-		$kit = rand(1,4);
+		$kit = rand(1,6);
 		switch($kit){
 			case 1:
 				$p->getInventory()->addItem(Item::get(302,0,1));
@@ -83,7 +82,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$p->getInventory()->addItem(Item::get(305,0,1));
 				$p->getInventory()->addItem(Item::get(279,0,1));
 				
-				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Athlete".C::BLUE." Kit!");
+				$p->sendMessage(C::DARK_AQUA."You Randomly Got The ".C::YELLOW."VIP+".C::DARK_AQUA." Kit!");
 			break;
 			
 			case 2:
@@ -93,7 +92,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$p->getInventory()->addItem(Item::get(301,0,1));
 				$p->getInventory()->addItem(Item::get(268,0,1));
 				
-				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Beginnerz".C::BLUE." Kit!");
+				$p->sendMessage(C::DARK_AQUA."You Randomly Got The ".C::YELLOW."Beginnerz".C::DARK_AQUA." Kit!");
 			break;
 			
 			case 3:
@@ -106,12 +105,12 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$effect2 = Effect::getEffect(8);
 				$effect2->setDuration(2184728365782365723642365723652); 
 				$effect2->setVisible(true);
-				$effect2->setAmplifier(2);
+				$effect2->setAmplifier(3);
 				$p->addEffect($effect2);
 				
-				$p->getInventory()->addItem(Item::get(267,0,1));
+				$p->getInventory()->addItem(Item::get(311,0,1));
 				
-				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Athlete".C::BLUE." Kit!");
+				$p->sendMessage(C::DARK_AQUA."You Randomly Got The ".C::YELLOW."Athlete".C::DARK_AQUA." Kit!");
 			break;
 			
 			case 4:
@@ -123,7 +122,26 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				
 				$p->getInventory()->addItem(Item::get(293,0,1));
 				
-				$p->sendMessage(C::BLUE."You Randomly Got The ".C::YELLOW."Rabbit".C::BLUE." Kit!");
+				$p->sendMessage(C::DARK_AQUA."You Randomly Got The ".C::YELLOW."Rabbit".C::DARK_AQUA." Kit!");
+			break;
+			
+			case 5:
+				$p->getInventory()->addItem(Item::get(314,0,1));
+				$p->getInventory()->addItem(Item::get(315,0,1));
+				$p->getInventory()->addItem(Item::get(316,0,1));
+				$p->getInventory()->addItem(Item::get(317,0,1));
+				$p->getInventory()->addItem(Item::get(283,0,2));
+				$p->getInventory()->addItem(Item::get(322,0,5));
+				
+				$p->sendMessage(C::DARK_AQUA."You Randomly Got The ".C::YELLOW."Midas".C::DARK_AQUA." Kit!");
+			break;
+			
+			case 6:
+				$p->getInventory()->addItem(Item::get(261,0,1));
+				$p->getInventory()->addItem(Item::get(262,0,64));
+				$p->getInventory()->addItem(Item::get(354,0,5));
+				
+				$p->sendMessage(C::DARK_AQUA."You Randomly Got The ".C::YELLOW."Sugary Archers".C::DARK_AQUA." Kit!");
 			break;
 		}
 	}
@@ -172,15 +190,14 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		}
 	}
 	
-	public function onDamage(EntityDamageEvent $event) {
-	if ($event instanceof EntityDamageByEntityEvent) {
-		if ($event->getEntity() instanceof Player && $event->getDamager() instanceof Player) {
+	public function onDamage(EntityDamageEvent $event) 
+	{
+		if ($event->getEntity() instanceof Player) {
 			$level = $event->getEntity()->getLevel()->getFolderName();
-				$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-				if ($config->get($level . "PlayTime") != null) {
-					if ($config->get($level . "PlayTime") > 750) {
-						$event->setCancelled(true);
-					}
+			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
+			if ($config->get($level . "PlayTime") != null) {
+				if ($config->get($level . "PlayTime") > 750 && $config->get($level . "PlayTime") <= 780) {
+					$event->setCancelled(true);
 				}
 			}
 		}
@@ -305,16 +322,20 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		$message = $event->getMessage();
 		$config = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 		$rank = "";
-		if($config->get($player->getName()) != null)
-		{
+		if($config->get($player->getName()) != null){
 			$rank = $config->get($player->getName());
 		}
-			$level = $player->getLevel()->getFolderName();
-		if(in_array($level,$this->arenas))
-		{
-		$event->setRecipients($player->getLevel()->getPlayers());
+		
+		$level = $player->getLevel()->getFolderName();
+		
+		if(in_array($level,$this->arenas)){
+			$event->setRecipients($player->getLevel()->getPlayers());
 		}
- 		$event->setFormat($rank . C::WHITE . $player->getName() . " §d:§f " . $message);
+		
+		if($config->get("EnableChatFormat") === true){
+ 			$event->setFormat($rank . C::WHITE . $player->getName() . " §d:§f " . $message);
+		}
+		
  		if(in_array($level,$this->arenas) === false){
  			$event->setRecipients($player->getLevel()->getPlayers());
  		}
@@ -545,8 +566,6 @@ class GameSender extends PluginTask {
 								{
 									foreach($playersArena as $pl)
 									{
-										$pl->getInventory()->clearAll();
-										$pl->removeAllEffects();
 										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 										$pl->teleport($spawn,0,0);
