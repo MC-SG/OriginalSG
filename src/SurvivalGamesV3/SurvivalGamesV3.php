@@ -685,27 +685,25 @@ class GameSender extends PluginTask {
 	
 	public function refillChests(Level $level)
 	{
-		$config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
-		$tiles = $level->getTiles();
-		if($config->get("arenas") != null){
-			$arenas = $config->get("arenas");
-			foreach($tiles as $t) {
-				foreach($arenas as $arena){
-					if($level->getFolderName() == "$arena"){
-						if($t instanceof Chest) {
-							$chest = $t;
-							if($chest->getInventory() instanceof ChestInventory){
-								$chest->getInventory()->clearAll();
-								$k = array_rand($config->get("chestitems"));
-								$i = $config->get("chestitems")[$k];
-								if($i instanceof Item){
-									$chest->getInventory()->setItem(Item::get($i[0],$i[1],$i[2]));
-								}
-							}
-						}
-					}
-				}
-			}
+		foreach($tiles as $t) {
+ 			if($t instanceof Chest) 
+ 			{
+ 				$chest = $t;
+ 				$chest->getInventory()->clearAll();
+ 				if($chest->getInventory() instanceof ChestInventory)
+ 				{
+ 					for($i=0;$i<=26;$i++)
+ 					{
+ 						$rand = rand(1,3);
+ 						if($rand==1)
+ 						{
+ 							$k = array_rand($config->get("chestitems"));
+ 							$v = $config->get("chestitems")[$k];
+ 							$chest->getInventory()->setItem($i, Item::get($v[0],$v[1],$v[2]));
+ 						}
+ 					}
+ 				}
+ 			}
 		}
 	}
 }
