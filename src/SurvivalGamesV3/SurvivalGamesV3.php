@@ -547,7 +547,6 @@ class GameSender extends PluginTask {
 								{
                                                                         $level=$pl->getLevel();
 									$level->addSound(new FizzSound($pl));
-									$pl->setExp($timeToStart);
 									$pl->sendPopup(C::GRAY . "Starting in " . $timeToStart . " Seconds");
 								}
 								if($timeToStart<=0)
@@ -699,7 +698,9 @@ class GameSender extends PluginTask {
 								$chest->getInventory()->clearAll();
 								$k = array_rand($config->get("chestitems"));
 								$i = $config->get("chestitems")[$k];
-								$chest->getInventory()->setItem(Item::get($i[0],$i[1],$i[2]));
+								if($i instanceof Item){
+									$chest->getInventory()->setItem(Item::get($i[0],$i[1],$i[2]));
+								}
 							}
 						}
 					}
