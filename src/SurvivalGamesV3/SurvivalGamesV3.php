@@ -547,7 +547,6 @@ class GameSender extends PluginTask {
 								{
                                                                         $level=$pl->getLevel();
 									$level->addSound(new FizzSound($pl));
-									$pl->setExp($timeToStart);
 									$pl->sendPopup(C::GRAY . "Starting in " . $timeToStart . " Seconds");
 								}
 								if($timeToStart<=0)
@@ -686,27 +685,25 @@ class GameSender extends PluginTask {
 	
 	public function refillChests(Level $level)
 	{
-		$config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
-		$tiles = $level->getTiles();
 		foreach($tiles as $t) {
-			if($t instanceof Chest) 
-			{
-				$chest = $t;
-				$chest->getInventory()->clearAll();
-				if($chest->getInventory() instanceof ChestInventory)
-				{
-					for($i=0;$i<=26;$i++)
-					{
-						$rand = rand(1,3);
-						if($rand==1)
-						{
-							$k = array_rand($config->get("chestitems"));
-							$v = $config->get("chestitems")[$k];
-							$chest->getInventory()->setItem($i, Item::get($v[0],$v[1],$v[2]));
-						}
-					}									
-				}
-			}
+ 			if($t instanceof Chest) 
+ 			{
+ 				$chest = $t;
+ 				$chest->getInventory()->clearAll();
+ 				if($chest->getInventory() instanceof ChestInventory)
+ 				{
+ 					for($i=0;$i<=26;$i++)
+ 					{
+ 						$rand = rand(1,3);
+ 						if($rand==1)
+ 						{
+ 							$k = array_rand($config->get("chestitems"));
+ 							$v = $config->get("chestitems")[$k];
+ 							$chest->getInventory()->setItem($i, Item::get($v[0],$v[1],$v[2]));
+ 						}
+ 					}
+ 				}
+ 			}
 		}
 	}
 }
