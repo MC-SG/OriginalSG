@@ -545,7 +545,7 @@ class GameSender extends PluginTask {
 								$timeToStart--;
 								foreach($playersArena as $pl)
 								{
-									$pl->sendPopup(C::GRAY . "Starting in " . $timeToStart . " Seconds until Start");
+									$pl->sendPopup(C::GRAY . "Starting in " . $timeToStart . " Seconds");
 								}
 								if($timeToStart == 30 || $timeToStart == 25 || $timeToStart == 15 || $timeToStart == 10 || $timeToStart ==5 || $timeToStart ==4 || $timeToStart ==3 || $timeToStart ==2 || $timeToStart ==1)
 								{
@@ -562,7 +562,7 @@ class GameSender extends PluginTask {
 									{
                                                                         $pl->sendMessage("§b-------------------------------§r");
                                                                         $pl->sendMessage($this->prefix . C::GRAY . "Let the Games" . C::RED . C::BOLD . " Begin!");
-                                                                        $pl->sendMessage("§7[§fS§cG§7] You have 30 seconds of §9Grace");
+                                                                        $pl->sendMessage("§7[§fS§cG§7] You have 30 seconds of §bGrace");
                                                                         $pl->sendMessage("§b-------------------------------§r");}
                                                                         $this->refillChests($levelArena);
 								}
