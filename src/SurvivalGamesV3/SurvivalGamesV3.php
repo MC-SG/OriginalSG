@@ -688,7 +688,7 @@ class GameSender extends PluginTask {
 	}
 	
 	public function refillChests(Level $level)
-	{
+	{	$config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
 		$tiles = $level->getTiles();
 		foreach($tiles as $t) {
  			if($t instanceof Chest) 
