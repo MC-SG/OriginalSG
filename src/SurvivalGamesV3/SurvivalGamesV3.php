@@ -662,7 +662,7 @@ class GameSender extends PluginTask {
 									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 									$pl->teleport($spawn,0,0);
-									foreach($this->getServer()->getOnlinePlayers() as $p){
+									foreach($this->plugin->getServer()->getOnlinePlayers() as $p){
 										$p->sendMessage(C::GREEN . $name . " Has won a SurvivalGames match!");
 									}
 								}
@@ -689,6 +689,7 @@ class GameSender extends PluginTask {
 	
 	public function refillChests(Level $level)
 	{
+		$tiles = $level->getTiles();
 		foreach($tiles as $t) {
  			if($t instanceof Chest) 
  			{
