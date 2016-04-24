@@ -656,11 +656,15 @@ class GameSender extends PluginTask {
 							{
 								foreach($playersArena as $pl)
 								{
+									$name = $p1->getName();
 									$pl->getInventory()->clearAll();
                                                                         $pl->sendMessage($this->prefix . C::GRAY . "You won the match!");
 									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 									$pl->teleport($spawn,0,0);
+									foreach($this->getServer()->getOnlinePlayers() as $p){
+										$p->sendMessage(C::GREEN . $name . " Has won a SurvivalGames match!");
+									}
 								}
 								$config->set($arena . "PlayTime", 780);
 								$config->set($arena . "StartTime", 60);
