@@ -656,7 +656,7 @@ class GameSender extends PluginTask {
 							{
 								foreach($playersArena as $pl)
 								{
-									$name = $p1->getName();
+									$name = $pl->getName();
 									$pl->getInventory()->clearAll();
                                                                         $pl->sendMessage($this->prefix . C::GRAY . "You won the match!");
 									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
