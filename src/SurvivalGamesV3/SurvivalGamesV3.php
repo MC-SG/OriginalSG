@@ -562,7 +562,7 @@ class GameSender extends PluginTask {
 									{
                                                                         $pl->sendMessage("§b-------------------------------§r");
                                                                         $pl->sendMessage($this->prefix . C::GRAY . "Let the Games" . C::RED . C::BOLD . " Begin!");
-                                                                        $pl->sendMessage("§7[§fS§cG§7] You have 30 seconds of §bGrace");
+                                                                        $pl->sendMessage($this->prefix . "You have 30 seconds of §bGrace");
                                                                         $pl->sendMessage("§b-------------------------------§r");}
                                                                         $this->refillChests($levelArena);
 								}
