@@ -602,7 +602,7 @@ class GameSender extends PluginTask {
 									{
 										$pl->sendMessage($this->prefix . $minutes . " minutes to deathmatch");
 										$level=$pl->getLevel();
-										$level->addSound(new PopSound($pl))
+										$level->addSound(new PopSound($pl));
 									}
 								}
 								else if($time2 == 300)
