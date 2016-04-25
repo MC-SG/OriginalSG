@@ -552,17 +552,21 @@ class GameSender extends PluginTask {
 									foreach($playersArena as $pl)
 									{
 										$pl->sendMessage($this->prefix . $timeToStart . " Seconds until Start");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
 									}
 								        $config->set($arena . "StartTime", $timeToStart);
-							        }    
+							        }
 								if($timeToStart<=0)
 								{
 
 									foreach($playersArena as $pl)
 									{
+									$level=$pl->getLevel();
+									$level->addSound(new TNTPrimeSound($pl));
                                                                         $pl->sendMessage("§b-------------------------------§r");
                                                                         $pl->sendMessage($this->prefix . C::GRAY . "Let the Games" . C::RED . C::BOLD . " Begin!");
-                                                                        $pl->sendMessage($this->prefix . "You have 30 seconds of §bGrace");
+                                                                        $pl->sendMessage($this->prefix . C::GRAY . "You have 30 seconds of §bGrace");
                                                                         $pl->sendMessage("§b-------------------------------§r");}
                                                                         $this->refillChests($levelArena);
 								}
@@ -596,6 +600,8 @@ class GameSender extends PluginTask {
 									foreach($playersArena as $pl)
 									{
 										$pl->sendMessage($this->prefix . $minutes . " minutes to deathmatch");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl))
 									}
 								}
 								else if($time2 == 300)
@@ -605,12 +611,14 @@ class GameSender extends PluginTask {
 										$pl->sendMessage($this->prefix . "The chests have been refilled!");
 									}
 									$this->refillChests($levelArena);
-								}
+								}	
 								else if($time2 == 30 || $time2 == 15 || $time2 == 10 || $time2 ==5 || $time2 ==4 || $time2 ==3 || $time2 ==2 || $time2 ==1)
 								{
 									foreach($playersArena as $pl)
 									{
 										$pl->sendMessage($this->prefix . $time2 . " seconds to deathmatch");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
 									}
 								}
 								if($time2 <= 0)
