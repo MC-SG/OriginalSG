@@ -375,7 +375,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 						$player->setGamemode(0);
 						$player->setNameTag(C::BOLD . C::RED . $player->getName());
 						$player->getInventory()->clearAll();
-                                                $player->sendMessage("$this->prefix . C::GRAY . "You have Successfully Joined a Match!");
+                                                $player->sendMessage($this->prefix . C::GRAY . "You have Successfully Joined a Match!");
 						$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 						$rank = $config2->get($player->getName());
 						if($rank == "§b[§aVIP§4+§b]")
