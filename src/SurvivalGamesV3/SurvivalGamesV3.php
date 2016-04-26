@@ -620,7 +620,7 @@ class GameSender extends PluginTask {
 									
 									foreach($playersArena as $pl)
 									{
-										$pl->sendMessage($this->prefix . §c"You Are no longer invincible!");
+										$pl->sendMessage($this->prefix . "§cYou Are no longer invincible!");
                                                                                 $level=$pl->getLevel();
                                                                                 $level->addSound(new PopSound($pl));
 									}	
