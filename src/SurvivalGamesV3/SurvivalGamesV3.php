@@ -73,6 +73,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	}
 	
 	public function giveRandomKit(PlayerJoinEvent $e){
+	if($this->getConfig()->get("RandomKit") === true){	
 		$p = $e->getPlayer();
 		$kit = rand(1,6);
 		switch($kit){
@@ -144,6 +145,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				
 				$p->sendMessage(C::DARK_AQUA."You Randomly Got The ".C::YELLOW."Sugary Archers".C::DARK_AQUA." Kit!");
 			break;
+		}
 		}
 	}
  	public function PlayerDeath(PlayerDeathEvent $event){
@@ -275,23 +277,18 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				}
 			return true;
 			case "setrank":
-				if($player->isOp())
-				{
-				if(!empty($args[0]))
-				{
-					if(!empty($args[1]))
-					{
+				if($this->getConfig()->get("Ranks") === true){
+				if($player->isOp()){
+				if(!empty($args[0]))	{
+					if(!empty($args[1])){
 					$rank = "";
-					if($args[0]=="VIP+")
-					{
+					if($args[0]=="VIP+"){
 						$rank = "§b[§aVIP§4+§b]";
 					}
-					else if($args[0]=="YouTuber")
-					{
+					else if($args[0]=="YouTuber"){
 						$rank = "§b[§4You§7Tuber§b]";
 					}
-					else if($args[0]=="YouTuber+")
-					{
+					else if($args[0]=="YouTuber+"){
 						$rank = "§b[§4You§7Tuber§4+§b]";
 					}
 					else
@@ -311,6 +308,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				else
 				{
 					$player->sendMessage("Missing parameter(s)");
+				}
 				}
 				}
 			return true;
@@ -378,6 +376,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
                                                 $player->sendMessage($this->prefix . C::GRAY . "You have Successfully Joined a Match!");
 						$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 						$rank = $config2->get($player->getName());
+						if($this->getConfig()->get("Ranks") === true){
 						if($rank == "§b[§aVIP§4+§b]")
 						{
 							$player->getInventory()->setContents(array(Item::get(0, 0, 0)));
@@ -421,6 +420,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 							$player->getInventory()->setItem(0, Item::get(Item::DIAMOND_AXE, 0, 1));
 								$player->getInventory()->sendArmorContents($player);
 							$player->getInventory()->setHotbarSlotIndex(0, 0);
+						}
 						}
 					}
 					else
