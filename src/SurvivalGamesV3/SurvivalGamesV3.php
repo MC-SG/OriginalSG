@@ -611,9 +611,21 @@ class GameSender extends PluginTask {
 									foreach($playersArena as $pl)
 									{
 										$pl->sendMessage($this->prefix . "The chests have been refilled!");
+                                                                                $level=$pl->getLevel();
+                                                                                $level->addSound(new PopSound($pl));
 									}
 									$this->refillChests($levelArena);
-								}	
+								}
+								else if($time2 == 570){
+									
+									foreach($playersArena as $pl)
+									{
+										$pl->sendMessage($this->prefix . "You Are no longer invincible!");
+                                                                                $level=$pl->getLevel();
+                                                                                $level->addSound(new PopSound($pl));
+									}	
+									
+								}
 								else if($time2 == 30 || $time2 == 15 || $time2 == 10 || $time2 ==5 || $time2 ==4 || $time2 ==3 || $time2 ==2 || $time2 ==1)
 								{
 									foreach($playersArena as $pl)
