@@ -65,4 +65,12 @@ lightning_effect: ON
 #If True, You Will get The SG 'Ratio' Chat Format Like -> Name : Message
 #If False, You will have your regular ChatFormat as Default or From the ChatFormat of a Plugin...
 EnableChatFormat: false
+
+#If True, Players can get ranks
+#If False, Players dont get ranks
+Ranks: true
+
+#If True, Players get RandomKit on join
+#If False, Players get RandomKit on join
+RandomKit: true
 ...
