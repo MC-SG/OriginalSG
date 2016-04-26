@@ -16,7 +16,7 @@ SurvivalGames plugin for ImagicalMine - Genysis
 
 **@Taki21 & @EpicSteve33 has been helping with some tweaks here and there**
 
-**@driesboy has also been helping out with Genisys related things**
+**@Driesboy has also been helping out with Genisys related things**
 
 # CopyRight
 The license does not state the following but these terms apply to SurvivalGamesV3
