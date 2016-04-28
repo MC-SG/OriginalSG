@@ -45,8 +45,8 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	{
         $this->getServer()->getPluginManager()->registerEvents($this ,$this);
 		$this->getLogger()->info(C::GREEN . "SurvivalGames Loaded!");
-		$this->saveResource("rank.yml");
-		$this->saveResource("config.yml");
+		$this->saveResource("/rank.yml");
+		$this->saveResource("/config.yml");
 		@mkdir($this->getDataFolder());
 		$config2 = new Config($this->getDataFolder() . "/rank.yml", Config::YAML);
 		$config2->save();
