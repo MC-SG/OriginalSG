@@ -712,7 +712,7 @@ class GameSender extends PluginTask {
 								{
 								        $name = $pl->getName();
 									$pl->getInventory()->clearAll();
-                                                                        $pl->sendTip($this->prefix . C::GRAY . "You won the match!");
+                                                                        $pl->sendpopup($this->prefix . C::GRAY . "/n/n You won the match!");
 									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 									$pl->teleport($spawn,0,0);
