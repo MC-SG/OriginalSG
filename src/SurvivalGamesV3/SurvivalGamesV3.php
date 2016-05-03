@@ -703,28 +703,24 @@ class GameSender extends PluginTask {
 								}
 								$config->set($arena . "PlayTime", $time);
 							}
-						}
-						else
-						{
-							if($timeToStart<=0)
-							{
-								foreach($playersArena as $pl)
-								{
-								        $name = $pl->getName();
-									$pl->getInventory()->clearAll();
-                                                                        $pl->sendpopup($this->prefix . C::GRAY . "/n/n You won the match!");
-									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
-									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-									$pl->teleport($spawn,0,0);
-									foreach($this->plugin->getServer()->getOnlinePlayers() as $p){
-										$p->sendMessage($this->prefix . C::GRAY . $name . " Has won a SurvivalGames match!");
-									}
+						}else{
+							if($timeToStart<=0){
+								if(count($playersArena)==1){
+									foreach($playersArena as $pl){
+								        	$name = $pl->getName();
+										$pl->getInventory()->clearAll();
+                                                                        	$pl->sendpopup($this->prefix . C::GRAY . "/n/n You won the match!");
+										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
+										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
+										$pl->teleport($spawn,0,0);
+										foreach($this->plugin->getServer()->getOnlinePlayers() as $p){
+											$p->sendMessage($this->prefix . C::GRAY . $name . " Has won a SurvivalGames match!");
+										}
+									}	
 								}
 								$config->set($arena . "PlayTime", 780);
 								$config->set($arena . "StartTime", 60);
-							}
-							else
-							{
+							}else{
 								foreach($playersArena as $pl)
 								{
 								$pl->sendPopup(C::RED . "A game requires 2 players!");
