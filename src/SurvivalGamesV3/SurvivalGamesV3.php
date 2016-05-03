@@ -684,12 +684,10 @@ class GameSender extends PluginTask {
 											$pl->sendMessage($this->prefix . $time . " seconds remaining");
 										}
 									}
-									if($time <= 780)
-									{
+									if($time <= 780){
 									}
 	
-									if($time <= 0)
-									{
+									if($time <= 0){
 										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
 										foreach($playersArena as $pl)
@@ -703,23 +701,23 @@ class GameSender extends PluginTask {
 								}
 								$config->set($arena . "PlayTime", $time);
 							}
-						}else{
-							if($timeToStart<=0){
-								if(count($playersArena)==1){
-									foreach($playersArena as $pl){
-								        	$name = $pl->getName();
-										$pl->getInventory()->clearAll();
-                                                                        	$pl->sendpopup($this->prefix . C::GRAY . "/n/n You won the match!");
-										$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
-										$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
-										$pl->teleport($spawn,0,0);
-										foreach($this->plugin->getServer()->getOnlinePlayers() as $p){
-											$p->sendMessage($this->prefix . C::GRAY . $name . " Has won a SurvivalGames match!");
-										}
-									}	
-								}
-								$config->set($arena . "PlayTime", 780);
-								$config->set($arena . "StartTime", 60);
+						}
+						if($timeToStart<=0){
+							if(count($playersArena)==1){
+								foreach($playersArena as $pl){
+								        $name = $pl->getName();
+									$pl->getInventory()->clearAll();
+                                                                        $pl->sendpopup($this->prefix . C::GRAY . "/n/n You won the match!");
+									$spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
+									$this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getX(), $spawn->getZ());
+									$pl->teleport($spawn,0,0);
+									foreach($this->plugin->getServer()->getOnlinePlayers() as $p){
+										$p->sendMessage($this->prefix . C::GRAY . $name . " Has won a SurvivalGames match!");
+									}
+								}	
+							}
+							$config->set($arena . "PlayTime", 780);
+							$config->set($arena . "StartTime", 60);
 							}else{
 								foreach($playersArena as $pl)
 								{
@@ -736,7 +734,6 @@ class GameSender extends PluginTask {
 		}
 		$config->save();
 	}
-	
 	public function refillChests(Level $level)
 	{	$config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
 		$tiles = $level->getTiles();
