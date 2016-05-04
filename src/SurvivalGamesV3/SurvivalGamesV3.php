@@ -163,7 +163,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
  	public function PlayerDeath(PlayerDeathEvent $event){
          	foreach($this->getServer()->getOnlinePlayers() as $pl){
                 	$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-                 	if($config->get("lightning_effect")=="ON"){
+                 	if($config->get("lightning_effect")==="ON"){
               			$p = $event->getEntity();
           			$light = new AddEntityPacket();
           			$light->type = 93;
@@ -513,7 +513,7 @@ class RefreshSigns extends PluginTask {
 		foreach($tiles as $t) {
 			if($t instanceof Sign) {	
 				$text = $t->getText();
-				if($text[3]==$this->prefix)
+				if($text[3]===$this->prefix)
 				{
 					$aop = 0;
 					foreach($allplayers as $player){if($player->getLevel()->getFolderName()==$text[2]){$aop=$aop+1;}}
@@ -555,7 +555,7 @@ class GameSender extends PluginTask {
 				if($levelArena instanceof Level)
 				{
 					$playersArena = $levelArena->getPlayers();
-					if(count($playersArena)==0)
+					if(count($playersArena)===0)
 					{
 						$config->set($arena . "PlayTime", 780);
 						$config->set($arena . "StartTime", 60);
@@ -571,7 +571,7 @@ class GameSender extends PluginTask {
 								{
 									$pl->sendPopup(C::GRAY . "Starting in " . $timeToStart . " Seconds");
 								}
-								if($timeToStart == 30 || $timeToStart == 25 || $timeToStart == 15 || $timeToStart == 10 || $timeToStart ==5 || $timeToStart ==4 || $timeToStart ==3 || $timeToStart ==2 || $timeToStart ==1)
+								if($timeToStart === 30 || $timeToStart === 25 || $timeToStart === 15 || $timeToStart === 10 || $timeToStart ===5 || $timeToStart ===4 || $timeToStart ===3 || $timeToStart ===2 || $timeToStart ===1)
 								{
 									foreach($playersArena as $pl)
 									{
@@ -599,7 +599,7 @@ class GameSender extends PluginTask {
 							else
 							{
 								$aop = count($levelArena->getPlayers());
-								if($aop==1)
+								if($aop===1)
 								{
 									foreach($playersArena as $pl)
 									{
@@ -628,7 +628,7 @@ class GameSender extends PluginTask {
 										$level->addSound(new PopSound($pl));
 									}
 								}
-								else if($time2 == 300)
+								else if($time2 === 300)
 								{
 									foreach($playersArena as $pl)
 									{
@@ -638,7 +638,7 @@ class GameSender extends PluginTask {
 									}
 									$this->refillChests($levelArena);
 								}
-								else if($time2 == 570){
+								else if($time2 === 570){
 									
 									foreach($playersArena as $pl)
 									{
@@ -648,7 +648,7 @@ class GameSender extends PluginTask {
 									}	
 									
 								}
-								else if($time2 == 30 || $time2 == 15 || $time2 == 10 || $time2 ==5 || $time2 ==4 || $time2 ==3 || $time2 ==2 || $time2 ==1)
+								else if($time2 === 30 || $time2 === 15 || $time2 === 10 || $time2 ===5 || $time2 ===4 || $time2 ===3 || $time2 ===2 || $time2 ===1)
 								{
 									foreach($playersArena as $pl)
 									{
@@ -677,7 +677,7 @@ class GameSender extends PluginTask {
 											$pl->sendMessage($this->prefix . $minutes . " minutes remaining");
 										}
 									}
-									else if($time == 30 || $time == 15 || $time == 10 || $time ==5 || $time ==4 || $time ==3 || $time ==2 || $time ==1)
+									else if($time === 30 || $time === 15 || $time === 10 || $time ===5 || $time ===4 || $time ===3 || $time ===2 || $time ===1)
 									{
 										foreach($playersArena as $pl)
 										{
@@ -703,7 +703,7 @@ class GameSender extends PluginTask {
 							}
 						}
 						if($timeToStart<=0){
-							if(count($playersArena)==1){
+							if(count($playersArena)===1){
 								foreach($playersArena as $pl){
 								        $name = $pl->getName();
 									$pl->getInventory()->clearAll();
@@ -747,7 +747,7 @@ class GameSender extends PluginTask {
  					for($i=0;$i<=26;$i++)
  					{
  						$rand = rand(1,3);
- 						if($rand==1)
+ 						if($rand===1)
  						{
  							$k = array_rand($config->get("chestitems"));
  							$v = $config->get("chestitems")[$k];
