@@ -733,7 +733,6 @@ class GameSender extends PluginTask {
 			}
 					$config->save();
 		}
-	}
 	public function refillChests(Level $level)
 	{	$config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
 		$tiles = $level->getTiles();
