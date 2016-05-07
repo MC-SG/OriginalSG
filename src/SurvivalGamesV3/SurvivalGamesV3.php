@@ -41,8 +41,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 	public $arenas = array();
 	public $currentLevel = "";
 	
-	public function onEnable()
-	{
+	public function onEnable(){
         $this->getServer()->getPluginManager()->registerEvents($this ,$this);
 		$this->getLogger()->info(C::GREEN . "SurvivalGames Loaded!");
 		$this->saveResource("/rank.yml");
