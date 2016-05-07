@@ -654,14 +654,15 @@ class GameSender extends PluginTask {
 									foreach($playersArena as $pl)
 									{
 										$pl->sendMessage($this->prefix . $time2 . " seconds to deathmatch");
-										$level=$pl->getLevel();
+										$level = $pl->getLevel();
 										$level->addSound(new PopSound($pl));
 									}
 								}
 								if($time2 <= 0)
 								{
-									$spawn = $levelArena->getSafeSpawn();
-									$levelArena->loadChunk($spawn->getX(), $spawn->getZ());
+									$dspawn = $config->get($levelarena . "Deathmatch");
+						                        $spawn = new Position($dspawn[0]+0.5,$dspawn[1],$dspawn[2]+0.5,$levelArena);
+						                        $levelArena->loadChunk($spawn->getFloorX(), $spawn->getFloorZ());
 									foreach($playersArena as $pl)
 									{
 										$pl->teleport($spawn,0,0);
