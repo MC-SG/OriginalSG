@@ -461,6 +461,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			if($this->mode==25)
 			{
 				$player->sendMessage($this->prefix . "Now tap on a deathmatch spawn.");
+				$config->set($this->currentLevel . "Deathmatch" , array($block->getX(),$block->getY()+1,$block->getZ()));
 			}
 			$config->save();
 		}
