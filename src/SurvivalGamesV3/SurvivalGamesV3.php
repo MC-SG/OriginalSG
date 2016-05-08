@@ -180,13 +180,6 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
           
  		}
  	}
- 	
-    public function playerJoin($spawn){
-	$player->teleport(new Vector3($x, $y, $z, $level));	
-	$spawn = $this->getServer()->getDefaultLevel()->getSafeSpawn(); 
-        $this->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), 
-        $spawn->getFloorZ()); $player->teleport($spawn,0,0);
-    }
     
 	public function onMove(PlayerMoveEvent $event)
 	{
