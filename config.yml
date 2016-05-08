@@ -1,4 +1,19 @@
 ---
+#If ON, then on player death, lightning will strike the ground where they died
+#If OFF, then no lightning
+lightning_effect: ON
+
+#If True, You Will get The SG 'Ratio' Chat Format Like -> Name : Message
+#If False, You will have your regular ChatFormat as Default or From the ChatFormat of a Plugin...
+EnableChatFormat: false
+
+#If True, Players can get ranks
+#If False, Players dont get ranks
+Ranks: true
+
+#If True, Players get RandomKit on join
+#If False, Players get RandomKit on join
+RandomKit: true
 chestitems:
 - - 261
   - 0
@@ -57,20 +72,4 @@ chestitems:
 - - 283
   - 0
   - 1
-  
-#If ON, then on player death, lightning will strike the ground where they died
-#If OFF, then no lightning
-lightning_effect: ON
-
-#If True, You Will get The SG 'Ratio' Chat Format Like -> Name : Message
-#If False, You will have your regular ChatFormat as Default or From the ChatFormat of a Plugin...
-EnableChatFormat: false
-
-#If True, Players can get ranks
-#If False, Players dont get ranks
-Ranks: true
-
-#If True, Players get RandomKit on join
-#If False, Players get RandomKit on join
-RandomKit: true
 ...
