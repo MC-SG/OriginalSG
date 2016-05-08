@@ -9,14 +9,8 @@ SurvivalGames plugin for ImagicalMine - Genysis
 
 **/sg** Displays all of the possible SurvivalGamesV3 commands!
 
-# Authors
-**@austina1212 is the original author, but @ImagicalGamer took over**
-
-**@remote_vase has also been helping out with ImagicalMine related things**
-
-**@Taki21 & @EpicSteve33 has been helping with some tweaks here and there**
-
-**@Driesboy has also been helping out with Genisys related things**
+# Test Server
+**Coming Soon!**
 
 # CopyRight
 The license does not state the following but these terms apply to SurvivalGamesV3
