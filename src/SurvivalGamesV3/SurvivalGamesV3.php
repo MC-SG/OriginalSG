@@ -518,16 +518,18 @@ class RefreshSigns extends PluginTask {
 					$aop = 0;
 					foreach($allplayers as $player){if($player->getLevel()->getFolderName()==$text[2]){$aop=$aop+1;}}
 					$ingame = C::WHITE . "[§bJoin§f]";
+					$time = $text[3];
 					$config = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
 					if($config->get($text[2] . "PlayTime")!=780)
 					{
 						$ingame = C::GRAY . "[§cRunning§7]";
+						$time = $config->get($text[2] . "PlayTime");
 					}
 					else if($aop>=24)
 					{
 						$ingame = C::GRAY . "[§4Full§7]";
 					}
-					$t->setText($ingame,C::BLUE  . $aop . " / 24",$text[2],$this->prefix);
+					$t->setText($ingame,C::BLUE  . $aop . " / 24",$text[2],$time);
 				}
 			}
 		}
