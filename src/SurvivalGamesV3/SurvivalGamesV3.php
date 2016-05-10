@@ -362,6 +362,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		
 		if($tile instanceof Sign) 
 		{
+			if($player->isOp()){
 			if($this->mode==26)
 			{
 				$tile->setText(C::GRAY . "[§2Join§7]",C::BLUE  . "0 / 24",$this->currentLevel,$this->prefix);
@@ -369,6 +370,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				$this->currentLevel = "";
 				$this->mode = 0;
 				$player->sendMessage($this->prefix . "The arena has been registered successfully!");
+			}
 			}
 			else
 			{
@@ -445,6 +447,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			}
 		}
 		else if($this->mode>=1&&$this->mode<=24)
+		if($player->isOp()){
 		{
 			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
 			$config->set($this->currentLevel . "Spawn" . $this->mode, array($block->getX(),$block->getY()+1,$block->getZ()));
@@ -469,6 +472,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			$player->teleport($spawn,0,0);
 			$config->save();
 			$this->mode=26;
+		}
 		}
 	}
 	
