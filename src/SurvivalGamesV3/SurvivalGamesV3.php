@@ -365,7 +365,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			if($player->isOp()){
 			if($this->mode==26)
 			{
-				$tile->setText(C::GRAY . "[§2Join§7]",C::BLUE  . "0 / 24",$this->currentLevel,$this->prefix);
+				$tile->setText(C::GRAY . "[§bJoin§f]",$this->currentLevel,C::BLUE  . "0 / 24",$this->prefix);
 				$this->refreshArenas();
 				$this->currentLevel = "";
 				$this->mode = 0;
@@ -528,7 +528,7 @@ class RefreshSigns extends PluginTask {
 						$ingame = C::GRAY . "[§4Full§7]";
 						$second = $config->get($text[2] . "PlayTime");
 					}
-					$t->setText($ingame,C::BLUE  . $second,$text[2],$this->prefix);
+					$t->setText($ingame,$text[2],C::BLUE  . $second,$this->prefix);
 				}
 			}
 		}
