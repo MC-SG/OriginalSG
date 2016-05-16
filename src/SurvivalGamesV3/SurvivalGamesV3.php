@@ -590,8 +590,9 @@ class GameSender extends PluginTask {
 									$level=$pl->getLevel();
 									$level->addSound(new TNTPrimeSound($pl));
                                                                         $pl->sendMessage("§b-------------------------------§r");
-                                                                        $pl->sendMessage($this->prefix . C::GRAY . "Let the Games" . C::RED . C::BOLD . " Begin!");
-                                                                        $pl->sendMessage($this->prefix . C::GRAY . "You have 30 seconds of §bGrace");
+                                                                        $pl->sendMessage($this->prefix . C::GREEN . "Let the Games" . C::RED . C::BOLD . " Begin!");
+                                                                        $pl->sendMessage($this->prefix . C::GREEN . "You have 30 seconds of §bGrace");
+                                                                        $pl->sendMessage($this->prefix . C::GRAY . "BTW Grace = Invincibility");
                                                                         $pl->sendMessage("§b-------------------------------§r");}
                                                                         $this->refillChests($levelArena);
 								}
