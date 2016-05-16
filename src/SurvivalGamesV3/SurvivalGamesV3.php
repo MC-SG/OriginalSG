@@ -460,6 +460,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 			}
 			$config->save();
 		}
+		}
 		else if($this->mode==25)
 		{
 			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
