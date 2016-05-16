@@ -462,6 +462,7 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 		}
 		}
 		else if($this->mode==25)
+		if($player->isOp()){
 		{
 			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
 			$level = $this->getServer()->getLevelByName($this->currentLevel);
