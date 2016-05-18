@@ -10,13 +10,12 @@ Once the issue is submitted, PLEASE TICK THE CHECKBOXES BY CLICKING ON THEM!
 NOTE: If it is a suggestion, title it [SUGGESTION] ______
 
 If all the checkboxes are checked, congratulations! Fill out the fields below
-* = required
+! = required
 
-* Please state the server provider below (EG: PocketMine, ImagicalMine, Genysis etc):
+! <--STATE SERVER PROVIDER HERE (EG POCKETMINE, IMAGICALMINE, GENYSIS etc)-->
 
+! <--STATE ISSUE HERE-->
 
-* Please state the issue below:
+<--PUT ANY CONSOLE ERRORS HERE-->
 
-Are there any errors in the console? If so, state them below:
-
-Are there any crash dumps? If so, please paste it below (Paste the entire crash dump, not just the part that it tells you to):
+<--IF CRASH DUMPS ARE AVAILABLE, PASTE THE ENTIRE FILE'S CONTENTS HERE-->
