@@ -4,7 +4,8 @@ Before you make an issue, make sure your issue matches the criteria below
 Once the issue is submitted, PLEASE TICK THE CHECKBOXES BY CLICKING ON THEM! 
 - [ ] This issue isn't duplicated - you can check if it is by using the search bar located at the top left hand corner and select "Issues" on the left.
 - [ ] This issue includes appropriate markdown for sections - e.g. code blocks for crash dumps.
-- [ ] This issue is understandable - feel free to use your native language to write issues if you are not comfortable with English.
+- [ ] This issue is written in your native language for maximal clarity
+- [ ] This issue does not have abbreveations. Abbreviations make it not understandable.
 - [ ] This issue is for SurvivalGamesV3, and not any other plugin.
 - [ ] This is not a suggestion, but an actual issue 
 NOTE: If it is a suggestion, title it [SUGGESTION] ______
