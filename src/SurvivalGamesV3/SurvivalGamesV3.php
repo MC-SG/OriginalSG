@@ -446,19 +446,20 @@ class SurvivalGamesV3 extends PluginBase implements Listener {
 				}
 			}
 		}
-		else if($this->mode>=1&&$this->mode<=24)
-		if($player->isOp()){
-			$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-			$config->set($this->currentLevel . "Spawn" . $this->mode, array($block->getX(),$block->getY()+1,$block->getZ()));
-			$player->sendMessage($this->prefix . "Spawn " . $this->mode . " has been registered!");
-			$this->mode++;
-			if($this->mode==25){
-				$player->sendMessage($this->prefix . "Now tap on a deathmatch spawn.");
-				$config->set($this->currentLevel . "Deathmatch" , array($block->getX(),$block->getY()+1,$block->getZ()));
-			}
+		else if($this->mode>=1&&$this->mode<=24){
+			if($player->isOp()){
+				$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
+				$config->set($this->currentLevel . "Spawn" . $this->mode, array($block->getX(),$block->getY()+1,$block->getZ()));
+				$player->sendMessage($this->prefix . "Spawn " . $this->mode . " has been registered!");
+				$this->mode++;
+				if($this->mode==25){
+					$player->sendMessage($this->prefix . "Now tap on a deathmatch spawn.");
+					$config->set($this->currentLevel . "Deathmatch" , array($block->getX(),$block->getY()+1,$block->getZ()));
+				}	
 			$config->save();
+			}
 		}
-		if($this->mode==25){
+		else if($this->mode==25){
 			if($player->isOp()){
 				$config = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
 				$level = $this->getServer()->getLevelByName($this->currentLevel);
