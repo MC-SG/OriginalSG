@@ -549,15 +549,132 @@ class GameSender extends PluginTask {
 								{
 									$pl->sendPopup(C::GRAY . "Starting in " . $timeToStart . " Seconds");
 								}
-								if($timeToStart == 30 || $timeToStart == 25 || $timeToStart == 15 || $timeToStart == 10 || $timeToStart ==5 || $timeToStart ==4 || $timeToStart ==3 || $timeToStart ==2 || $timeToStart ==1)
+								if($timeToStart === 30 || $timeToStart === 25 || $timeToStart === 15 || $timeToStart === 10)
 								{
 									foreach($playersArena as $pl)
 									{
-										$pl->sendMessage($this->prefix . $timeToStart . " Seconds until Start");
+										$pl->sendMessage($this->prefix . $timeToStart . " Seconds until gameStart");
 										$level=$pl->getLevel();
 										$level->addSound(new PopSound($pl));
 									}
 								        $config->set($arena . "StartTime", $timeToStart);
+							        }
+							        if($timeToStart === 9)
+								{
+									foreach($playersArena as $pl)
+									{
+										$pl->sendPopup("------------------------------------------------------------------------------------");
+										$pl->sendPopup(C::GOLD . "Starting in " . $timeToStart . " Seconds\n");
+										$pl->sendPopup("§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "\n\n");
+										$pl->sendPopup("------------------------------------------------------------------------------------\n\n\n");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
+									}
+								       		$config->set($arena . "StartTime", $timeToStart);
+							        }
+							        if($timeToStart === 8)
+								{
+									foreach($playersArena as $pl)
+									{
+										$pl->sendPopup("------------------------------------------------------------------------------------");
+										$pl->sendPopup(C::GOLD . "Starting in " . $timeToStart . " Seconds\n");
+										$pl->sendPopup("§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "\n\n");
+										$pl->sendPopup("------------------------------------------------------------------------------------\n\n\n");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
+									}
+								       		$config->set($arena . "StartTime", $timeToStart);
+							        }
+							        if($timeToStart === 7)
+								{
+									foreach($playersArena as $pl)
+									{
+										$pl->sendPopup("------------------------------------------------------------------------------------");
+										$pl->sendPopup(C::GOLD . "Starting in " . $timeToStart . " Seconds\n");
+										$pl->sendPopup("§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "\n\n");
+										$pl->sendPopup("------------------------------------------------------------------------------------\n\n\n");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
+									}
+								       		$config->set($arena . "StartTime", $timeToStart);
+							        }
+							        if($timeToStart === 6)
+								{
+									foreach($playersArena as $pl)
+									{
+										$pl->sendPopup("------------------------------------------------------------------------------------");
+										$pl->sendPopup(C::GOLD . "Starting in " . $timeToStart . " Seconds\n");
+										$pl->sendPopup("§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "\n\n");
+										$pl->sendPopup("------------------------------------------------------------------------------------\n\n\n");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
+									}
+								       		$config->set($arena . "StartTime", $timeToStart);
+							        }
+							        if($timeToStart === 5)
+								{
+									foreach($playersArena as $pl)
+									{
+										$pl->sendPopup("------------------------------------------------------------------------------------");
+										$pl->sendPopup(C::GOLD . "Starting in " . $timeToStart . " Seconds\n");
+										$pl->sendPopup("§4█" . "§4█" . "§4█" . "§4█" . "§4█" . "\n\n");
+										$pl->sendPopup("------------------------------------------------------------------------------------\n\n\n");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
+									}
+								       		$config->set($arena . "StartTime", $timeToStart);
+							        }
+							        if($timeToStart === 4)
+								{
+									foreach($playersArena as $pl)
+									{
+										$pl->sendPopup("------------------------------------------------------------------------------------");
+										$pl->sendPopup(C::GOLD . "Starting in " . $timeToStart . " Seconds\n");
+										$pl->sendPopup("§4█" . "§4█" . "§4█" . "§4█" . "\n\n");
+										$pl->sendPopup("------------------------------------------------------------------------------------\n\n\n");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
+									}
+								       		$config->set($arena . "StartTime", $timeToStart);
+							        }
+							        if($timeToStart === 3)
+								{
+									foreach($playersArena as $pl)
+									{
+										$pl->sendPopup("------------------------------------------------------------------------------------");
+										$pl->sendPopup(C::GOLD . "Starting in " . $timeToStart . " Seconds\n");
+										$pl->sendPopup("§4█" . "§4█" . "§4█" . "\n\n");
+										$pl->sendPopup("------------------------------------------------------------------------------------\n\n\n");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
+									}
+								       		$config->set($arena . "StartTime", $timeToStart);
+							        }
+							        if($timeToStart === 2)
+								{
+									foreach($playersArena as $pl)
+									{
+										$pl->sendPopup("------------------------------------------------------------------------------------");
+										$pl->sendPopup(C::GOLD . "Starting in " . $timeToStart . " Seconds\n");
+										$pl->sendPopup("§4█" . "§4█" . "\n\n");
+										$pl->sendPopup("------------------------------------------------------------------------------------\n\n\n");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
+									}
+								       		$config->set($arena . "StartTime", $timeToStart);
+							        }
+							        if($timeToStart === 1)
+								{
+									foreach($playersArena as $pl)
+									{
+										$pl->sendPopup("------------------------------------------------------------------------------------");
+										$pl->sendPopup(C::GOLD . "Starting in " . $timeToStart . " Seconds\n");
+										$pl->sendPopup("§4█" . "\n\n");
+										$pl->sendPopup("------------------------------------------------------------------------------------\n\n\n");
+										$level=$pl->getLevel();
+										$level->addSound(new PopSound($pl));
+									}
+								       		$config->set($arena . "StartTime", $timeToStart);
 							        }
 								if($timeToStart<=0)
 								{
@@ -567,8 +684,9 @@ class GameSender extends PluginTask {
 									$level=$pl->getLevel();
 									$level->addSound(new TNTPrimeSound($pl));
                                                                         $pl->sendMessage("§b-------------------------------§r");
-                                                                        $pl->sendMessage($this->prefix . C::GRAY . "Let the Games" . C::RED . C::BOLD . " Begin!");
-                                                                        $pl->sendMessage($this->prefix . C::GRAY . "You have 30 seconds of §bGrace");
+                                                                        $pl->sendMessage($this->prefix . C::GREEN . "Let the Games" . C::RED . C::BOLD . " Begin!");
+                                                                        $pl->sendMessage($this->prefix . C::GREEN . "You have 30 seconds of §bGrace");
+                                                                        $pl->sendMessage($this->prefix . C::GRAY . "BTW Grace = Invincibility");
                                                                         $pl->sendMessage("§b-------------------------------§r");}
                                                                         $this->refillChests($levelArena);
 								}
