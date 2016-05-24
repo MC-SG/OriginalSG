@@ -861,4 +861,27 @@ class GameSender extends PluginTask {
  			}
 		}
 	}
+	public function onQuit(PlayerQuitEvent $e){
+		$aop = count($level->getPlayers());
+		$minusplayer = 1;
+		$second = $aop - $minusplayer . "/ 24";
+	}
+	public function randomChest(Level $level){
+		$chance = rand(0,9);
+			if($chance < 3){
+			$k1 = array_rand($config->get("chestradius"));
+			$radius = $config->get("chestradius")[$k1];
+        		$randx = mt_rand($chx - $radius, $chx + $radius);
+        		$randy = mt_rand($chy - $radius, $chy + $radius);
+        		$randz = mt_rand($chz - $radius, $chz + $radius);
+       				if($randy < 128){
+       				$server = Server::getInstance();
+       				$pos = new Vector3($randx, $randy, $randz);
+       				$tile = $level->getTile($pos);
+        			$chest = Block::get(Block::CHEST);
+        			$level->setBlock($pos, $chest);
+    				}
+			}
+		}
+	}
 }
