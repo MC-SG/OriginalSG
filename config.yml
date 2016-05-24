@@ -7,6 +7,10 @@ lightning_effect: ON
 #If False, You will have your regular ChatFormat as Default or From the ChatFormat of a Plugin...
 EnableChatFormat: false
 
+#Google 'radius' if you don't know what it is
+#This is the radius that makes a circle around a player's spawnpoint where a chest may spawn
+chestradius: 10
+
 #If True, Players can get ranks
 #If False, Players dont get ranks
 Ranks: true
