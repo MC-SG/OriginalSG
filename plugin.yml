@@ -1,6 +1,6 @@
 name: SurvivalGamesV3
 main: SurvivalGamesV3\SurvivalGamesV3
-version: 3.0.3
+version: 3.1.2
 api: [1.0.0, 2.0.0, 3.0.0]
 author: ImagicalGamer
 
