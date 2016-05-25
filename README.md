@@ -17,8 +17,7 @@ The license does not state the following but these terms apply to SurvivalGamesV
 Contributer name | Contributing Job
 ---------------- | ------------------
 @Driesboy | Genysis Manager
-@Austina1212 | Original Coder of Plugin (V1+2)
-@ImagicalGamer | Took over Plugin (V3)
+@ImagicalGamer | Took over V1, V2, V3
 @Taki21 | On and off, main bug-fixer
 @remotevase | New Features, Grammar fixer
 @EpicSteve33 | Contributer through Pull Requests
