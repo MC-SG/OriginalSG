@@ -884,4 +884,3 @@ class GameSender extends PluginTask {
 			}
 		}
 	}
-}
