@@ -7,7 +7,7 @@ author: ImagicalGamer
 
 commands:
     sg:
-        usage: /s
+        usage: /sg
         description: A full list of SurvivalGames-Commands
     setrank:
         usage: /setrank
