@@ -21,7 +21,6 @@ Contributer name | Contributing Job
 @Taki21 | On and off, main bug-fixer
 @remotevase | New Features, Grammar fixer
 @EpicSteve33 | Contributer through Pull Requests
-@MichaelM04 | Contributer through Pull Requests
 @erkam2002 | Contributer through Pull Requests
 @Dev-Kevo | Contributer through Pull Requests
 @Heroata | Contributer through Pull Requests
