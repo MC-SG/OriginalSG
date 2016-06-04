@@ -18,7 +18,7 @@ Contributer name | Contributing Job
 ---------------- | ------------------
 @Driesboy | Genysis Manager
 @ImagicalGamer | Took over V1, V2, V3
-@Taki21 | On and off, main bug-fixer
+@Taki21 | Main bug-fixer
 @remotevase | New Features, Grammar fixer
 @EpicSteve33 | Contributer through Pull Requests
 @erkam2002 | Contributer through Pull Requests
