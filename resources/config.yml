@@ -1,0 +1,11 @@
+---
+# SurvivalGames by ImagicalGamer
+
+# If set "true" only players in the arena will see their chat
+WorldChat: true
+
+Items: []
+
+# Plugin version DO NOT EDIT!
+Version: 1.0
+...
