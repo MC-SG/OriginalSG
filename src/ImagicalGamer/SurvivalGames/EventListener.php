@@ -15,6 +15,12 @@ use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerChatEvent;
 
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityDamageEvent;
+
+use pocketmine\event\block\BlockBreakEvent;
+use pocketmine\event\block\BlockPlaceEvent;
+
 use pocketmine\math\Vector3;
 use pocketmine\level\Position;
 
@@ -60,15 +66,42 @@ class EventListener extends PluginBase implements Listener{
     $player = $event->getPlayer();
     $lvl = $player->getLevel()->getName();
     if($this->plugin->chatFormat() == true){
-      if($this->plugin->getRank($player) == null){
-        $event->setFormat($this->plugin->formatMessage($event->getMessage(), $player));
-      }
-      else{
-      $event->setFormat($this->plugin->formatMessage($event->getMessage(), $player));
-    }
+      $event->setRecipients($lev->getPlayers());
     }
     return;
   }
+
+  public function onDamage(EntityDamageEvent $event){
+    if($event instanceof EntityDamageByEntityEvent){
+      if($event->getEntity() instanceof Player && $event->getDamager() instanceof Player){
+        $nm = $event->getEntity()->getLevel()->getName();
+        if(in_array($nm, $this->plugin->arenas)){
+          if($cfg->get($nm . "StartTime") >= 749){
+            $event->setCancelled();
+          }
+        }
+      }
+    }
+  }
+
+  public function onBreak(BlockBreakEvent $event){
+    $lev = $event->getPlayer()->getLevel()->getName();
+    if(in_array($lev, $this->plugin->arenas)){
+      if(!$event->getPlayer()->hasPermission("sg.action.break")){
+        $event->setCancelled();
+      }
+    }
+  }
+
+  public function onPlace(BlockPlaceEvent $event){
+    $lev = $event->getPlayer()->getLevel()->getName();
+    if(in_array($lev, $this->plugin->arenas)){
+      if(!$event->getPlayer()->hasPermission("sg.action.place")){
+        $event->setCancelled();
+      }
+    }
+  }
+
 
   public function onInteract(PlayerInteractEvent $event){
   	$player = $event->getPlayer();
