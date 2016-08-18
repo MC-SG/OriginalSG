@@ -45,13 +45,13 @@ class RefreshSigns extends PluginTask{
                 $aop = $aop + 1;
                 $game = $this->plugin->joinText;
                 $cfg = new Config($this->plugin->getDataFolder() . "/arenas.yml", Config::YAML);
-                if($cfg->get($text[2] . "PlayTime") != 780){
+                if($cfg->get($txt[2] . "PlayTime") != 780){
                   $game = $this->plugin->runningText;
                 }
                 else if($aop <= 24){
                   $game = $this->Plugin->fullText;
                 }
-                $t->setText($game, C::GREEN . $aop . " / 24", $text[2], $this->plugin->prefix);
+                $t->setText($game, C::GREEN . $aop . " / 24", $txt[2], $this->plugin->prefix);
               }
             }
           }
