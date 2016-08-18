@@ -1,0 +1,20 @@
+name: SurvivalGames
+main: ImagicalGamer\SurvivalGames\Main
+version: 0.0.2
+api: [1.0.0, 2.0.0, 3.0.0]
+author: ImagicalGamer
+permissions:
+  sg.command:
+    default: op
+    children:
+      sg.command.rank:
+        default: op
+      sg.command.create:
+        default: op
+  sg.action:
+    default: op
+    children:
+      sg.action.break:
+        default: op
+      sg.action.place:
+        default: op
