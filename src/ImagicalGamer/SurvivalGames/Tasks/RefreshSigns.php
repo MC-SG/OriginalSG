@@ -12,6 +12,8 @@ use pocketmine\tile\Sign;
 use pocketmine\utils\Config;
 use pocketmine\scheduler\PluginTask;
 
+use pocketmine\utils\TextFormat as C;
+
 /* Copyright (C) ImagicalGamer - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
