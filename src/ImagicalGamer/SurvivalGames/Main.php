@@ -31,14 +31,11 @@ class Main extends PluginBase implements Listener{
   public $format = C::GREEN . "[SG] " . C::RESET . C::GRAY;
   public $current_lev = "";
   public $joinText = C::AQUA . "JOIN";
+  public $runningText = C::RED . "[FULL]";
   public $arenas = array();
 
   public function onEnable(){
     $this->getServer()->getPluginManager()->registerEvents($this ,$this);
-    $this->getServer()->getCommandMap()->register("sg", new SurvivalGamesCommand("sg", $this));
-    $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
-    $this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 20);
-    $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 20);
     if(is_dir($this->getDataFolder())){
       $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
       $cfg->save();
@@ -52,6 +49,10 @@ class Main extends PluginBase implements Listener{
       $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
       $cfg->save();
     }
+    $this->getServer()->getCommandMap()->register("sg", new SurvivalGamesCommand("sg", $this));
+    $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
+    $this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 20);
+    $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 25);
     $this->getLogger()->info(C::GREEN . "Enabled!");
   }
 
@@ -149,7 +150,11 @@ class Main extends PluginBase implements Listener{
 
   public function getDefaultLevel(){
     $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
-    return $this->getServer()->getLevelByName($cfg->get("DefaultWorld"));
+    $lev = $cfg->get("DefaultWorld");
+    if($this->getServer()->getLevelByName($lev) instanceof Level){
+      return $this->getServer()->getLevelByName($lev);
+    }
+    return $this->getServer()->getDefaultLevel();
   }
 
   public function worldChat(){
@@ -158,28 +163,6 @@ class Main extends PluginBase implements Listener{
       return true;
     }
     return;
-  }
-
-  public function chatFormat(){
-    $cfg = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-    if($cfg->get("ChatFormat") == true){
-      return true;
-    }
-    return;
-  }
-
-  public function formatMessage(String $msg, Player $p){
-    $cfg = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-    $rank = $this->getRank($p);
-    if($this->getRank($p) == null){
-      $rank = "[Guest]";
-    }
-    $f = $cfg->get("Format");
-    $fo = str_replace("&", "§", $f);
-    $for = str_replace("{RANK}", $rank, $fo);
-    $form = str_replace("{NAME}", $p->getName(), $for);
-    $format = str_replace("{MSG}", $msg, $form);
-    return $format;
   }
 
   public function refillChests(Level $level){ 
