@@ -35,7 +35,7 @@ use pocketmine\level\Level;
 /* Copyright (C) ImagicalGamer - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
- * Written by Jake C <imagicalgamer@outlook.com>, July 2016
+ * Written by Jake C <imagicalgamer@outlook.com>, August 2016
  */
 
 class EventListener extends PluginBase implements Listener{
@@ -65,7 +65,7 @@ class EventListener extends PluginBase implements Listener{
   public function onChat(PlayerChatEvent $event){
     $player = $event->getPlayer();
     $lvl = $player->getLevel()->getName();
-    if($this->plugin->chatFormat() == true){
+    if($this->plugin->worldChat() == true){
       $event->setRecipients($lev->getPlayers());
     }
     return;
