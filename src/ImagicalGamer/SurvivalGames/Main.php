@@ -72,7 +72,7 @@ class Main extends PluginBase implements Listener{
       $player->sendMessage(C::RED . "Theres already an arena in level " . $lv . "!");
       return false;
     }
-    if(!$this->getServer()->getLevelByName($lv)){
+    if(!file_exists($this->getServer()->getDataPath() . "/worlds/" . $args[1])){
       $player->sendMessage(C::RED . "Level not found");
       return false;
     }
