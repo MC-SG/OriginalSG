@@ -14,7 +14,6 @@ branches:
 # Commands to be run before your environment runs.
 before_script:
   - composer self-update
-  - composer install --prefer-source --no-interaction --dev
 
 # Commands you want to run that will verify your build.
 script: phpunit
@@ -25,7 +24,6 @@ matrix:
   allow_failures:
     - php: 7.0
     - php: hhvm
-  fast_finish: true
 
 # Customize when the notification emails are sent.
 notifications:
