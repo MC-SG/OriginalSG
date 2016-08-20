@@ -37,7 +37,7 @@ class Main extends PluginBase implements Listener{
   public function onEnable(){
     $this->getServer()->getPluginManager()->registerEvents($this ,$this);
     if(is_dir($this->getDataFolder())){
-      $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
+      $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
       $cfg->save();
       $this->getLogger()->info(C::GREEN . "Data Found!");
       $this->refreshArenas();
@@ -46,7 +46,7 @@ class Main extends PluginBase implements Listener{
     else{
       $this->getLogger()->info(C::YELLOW . "Initializing Startup...");
       $this->newStart();
-      $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
+      $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
       $cfg->save();
     }
     $this->getServer()->getCommandMap()->register("sg", new SurvivalGamesCommand("sg", $this));
@@ -90,7 +90,7 @@ class Main extends PluginBase implements Listener{
   }
 
   public function isArena(String $arena){
-    $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     if(in_array($arena, $this->arenas)){
       return true;
     }
@@ -105,20 +105,20 @@ class Main extends PluginBase implements Listener{
   }
 
   public function refresh(String $arena){
-    $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     $cfg->set($arena . "StartTime", 30);
     $cfg->set($arena . "PlayTime", 780);
     $cfg->save();
   }
 
   public function saveData(){
-    $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     $cfg->set("Arenas",$this->arenas);
     $cfg->save();
   }
 
   public function loadArenas(){
-    $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     foreach($cfg->get("Arenas") as $lev)
     {
       array_push($this->arenas, $lev);
@@ -128,7 +128,7 @@ class Main extends PluginBase implements Listener{
   }
 
   public function refreshArenas(){
-    $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     foreach($this->arenas as $arena)
     {
       $cfg->set($arena . "PlayTime", 780);
@@ -138,7 +138,7 @@ class Main extends PluginBase implements Listener{
   }
 
   public function refreshArena(String $arena){
-    $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     $cfg->set($arena . "PlayTime", 780);
     $cfg->set($arena . "StartTime", 60);
     $cfg->save();
@@ -149,7 +149,7 @@ class Main extends PluginBase implements Listener{
     }
 
   public function getDefaultLevel(){
-    $cfg = new Config($this->getDataFolder() . "/arenas.yml", Config::YAML);
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     $lev = $cfg->get("DefaultWorld");
     if($this->getServer()->getLevelByName($lev) instanceof Level){
       return $this->getServer()->getLevelByName($lev);
