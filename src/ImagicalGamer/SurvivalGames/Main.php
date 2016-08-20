@@ -187,8 +187,8 @@ class Main extends PluginBase implements Listener{
             $rand = rand(1,3);
             if($rand==1)
             {
-              $k = array_rand($config->get("chestitems"));
-              $v = $cfg->get("chestitems")[$k];
+              $k = array_rand($config->get("Items"));
+              $v = $cfg->get("Items")[$k];
               $chest->getInventory()->setItem($i, Item::get($v[0],$v[1],$v[2]));
             }
           }
