@@ -1,23 +1,18 @@
-DO NOT DELETE THIS!!!!!
+### Issue description
+<!--- add a description of the issue so we can locate the problem -->
+Write a short description about the issue
 
-Before you make an issue, make sure your issue matches the criteria below
-Once the issue is submitted, PLEASE TICK THE CHECKBOXES BY CLICKING ON THEM! 
-- [ ] This issue isn't duplicated - you can check if it is by using the search bar located at the top left hand corner and select "Issues" on the left.
-- [ ] This issue includes appropriate markdown for sections - e.g. code blocks for crash dumps.
-- [ ] This issue is written in your native language for maximal clarity
-- [ ] This issue does not have abbreveations. Abbreviations make it not understandable.
-- [ ] This issue is for SurvivalGamesV3, and not any other plugin.
-- [ ] This is not a suggestion, but an actual issue<br> <br>
+### Steps to reproduce the issue
+<!--- help us find the problem by adding steps to reproduce the issue -->
+1. ...
+2. ...
 
-NOTE: If it is a suggestion, title it [SUGGESTION] ______
+### OS and versions
+<!--- help us find the problem by adding your OS, PHP version, and SG version (commit #) -->
+* Version:
+* PHP:
+* OS:
 
-If all the checkboxes are checked, congratulations! Fill out the fields below
-! = required
-
-! <--STATE SERVER PROVIDER HERE (EG POCKETMINE, IMAGICALMINE, GENYSIS etc)-->
-
-! <--STATE ISSUE HERE-->
-
-<--PUT ANY CONSOLE ERRORS HERE-->
-
-<--IF CRASH DUMPS ARE AVAILABLE, PASTE THE ENTIRE FILE'S CONTENTS HERE-->
+### Crashdump, backtrace or other files
+<!--- please add any crashdumps, errors, or notices here -->
+* ...
