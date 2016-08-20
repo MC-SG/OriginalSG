@@ -199,7 +199,7 @@ class Main extends PluginBase implements Listener{
 
   public function getVersion(){
     $cfg = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-    return $cfg->get("Version");
+    return (int) $cfg->get("Version");
   }
 
   public function hasUpdate(){
