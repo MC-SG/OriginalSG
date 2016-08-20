@@ -73,6 +73,7 @@ class GameSender extends PluginTask{
                         $this->name = $p->getName();
                         $nm = $this->plugin->getDefaultLevel()->getSafeSpawn();
                         $pos = new Position($nm->getX(), $nm->getY(), $nm->getX(), $this->plugin->getDefaultLevel());
+                        $p->teleport($pos);
                     }
                     foreach($this->plugin->getDefaultLevel()->getPlayers() as $p){
                         $p->sendMessage($this->plugin->format . $this->name . " has won a SurvivalGames match!");
