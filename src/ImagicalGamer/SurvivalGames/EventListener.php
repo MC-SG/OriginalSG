@@ -64,7 +64,7 @@ class EventListener extends PluginBase implements Listener{
 
   public function onChat(PlayerChatEvent $event){
     $player = $event->getPlayer();
-    $lvl = $player->getLevel()->getName();
+    $lvl = $player->getLevel();
     if($this->plugin->worldChat() == true){
       $event->setRecipients($lvl->getPlayers());
     }
