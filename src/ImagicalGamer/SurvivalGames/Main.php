@@ -14,6 +14,7 @@ use pocketmine\utils\TextFormat as C;
 use ImagicalGamer\SurvivalGames\Commands\SurvivalGamesCommand;
 use ImagicalGamer\SurvivalGames\Tasks\RefreshSigns;
 use ImagicalGamer\SurvivalGames\Tasks\GameSender;
+use ImagicalGamer\SurvivalGames\Tasks\Updater\UpdateCheckTask;
 
 use pocketmine\level\Position;
 use pocketmine\utils\Config;
@@ -53,6 +54,7 @@ class Main extends PluginBase implements Listener{
     $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 20);
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 25);
+    $this->getServer()->getScheduler()->scheduleAsyncTask($task = new UpdateCheckTask($this->getVersion()));
     $this->getLogger()->info(C::GREEN . "Enabled!");
   }
 
@@ -62,7 +64,7 @@ class Main extends PluginBase implements Listener{
   }
 
   public function newStart(){
-    @mkdir($this->getDataFolder());
+    @mkdir($this->getDataFolder(), 0777);
     $this->saveResource("/config.yml");
     $this->saveResource("/arenas.yml");
   }
@@ -72,7 +74,7 @@ class Main extends PluginBase implements Listener{
       $player->sendMessage(C::RED . "Theres already an arena in level " . $lv . "!");
       return false;
     }
-    if(!file_exists($this->getServer()->getDataPath() . "/worlds/" . $args[1])){
+    if(!$this->getServer()->getLevelByName($lv)){
       $player->sendMessage(C::RED . "Level not found");
       return false;
     }
