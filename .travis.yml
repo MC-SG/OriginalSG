@@ -7,6 +7,9 @@ sudo: required
 php:
   - 7.0
   - hhvm
+  
+branches:
+  - master
 
 # Commands to be run before your environment runs.
 before_script:
