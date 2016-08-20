@@ -3,8 +3,9 @@ php:
 - 7.0
 branches:
   only:
-  # Set the branches you want built here, as shown below in "master"
     - master
+
+sudo: required
 
 before_script:
 - pecl install channel://pecl.php.net/pthreads-3.1.6
@@ -43,17 +44,15 @@ after_script:
 # VARIABLES NEED TO BE SET BELOW
 env:
  global:
-  - REPO_OWNER="ImagicalGamer" # Building repository owner, e.g. github in github/dmca
-  - REPO_NAME="SurvivalGames" # Building repository name, e.g. dmca in github/dmca
-  - PUSH_REPO_OWNER="ImagicalGamer" # Pushing repository owner, e.g. github in github/push
-  - PUSH_REPO_NAME="SurvivalGames" # Pushing repository name, e.g. push in github/push
-  - PUSH_REPO_USER="ImagicalGamer" # Pushing repository GitHub user, e.g. ImagicalBot
-  - PUSH_REPO_EUSER="imagicalgamer@outlook.com" # Pushing repository GitHub user email, e.g. admin@imagicalmine.net
-  - PUSH_REPO_BRANCH="master" # Pushing repository branch, e.g. gh-pages in github/push(use gh-pages if you want something similiar to http://github.github.io/push)
-  - COMMIT_MESSAGE="Add latest commits!" # Commit message to push built artifacts
-  - DATATP="phar" # Data type of the artifact file, e.g. zip in hello.zip
-  # Don't edit anything below this line unless you know what you're doing
-  - DOWNLOAD_URI="http://$PUSH_REPO_OWNER/$PUSH_REPO_NAME/$REPO_NAME-$TRAVIS_JOB_ID.$DATATP" # Lates download URI for reference
-  - DIRECT_DL_URI="http://$PUSH_REPO_OWNER/$PUSH_REPO_NAME/service-download/$REPO_NAME.$DATATP" # Direct download URI for reference
-  # IMPORTANT:
-# The variable $GITHUB_API_KEY must be set as an environment variable of your project at travis-ci.org/repo-owner-here/repo-name-here/settings to avoid exposing the personal access token of the pushing repository GitHub user being exposed to the console and in the file as plain text.
+  - REPO_OWNER="ImagicalGamer"
+  - REPO_NAME="SurvivalGames"
+  - PUSH_REPO_OWNER="ImagicalGamer"
+  - PUSH_REPO_NAME="SurvivalGames"
+  - PUSH_REPO_USER="ImagicalGamer"
+  - PUSH_REPO_EUSER="imagicalgamer@outlook.com"
+  - PUSH_REPO_BRANCH="master"
+  - COMMIT_MESSAGE="Add latest commits!"
+  - DATATP="phar"
+  - DOWNLOAD_URI="http://$PUSH_REPO_OWNER/$PUSH_REPO_NAME/$REPO_NAME-$TRAVIS_JOB_ID.$DATATP" 
+  - DIRECT_DL_URI="http://$PUSH_REPO_OWNER/$PUSH_REPO_NAME/service-download/$REPO_NAME.$DATATP"
+  
