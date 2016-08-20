@@ -21,7 +21,6 @@ script:
 - cd $REPO_NAME
 - rm -rf .git*
 - cd ../..
-- php TravisTest.php
 
 after_script:
 - cd /home/travis/build
