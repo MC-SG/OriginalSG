@@ -3,6 +3,8 @@ namespace ImagicalGamer\SurvivalGames\Tasks\Updater;
 
 use pocketmine\Server;
 use pocketmine\scheduler\AsyncTask;
+use pocketmine\utils\Utils;
+use pocketmine\utils\TextFormat as C;
 
 use ImagicalGamer\SurvivalGames\Main;
 
@@ -12,28 +14,43 @@ use ImagicalGamer\SurvivalGames\Main;
  * Written by Jake C <imagicalgamer@outlook.com>, August 2016
  */
 
-class UpdateCheckTask extends PluginTask{
+class UpdateCheckTask extends AsyncTask{
 
-  protected $plugin;
+  private $plugin;
 
-  protected $current_version;
+  private $current_version;
 
-  protected $new_version;
+  private $new_version;
 
-  protected $has_update = null;
+  private $has_update;
 
-  public function __construct(Main $plugin, int $version){
-    parent::__construct($plugin);
-
-    $this->plugin = $plugin;
+  public function __construct(int $version){
     $this->current_version = $version;
+    $this->has_update = null;
   }
 
-  public function onRun($tick){
-    
+  public function onRun(){
+    $nversion = Utils::getUrl("https://raw.githubusercontent.com/ImagicalGamer/SurvivalGames/master/resources/version");
+    if($nversion > $this->version){
+      $this->has_update = true;
+    }
+    else if($nversion == $this->version){
+      $this->has_update = false;
+    }
+    else if($nversion < $this->version){
+      $this->has_update = null;
+    }
   }
 
   public function onCompletion(Server $server){
-
+    if($this->has_update == true){
+      $server->getPluginManager()->getPlugin("SurvivalGames")->getLogger()->info(C::YELLOW . "A SurvivalGames Update has been found!");
+    }
+    else if($this->plugin->has_update == false){
+      $server->getPluginManager()->getPlugin("SurvivalGames")->getLogger()->info(C::AQUA . "No updates found! Your using the latest version of SurvivalGames!");
+    }
+    else{
+      $server->getPluginManager()->getPlugin("SurvivalGames")->getLogger()->warning("Invalid SurvivalGames Version!");
+    }
   }
 }
