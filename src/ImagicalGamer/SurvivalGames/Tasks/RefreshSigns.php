@@ -44,7 +44,7 @@ class RefreshSigns extends PluginTask{
               if(in_array($p->getLevel()->getName(), $this->plugin->arenas)){
                 $aop = $aop + 1;
                 $game = $this->plugin->joinText;
-                $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
+                $cfg = new Config($this->plugin->getDataFolder() . "/arenas.json", Config::JSON);
                 if($cfg->get($txt[2] . "PlayTime") != 780){
                   $game = $this->plugin->runningText;
                 }
