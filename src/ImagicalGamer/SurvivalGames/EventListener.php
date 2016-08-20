@@ -51,7 +51,7 @@ class EventListener extends PluginBase implements Listener{
   {
     $player = $event->getPlayer();
     $level = $player->getLevel()->getName();
-    $cfg = new Config($this->plugin->getDataFolder() . "/arenas.yml", Config::YAML);
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     if(in_array($level, $this->plugin->arenas))
     {
       $time = $cfg->get($level . "StartTime");
