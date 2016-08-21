@@ -62,6 +62,15 @@ class EventListener extends PluginBase implements Listener{
     }
   }
 
+  public function onJoin(PlayerJoinEvent $event){
+    $stats = new Config($this->plugin->getDataFolder() . "/stats.json", Config::JSON);
+    $player = strtolower($event->getPlayer()->getName());
+    if(!$stats->exists($player)){
+      $stats->set($player, 0);
+      $stats->save();
+    }
+  }
+
   public function onChat(PlayerChatEvent $event){
     $player = $event->getPlayer();
     $lvl = $player->getLevel();
