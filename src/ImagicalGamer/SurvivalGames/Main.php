@@ -223,7 +223,7 @@ class Main extends PluginBase implements Listener{
     $player = strtolower($player);
     $stats = new Config($this->getDataFolder() . "/stats.json", Config::JSON);
     $stats->reload();
-    if(!($stats->get($player) !== null)){
+    if($stats->exists($player)){
       return "You have " . $stats->get($player) . " SurvivalGames wins!";
     }
     return "You dont have any stats!";
