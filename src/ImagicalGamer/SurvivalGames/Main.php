@@ -12,6 +12,7 @@ use pocketmine\level\Level;
 use pocketmine\utils\TextFormat as C;
 
 use ImagicalGamer\SurvivalGames\Commands\SurvivalGamesCommand;
+use ImagicalGamer\SurvivalGames\Commands\StatsCommand;
 use ImagicalGamer\SurvivalGames\Tasks\RefreshSigns;
 use ImagicalGamer\SurvivalGames\Tasks\GameSender;
 use ImagicalGamer\SurvivalGames\Tasks\Updater\UpdateCheckTask;
@@ -42,7 +43,8 @@ class Main extends PluginBase implements Listener{
       $itm = array(array(261,0,1),array(262,0,2),array(262,0,3),array(267,0,1),array(268,0,1),array(272,0,1),array(276,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1));
       if(empty($cfg->get("Items"))){
         $cfg->set("Items", $itm);
-        $cfg->save();
+       $cfg->save();
+      }
       }
       $cfg->save();
       $this->getLogger()->info(C::GREEN . "Data Found!");
@@ -56,10 +58,14 @@ class Main extends PluginBase implements Listener{
       $cfg->save();
     }
     $this->getServer()->getCommandMap()->register("sg", new SurvivalGamesCommand("sg", $this));
+    $this->getServer()->getCommandMap()->register("sg", new StatsCommand("sg", $this));
     $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 20);
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 25);
+    $cfg = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
+    if($cfg->get("EnableUpdating") == true){
     $this->getServer()->getScheduler()->scheduleAsyncTask($task = new UpdateCheckTask($this->getVersion()));
+    }
     $this->getLogger()->info(C::GREEN . "Enabled!");
   }
 
@@ -122,6 +128,13 @@ class Main extends PluginBase implements Listener{
     $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     $cfg->set("Arenas",$this->arenas);
     $cfg->save();
+  }
+
+  public function setVersion(int $version){
+    $cfg = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
+    $cfg->set("Version", $version);
+    $cfg->save();
+    $cfg->reload();
   }
 
   public function loadArenas(){
@@ -204,5 +217,31 @@ class Main extends PluginBase implements Listener{
 
   public function hasUpdate(){
     return;
+  }
+
+  public function getPlayerStats(String $player){
+    $player = strtolower($player);
+    $stats = new Config($this->getDataFolder() . "/stats.json", Config::JSON);
+    $stats->reload();
+    if(!($stats->get($player) !== null)){
+      return "You have " . $stats->get($player) . " SurvivalGames wins!";
+    }
+    return "You dont have any stats!";
+  }
+
+  public function addPlayerWin(String $player){
+    $player = strtolower($player);
+    $stats = new Config($this->getDataFolder() . "/stats.json", Config::JSON);
+    $stats->reload();
+    $current = $stats->get($player);
+    $stats->set($player, $current + 1);
+    $stats->save();
+    $stats->reload();
+  }
+
+  public function getAllStats(){
+    $stats = new Config($this->getDataFolder() . "/stats.json", Config::JSON);
+    $stats->reload();
+    return $stats->getAll();
   }
 }
