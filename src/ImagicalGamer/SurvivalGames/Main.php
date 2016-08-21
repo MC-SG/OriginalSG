@@ -36,15 +36,14 @@ class Main extends PluginBase implements Listener{
   public $runningText = C::RED . "[FULL]";
   public $arenas = array();
 
-  public function onEnable(){
+    public function onEnable(){
     $this->getServer()->getPluginManager()->registerEvents($this ,$this);
     if(is_dir($this->getDataFolder())){
       $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
       $itm = array(array(261,0,1),array(262,0,2),array(262,0,3),array(267,0,1),array(268,0,1),array(272,0,1),array(276,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1));
       if(empty($cfg->get("Items"))){
         $cfg->set("Items", $itm);
-       $cfg->save();
-      }
+        $cfg->save();
       }
       $cfg->save();
       $this->getLogger()->info(C::GREEN . "Data Found!");
@@ -62,10 +61,7 @@ class Main extends PluginBase implements Listener{
     $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 20);
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 25);
-    $cfg = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-    if($cfg->get("EnableUpdating") == true){
     $this->getServer()->getScheduler()->scheduleAsyncTask($task = new UpdateCheckTask($this->getVersion()));
-    }
     $this->getLogger()->info(C::GREEN . "Enabled!");
   }
 
