@@ -20,6 +20,7 @@ use ImagicalGamer\SurvivalGames\Tasks\Updater\UpdateCheckTask;
 use pocketmine\level\Position;
 use pocketmine\utils\Config;
 
+use pocketmine\tile\Chest;
 /* Copyright (C) ImagicalGamer - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
@@ -32,8 +33,9 @@ class Main extends PluginBase implements Listener{
   public $prefix = C::GREEN . "[SG] " . C::RESET . C::GRAY;
   public $format = C::GREEN . "[SG] " . C::RESET . C::GRAY;
   public $current_lev = "";
-  public $joinText = C::AQUA . "JOIN";
-  public $runningText = C::RED . "[FULL]";
+  public $joinText = C::AQUA . "[JOIN]";
+  public $fullText = C::RED . "[Full]";  
+  public $runningText = C::RED . "[Running]";
   public $arenas = array();
 
     public function onEnable(){
@@ -92,6 +94,7 @@ class Main extends PluginBase implements Listener{
     $player->setGamemode(1);
     $player->sendMessage($this->prefix . "Your about to register an arena! Tap a block to set a spawn!");
     $this->mode = 1;
+    return false;
   }
 
   public function minPlayer(){
@@ -178,7 +181,7 @@ class Main extends PluginBase implements Listener{
     if($cfg->get("WorldChat") == true){
       return true;
     }
-    return;
+    return true;
   }
 
   public function refillChests(Level $level){ 
@@ -196,7 +199,7 @@ class Main extends PluginBase implements Listener{
             $rand = rand(1,3);
             if($rand==1)
             {
-              $k = array_rand($config->get("Items"));
+              $k = array_rand($cfg->get("Items"));
               $v = $cfg->get("Items")[$k];
               $chest->getInventory()->setItem($i, Item::get($v[0],$v[1],$v[2]));
             }

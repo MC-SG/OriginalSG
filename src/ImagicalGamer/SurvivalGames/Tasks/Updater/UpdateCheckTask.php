@@ -30,7 +30,7 @@ class UpdateCheckTask extends AsyncTask{
   }
 
   public function onRun(){
-    $nversion = Utils::getUrl("https://raw.githubusercontent.com/ImagicalGamer/SurvivalGames/master/resources/version");
+    $nversion = Utils::getURL("https://raw.githubusercontent.com/ImagicalGamer/SurvivalGames/master/resources/version");
     if($nversion > $this->version){
       $this->has_update = true;
     }
