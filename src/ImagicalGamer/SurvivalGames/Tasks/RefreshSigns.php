@@ -49,7 +49,7 @@ class RefreshSigns extends PluginTask{
                   $game = $this->plugin->runningText;
                 }
                 else if($aop <= 24){
-                  $game = $this->Plugin->fullText;
+                  $game = $this->plugin->fullText;
                 }
                 $t->setText($game, C::GREEN . $aop . " / 24", $txt[2], $this->plugin->prefix);
               }

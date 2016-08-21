@@ -7,8 +7,6 @@ use ImagicalGamer\SurvivalGames\Tasks\Stats\TopStatsTask;
 use pocketmine\Player;
 use pocketmine\command\CommandSender;
 
-use pocketmine\utils\TextFormat as C;
-
 class StatsCommand extends BaseCommand{
 
     private $plugin;
