@@ -34,8 +34,8 @@ class Main extends PluginBase implements Listener{
   public $format = C::GREEN . "[SG] " . C::RESET . C::GRAY;
   public $current_lev = "";
   public $joinText = C::AQUA . "[JOIN]";
-  public $fullText = C::RED . "[Full]";  
-  public $runningText = C::RED . "[Running]";
+  //public $fullText = C::RED . "[Full]"; = Revert this 
+  public $runningText = C::RED . "[Full]"; // Why is this running? on RefreshSign.php. $fullText is not used -.-
   public $arenas = array();
 
     public function onEnable(){
@@ -98,7 +98,7 @@ class Main extends PluginBase implements Listener{
   }
 
   public function minPlayer(){
-    return 2;
+    return 1;
   }
 
   public function isArena(String $arena){
