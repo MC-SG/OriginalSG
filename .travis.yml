@@ -48,6 +48,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+    allbranches: true
 
 env:
  global:
