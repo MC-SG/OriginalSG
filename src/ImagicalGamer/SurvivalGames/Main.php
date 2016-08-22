@@ -42,7 +42,7 @@ class Main extends PluginBase implements Listener{
     $this->getServer()->getPluginManager()->registerEvents($this ,$this);
     if(is_dir($this->getDataFolder())){
       $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
-      $cfg2 = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
+      $cfg2 = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
       $itm = array(array(261,0,1),array(262,0,2),array(262,0,3),array(267,0,1),array(268,0,1),array(272,0,1),array(276,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1));
       if(empty($cfg2->get("Items"))){
         $cfg2->set("Items", $itm);
