@@ -41,6 +41,14 @@ after_script:
 - git commit -am "$COMMIT_MESSAGE"
 - git push https://$PUSH_REPO_USER:$GITHUB_API_KEY@github.com/$PUSH_REPO_OWNER/$PUSH_REPO_NAME $PUSH_REPO_BRANCH &>secret
 
+deploy:
+  provider: releases
+  api_key: "dbbe089e5256ba5cee28ce8579c1cbdab6dc2207"
+  file: "$REPO_NAME-$TRAVIS_JOB_ID.phar"
+  skip_cleanup: true
+  on:
+    tags: true
+
 # VARIABLES NEED TO BE SET BELOW
 env:
  global:
