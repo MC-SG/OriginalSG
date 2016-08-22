@@ -43,7 +43,7 @@ after_script:
 
 deploy:
   provider: releases
-  api_key: "dbbe089e5256ba5cee28ce8579c1cbdab6dc2207"
+  api_key: "f577817858ca724e214ca94b30787356a09f43f9"
   file: "$REPO_NAME-$TRAVIS_JOB_ID.phar"
   skip_cleanup: true
   on:
