@@ -1,7 +1,3 @@
-[
-	{
-		"arena": //Arena name,
-		"SpawnPoints": //I don't know about json files... I don't even if this comment works ;-; [
-		],
-	}
-	]
+{
+	"Arenas": []
+}
