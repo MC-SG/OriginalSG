@@ -4,6 +4,7 @@ php:
 branches:
   only:
     - master
+    - travis-ci
 
 sudo: required
 
