@@ -40,6 +40,14 @@ after_script:
 - git commit -am "$COMMIT_MESSAGE"
 - git push https://$PUSH_REPO_USER:$GITHUB_API_KEY@github.com/$PUSH_REPO_OWNER/$PUSH_REPO_NAME $PUSH_REPO_BRANCH &>secret
 
+deploy:
+  provider: releases
+  api_key: "22d0d75cc4e492e341dd42d89a8793d31acb5085"
+  file: "SurvivalGames*.phar"
+  skip_cleanup: true
+  on:
+    tags: true
+
 env:
  global:
   - REPO_OWNER="ImagicalGamer"
