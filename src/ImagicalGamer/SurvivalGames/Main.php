@@ -98,7 +98,7 @@ class Main extends PluginBase implements Listener{
   }
 
   public function minPlayer(){
-    return 1;
+    return 2;
   }
 
   public function isArena(String $arena){
