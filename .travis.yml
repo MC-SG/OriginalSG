@@ -47,7 +47,7 @@ deploy:
   file: "SurvivalGames*.phar"
   skip_cleanup: true
   on:
-    tags: true
+    tags: false
     allbranches: true
 
 env:
