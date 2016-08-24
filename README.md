@@ -15,16 +15,12 @@ SurvivalGames is a light minigame plugin built for PocketMine-MP (and all PHP7 a
 `# SurvivalGames by ImagicalGamer`
 
 `Prefix: '§7[§aSG§7]'`
-
 `# If set "true" only players in the arena will see their chat`
-
 `WorldChat: true`
-
+` `
 `Items: []`
-
-
+` `
 `# Plugin version DO NOT EDIT!`
-
 `Version: 1.0`
 
 ##Contributers
