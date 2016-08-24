@@ -180,10 +180,7 @@ class Main extends PluginBase implements Listener{
 
   public function worldChat(){
     $cfg = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-    if($cfg->get("WorldChat") == true){
-      return true;
-    }
-    return true;
+    return $cfg->get("WorldChat");
   }
 
   public function refillChests(Level $level){ 
