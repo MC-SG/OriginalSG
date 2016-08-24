@@ -1,6 +1,6 @@
 ---
 # SurvivalGames by ImagicalGamer
-
+Prefix: '§7[§aSG§7]'
 # If set "true" only players in the arena will see their chat
 WorldChat: true
 

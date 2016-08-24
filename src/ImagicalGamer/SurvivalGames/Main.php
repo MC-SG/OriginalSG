@@ -30,12 +30,11 @@ use pocketmine\tile\Chest;
 class Main extends PluginBase implements Listener{
 
   public $mode = 0;
-  public $prefix = C::GREEN . "[SG] " . C::RESET . C::GRAY;
-  public $format = C::GREEN . "[SG] " . C::RESET . C::GRAY;
+  public $prefix;
+  public $format;
   public $current_lev = "";
   public $joinText = C::AQUA . "[JOIN]";
-  //public $fullText = C::RED . "[Full]"; = Revert this 
-  public $runningText = C::RED . "[Full]"; // Why is this running? on RefreshSign.php. $fullText is not used -.-
+  public $runningText = C::RED . "[Full]";
   public $arenas = array();
 
     public function onEnable(){
@@ -50,6 +49,8 @@ class Main extends PluginBase implements Listener{
       }
       $cfg->save();
       $this->getLogger()->info(C::GREEN . "Data Found!");
+      $this->prefix = $cfg2->get('Prefix') . " ";
+      $this->format = $cfg2->get('Prefix') . " ";
       $this->refreshArenas();
       $this->loadArenas();
     }
