@@ -61,6 +61,10 @@ class Main extends PluginBase implements Listener{
       $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
       $cfg->save();
     }
+    if(!is_writeable($this->getDataFolder() . "/arenas.json")){
+      $this->getLogger()->error("Cannot write to file 'arenas.json' please insure that the files permission level is '1777'... Disabling plugin");
+      return;
+    }
     $this->getServer()->getCommandMap()->register("sg", new SurvivalGamesCommand("sg", $this));
     $this->getServer()->getCommandMap()->register("sg", new StatsCommand("sg", $this));
     $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
