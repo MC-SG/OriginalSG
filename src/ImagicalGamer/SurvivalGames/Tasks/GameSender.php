@@ -34,6 +34,7 @@ class GameSender extends PluginTask{
 
   public function onRun($tick){
     $cfg = new Config($this->plugin->getDataFolder() . "/arenas.json", Config::JSON);
+    chmod($this->plugin->getDataFolder() . "/arenas.json", 0777);
     $arenas = $this->plugin->arenas;
     foreach($arenas as $a){
         $lev = $this->plugin->getServer()->getLevelByName($a);
