@@ -45,7 +45,7 @@ class Main extends PluginBase implements Listener{
     $this->saveResource("/arenas.json");
     chmod("/arenas.json",0777);
     @mkdir($this->getDataFolder());
-    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON, $default = ["Arenas" => []]);
     chmod("/arenas.json",0777);
     $cfg2 = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
     $itm = array(array(261,0,1),array(262,0,2),array(262,0,3),array(267,0,1),array(268,0,1),array(272,0,1),array(276,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1));
