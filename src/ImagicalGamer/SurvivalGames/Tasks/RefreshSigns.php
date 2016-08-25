@@ -17,7 +17,7 @@ use pocketmine\utils\TextFormat as C;
 /* Copyright (C) ImagicalGamer - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
- * Written by Jake C <imagicalgamer@outlook.com>, July 2016
+ * Written by Jake C <imagicalgamer@outlook.com>, August 2016
  */
 
 class RefreshSigns extends PluginTask{
@@ -49,7 +49,7 @@ class RefreshSigns extends PluginTask{
                   $game = $this->plugin->runningText;
                 }
                 else if($aop <= 24){
-                  $game = $this->plugin->fullText;
+                  $game = $this->plugin->runningText;
                 }
                 $t->setText($game, C::GREEN . $aop . " / 24", $txt[2], $this->plugin->prefix);
               }
