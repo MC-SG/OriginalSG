@@ -67,8 +67,6 @@ class Main extends PluginBase implements Listener{
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 20);
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 25);
     $this->getServer()->getScheduler()->scheduleAsyncTask($task = new UpdateCheckTask($this->getVersion()));
-    chmod($this->getDataFolder() . "/arenas.json", 777);
-    chmod($this->getDataFolder(), 777);
     $this->getLogger()->info(C::GREEN . "Enabled!");
   }
 
@@ -78,7 +76,7 @@ class Main extends PluginBase implements Listener{
   }
 
   public function newStart(){
-    @mkdir($this->getDataFolder(), 0777);
+    @mkdir($this->getDataFolder(), 1777);
     $this->saveResource("/config.yml");
     $this->saveResource("/arenas.yml");
   }
