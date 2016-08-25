@@ -21,10 +21,11 @@ use pocketmine\level\Position;
 use pocketmine\utils\Config;
 
 use pocketmine\tile\Chest;
+
 /* Copyright (C) ImagicalGamer - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
- * Written by Jake C <imagicalgamer@outlook.com>, July 2016
+ * Written by Jake C <imagicalgamer@outlook.com>, August 2016
  */
 
 class Main extends PluginBase implements Listener{
@@ -66,6 +67,8 @@ class Main extends PluginBase implements Listener{
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new RefreshSigns($this), 20);
     $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameSender($this), 25);
     $this->getServer()->getScheduler()->scheduleAsyncTask($task = new UpdateCheckTask($this->getVersion()));
+    chmod($this->getDataFolder() . "/arenas.json", 777);
+    chmod($this->getDataFolder(), 777);
     $this->getLogger()->info(C::GREEN . "Enabled!");
   }
 
