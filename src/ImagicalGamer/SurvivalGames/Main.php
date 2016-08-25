@@ -40,27 +40,21 @@ class Main extends PluginBase implements Listener{
 
     public function onEnable(){
     $this->getServer()->getPluginManager()->registerEvents($this ,$this);
-    if(is_dir($this->getDataFolder())){
-      $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
-      $cfg2 = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
-      $itm = array(array(261,0,1),array(262,0,2),array(262,0,3),array(267,0,1),array(268,0,1),array(272,0,1),array(276,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1));
-      if(empty($cfg2->get("Items"))){
-        $cfg2->set("Items", $itm);
-        $cfg2->save();
-      }
-      $cfg->save();
-      $this->getLogger()->info(C::GREEN . "Data Found!");
-      $this->prefix = $cfg2->get('Prefix') . " ";
-      $this->format = $cfg2->get('Prefix') . " ";
-      $this->refreshArenas();
-      $this->loadArenas();
+    $this->saveResource("/config.yml");
+    $this->saveResource("/arenas.yml");
+    @mkdir($this->getDataFolder());
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
+    $cfg2 = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
+    $itm = array(array(261,0,1),array(262,0,2),array(262,0,3),array(267,0,1),array(268,0,1),array(272,0,1),array(276,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1));
+    if(empty($cfg2->get("Items"))){
+      $cfg2->set("Items", $itm);
+      $cfg2->save();
     }
-    else{
-      $this->getLogger()->info(C::YELLOW . "Initializing Startup...");
-      $this->newStart();
-      $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
-      $cfg->save();
-    }
+    $cfg->save();
+    $this->prefix = $cfg2->get('Prefix') . " ";
+    $this->format = $cfg2->get('Prefix') . " ";
+    $this->refreshArenas();
+    $this->loadArenas();
     if(!is_writeable($this->getDataFolder() . "/arenas.json")){
       $this->getLogger()->error("Cannot write to file 'arenas.json' please insure that the files permission level is '1777'... Disabling plugin");
       return;
@@ -77,12 +71,6 @@ class Main extends PluginBase implements Listener{
   public function onDisable(){
     $this->refreshArenas();
     $this->saveData();
-  }
-
-  public function newStart(){
-    @mkdir($this->getDataFolder(), 1777);
-    $this->saveResource("/config.yml");
-    $this->saveResource("/arenas.yml");
   }
 
   public function newArena(Player $player, String $lv){
