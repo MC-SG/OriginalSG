@@ -41,7 +41,7 @@ class Main extends PluginBase implements Listener{
     public function onEnable(){
     $this->getServer()->getPluginManager()->registerEvents($this ,$this);
     $this->saveResource("/config.yml");
-    $this->saveResource("/arenas.yml");
+    $this->saveResource("/arenas.json");
     @mkdir($this->getDataFolder());
     $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     $cfg2 = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
@@ -146,7 +146,7 @@ class Main extends PluginBase implements Listener{
     foreach($this->arenas as $arena)
     {
       $cfg->set($arena . "PlayTime", 780);
-      $cfg->set($arena . "StartTime", 60);
+      $cfg->set($arena . "StartTime", 30);
     }
     $cfg->save();
   }
@@ -154,7 +154,7 @@ class Main extends PluginBase implements Listener{
   public function refreshArena(String $arena){
     $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
     $cfg->set($arena . "PlayTime", 780);
-    $cfg->set($arena . "StartTime", 60);
+    $cfg->set($arena . "StartTime", 30);
     $cfg->save();
   }
 
