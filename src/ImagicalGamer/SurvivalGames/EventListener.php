@@ -11,6 +11,7 @@ use ImagicalGamer\SurvivalGames\Main;
 
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerChatEvent;
@@ -59,6 +60,15 @@ class EventListener extends PluginBase implements Listener{
       {
         $event->setCancelled(true);
       }
+    }
+  }
+  
+  public function onQuit(PlayerQuitEvent $event){
+    $player = $event->getPlayer();
+    $level = $player->getLevel()->getName();
+    if(in_array($level, $this->plugin->arenas)){
+    	$pos = $this->plugin->getDefaultLevel()->getSafeSpawn();
+    	$player->teleport($pos);
     }
   }
 
