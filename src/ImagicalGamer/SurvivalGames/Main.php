@@ -25,7 +25,7 @@ use pocketmine\tile\Chest;
 /* Copyright (C) ImagicalGamer - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
- * Written by Jake C <imagicalgamer@outlook.com>, August 2016
+ * Written by Jake C <imagicalgamer@outlook.com>, September 2016
  */
 
 class Main extends PluginBase implements Listener{
@@ -41,7 +41,7 @@ class Main extends PluginBase implements Listener{
     public function onEnable(){
     chmod("/arenas.json",0777);
     $this->getServer()->getPluginManager()->registerEvents($this ,$this);
-    $this->saveResource("/config.yml");
+    $this->saveDefaultConfig();
     $this->saveResource("/arenas.json");
     chmod("/arenas.json",0777);
     @mkdir($this->getDataFolder());
