@@ -23,12 +23,14 @@ class StatsCommand extends BaseCommand{
                 $this->plugin->getServer()->getScheduler()->scheduleAsyncTask($task = new TopStatsTask($sender->getName(), 10));
                 return;
             }
-            if($args[0] == "mystats"){
+            else if($args[0] == "mystats"){
                 $sender->sendMessage($this->plugin->getPlayerStats($sender->getName()));
                 return;
             }
-            $sender->sendMessage("Usage: /sgstats <mystats|top>");
-            return;
+            else{
+                $sender->sendMessage("Usage: /sgstats <mystats|top>");
+                return;
+            }
         }
         $sender->sendMessage("Usage: /sgstats <mystats|top>");
         return;
