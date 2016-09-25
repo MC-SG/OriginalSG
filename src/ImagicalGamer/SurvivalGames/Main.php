@@ -1,4 +1,5 @@
 <?php
+
 namespace ImagicalGamer\SurvivalGames;
 
 use pocketmine\event\Listener;
@@ -34,8 +35,8 @@ class Main extends PluginBase implements Listener{
   public $prefix;
   public $format;
   public $current_lev = "";
-  public $joinText = C::AQUA . "[JOIN]";
-  public $runningText = C::RED . "[Full]";
+  public $joinText = C::GRAY . "[". C::AQUA . "JOIN". C::AQUA ."]";
+  public $runningText = C::GRAY . "[". C::RED ."Full". C::GRAY ."]";
   public $arenas = array();
 
     public function onEnable(){
