@@ -35,7 +35,7 @@ class Main extends PluginBase implements Listener{
   public $prefix;
   public $format;
   public $current_lev = "";
-  public $joinText = C::GRAY . "[". C::AQUA . "JOIN". C::AQUA ."]";
+  public $joinText = C::GRAY . "[". C::AQUA . "JOIN". C::GRAY ."]";
   public $runningText = C::GRAY . "[". C::RED ."Full". C::GRAY ."]";
   public $arenas = array();
 
