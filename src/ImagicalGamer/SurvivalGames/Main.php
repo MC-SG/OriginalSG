@@ -42,8 +42,10 @@ class Main extends PluginBase implements Listener{
   public function onLoad(){
     @mkdir($this->getDataFolder(), 0777);
     $this->saveDefaultConfig();
-    if(!file_exists($this->getDataFolder() . "/arenas.json"){
-      file_set_contents($this->getDataFolder() . "arenas.json", "");
+    if(!file_exists($this->getDataFolder() . "/arenas.json")){
+      $file = fopen($this->getDataFolder() . "/arenas.json", 'w');
+      fclose($file);
+    }
   }
 
   public function onEnable(){
