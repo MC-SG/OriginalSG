@@ -38,16 +38,21 @@ class Main extends PluginBase implements Listener{
   public $joinText = C::GRAY . "[". C::AQUA . "JOIN". C::GRAY ."]";
   public $runningText = C::GRAY . "[". C::RED ."Full". C::GRAY ."]";
   public $arenas = array();
-
-    public function onEnable(){
-    chmod("/arenas.json",0777);
-    $this->getServer()->getPluginManager()->registerEvents($this ,$this);
+  
+  public function onLoad(){
+    @mkdir($this->getDataFolder(), 0777);
     $this->saveDefaultConfig();
-    $this->saveResource("/arenas.json");
-    chmod("/arenas.json",0777);
-    @mkdir($this->getDataFolder());
-    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON, $default = ["Arenas" => []]);
-    chmod("/arenas.json",0777);
+    if(!file_exists($this->getDataFolder() . "/arenas.json"){
+      file_set_contents($this->getDataFolder() . "arenas.json", "");
+  }
+
+  public function onEnable(){
+    $this->getServer()->getPluginManager()->registerEvents($this ,$this);
+    $cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
+    if($cfg->get("Arenas") == null){
+      $cfg->set("Arenas", []);
+      $cfg->save();
+    }
     $cfg2 = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
     $itm = array(array(261,0,1),array(262,0,2),array(262,0,3),array(267,0,1),array(268,0,1),array(272,0,1),array(276,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1),array(283,0,1));
     if(empty($cfg2->get("Items"))){
@@ -74,9 +79,7 @@ class Main extends PluginBase implements Listener{
 
   public function onDisable(){
     $this->refreshArenas();
-    chmod("/arenas.json",0777);
     $this->saveData();
-    chmod("/arenas.json",0777);
   }
 
   public function newArena(Player $player, String $lv){
