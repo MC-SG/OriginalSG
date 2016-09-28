@@ -155,7 +155,7 @@ class EventListener extends PluginBase implements Listener{
       }
     }
   			else if($this->plugin->mode >= 1 && $this->plugin->mode <= 24){
-  				$cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
+  				$cfg = new Config($this->plugin->getDataFolder() . "/arenas.json", Config::JSON);
 			    $cfg->set($this->plugin->current_lev . "Spawn" . $this->plugin->mode, array($blk->getX(),$blk->getY()+1,$blk->getZ()));
 			    $player->sendMessage($this->plugin->prefix . "Spawn " . $this->plugin->mode . " has been registered!");
 			    $this->plugin->mode++;
@@ -165,7 +165,7 @@ class EventListener extends PluginBase implements Listener{
 			    $cfg->save();
   			}
   			else if($this->plugin->mode == 25){
-  				$cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
+  				$cfg = new Config($this->plugin->getDataFolder() . "/arenas.json", Config::JSON);
 			    $cfg->set($this->plugin->current_lev . "DeathMatch", array($blk->getX(),$blk->getY()+1,$blk->getZ()));
 			    $spawn = $this->plugin->getServer()->getDefaultLevel()->getSafeSpawn();
 			    $this->plugin->getServer()->getDefaultLevel()->loadChunk($spawn->getFloorX(), $spawn->getFloorZ());
