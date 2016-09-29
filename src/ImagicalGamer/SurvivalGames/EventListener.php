@@ -1,4 +1,4 @@
-<?php
+-<?php
 namespace ImagicalGamer\SurvivalGames;
 
 use pocketmine\event\Listener;
@@ -91,7 +91,7 @@ class EventListener extends PluginBase implements Listener{
   }
 
   public function onDamage(EntityDamageEvent $event){
-      $cfg = new Config($this->getDataFolder() . "/config.yml", Config::YAML);
+      $cfg = new Config($this->plugin->getDatFolder() . "/config.yml", Config::YAML);
     if($event instanceof EntityDamageByEntityEvent){
       if($event->getEntity() instanceof Player && $event->getDamager() instanceof Player){
         $nm = $event->getEntity()->getLevel()->getName();
@@ -139,7 +139,7 @@ class EventListener extends PluginBase implements Listener{
   			$txt = $tile->getText();
   			if($txt[0] == $this->plugin->joinText){
   				if($txt[3] == $this->plugin->prefix){
-  				$cfg = new Config($this->getDataFolder() . "/arenas.json", Config::JSON);
+  				$cfg = new Config($this->plugin->getDataFolder() . "/arenas.json", Config::JSON);
   				$level = $this->plugin->getServer()->getLevelByName($txt[2]);
 					$aop = count($level->getPlayers());
 					$thespawn = $cfg->get($txt[2] . "Spawn" . ($aop+1));
