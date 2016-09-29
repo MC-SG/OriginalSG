@@ -59,6 +59,18 @@ class GameSender extends PluginTask{
                     foreach($lev->getPlayers() as $p){
                         $p->sendMessage($this->plugin->format . "Starting in " . $tts . "...");
                     }
+                if($tts == 60 || $tts == 54 || $tts == 42 || $tts == 35 || $tts == 28 || $tts == 18){
+                    foreach($lev->getPlayers() as $p){
+                    $input = array("Gather items to fight with from the chests", "Chests are spread throughout the map",
+                    "Teaming is a good idea.", 
+                    "Hungry in game? Chests have food, Hugry Irl? There's food in the fridge",
+                    "Trade up armor if you can", 
+                    "Go for the chests in the center",
+                    "You'll have a better chance to succeed if", "you plan which chests you want to get now",
+                    "Plan now which chest to go for."); 
+                    $messages = array_rand($input);
+                        $p->sendMessage(C::GRAY .$input[$messages]);
+                 }
                 }
             }
             else if($tts <= 0 && $tm > 180){
@@ -120,6 +132,7 @@ class GameSender extends PluginTask{
                         $pos = new Position($nm->getX(), $nm->getY(), $nm->getX(), $this->plugin->getDefaultLevel());
                     }
                     $this->plugin->refreshArena($a);
+                  }
                 } 
             }
         }
