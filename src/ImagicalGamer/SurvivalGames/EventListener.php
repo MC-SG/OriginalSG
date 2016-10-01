@@ -1,4 +1,4 @@
--<?php
+<?php
 namespace ImagicalGamer\SurvivalGames;
 
 use pocketmine\event\Listener;
