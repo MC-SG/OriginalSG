@@ -91,7 +91,7 @@ class EventListener extends PluginBase implements Listener{
   }
 
   public function onDamage(EntityDamageEvent $event){
-      $cfg = new Config($this->plugin->getDatFolder() . "/config.yml", Config::YAML);
+      $cfg = new Config($this->plugin->getDataFolder() . "/config.yml", Config::YAML);
     if($event instanceof EntityDamageByEntityEvent){
       if($event->getEntity() instanceof Player && $event->getDamager() instanceof Player){
         $nm = $event->getEntity()->getLevel()->getName();
