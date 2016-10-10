@@ -10,6 +10,15 @@ SurvivalGames is a light minigame plugin built for PocketMine-MP (and all PHP7 a
 | :-: | :---------: | :---------------: | :---------: |
 | /sg create | `<levName>` | Create a SurvivalGames arena! |
 
+##Compatibility
+| Software | Tested? | Compatible? |
+| :-: | :--------: | :-----: |
+| PocketMine | No | Probably
+| ClearSky | Yes | Yes |
+| ImagicalMine | Yes | Yes |
+| Genysis | Yes | No |
+| Nukkit | No | Definitely No |
+
 ##Config
 
 ```yaml
