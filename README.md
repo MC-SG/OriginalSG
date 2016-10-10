@@ -13,11 +13,10 @@ SurvivalGames is a light minigame plugin built for PocketMine-MP (and all PHP7 a
 ##Compatibility
 | Software | Tested? | Compatible? |
 | :-: | :--------: | :-----: |
-| PocketMine | No | Probably
+| PocketMine | No | No
 | ClearSky | Yes | Yes |
 | ImagicalMine | Yes | Yes |
-| Genysis | Yes | No |
-| Nukkit | No | Definitely No |
+| Genisys | Yes | No |
 
 ##Config
 
