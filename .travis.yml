@@ -53,11 +53,11 @@ after_script:
 env:
  global:
   - REPO_OWNER="ImagicalGamer"
-  - REPO_NAME="SurvivalGames"
-  - PUSH_REPO_OWNER="ImagicalGamer"
-  - PUSH_REPO_NAME="SurvivalGames"
-  - PUSH_REPO_USER="ImagicalGamer"
-  - PUSH_REPO_EUSER="imagicalgamer@outlook.com"
+  - REPO_NAME="OriginalSG"
+  - PUSH_REPO_OWNER="remotevase"
+  - PUSH_REPO_NAME="OriginalSG"
+  - PUSH_REPO_USER="remotevase"
+  - PUSH_REPO_EUSER="web.articlerequests@gmail.com"
   - PUSH_REPO_BRANCH="master"
   - COMMIT_MESSAGE="Add latest commits!"
   - DATATP="phar"
