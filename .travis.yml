@@ -24,22 +24,6 @@ script:
 - rm -rf .git*
 - cd ../..
 
-after_script:
-- cd /home/travis/build
-- git config --global user.email "$PUSH_REPO_ESUER"
-- git config --global user.name "$PUSH_REPO_USER"
-- git clone --branch=$PUSH_REPO_BRANCH https://github.com/$PUSH_REPO_OWNER/$PUSH_REPO_NAME
-- cp /home/travis/build/artifacts/plugins/ImagicalDevTools//$REPO_NAME* /home/travis/build/$PUSH_REPO_NAME/$REPO_NAME-$TRAVIS_JOB_ID.phar
-- cp /home/travis/build/artifacts/plugins/ImagicalDevTools//$REPO_NAME* /home/travis/build/$PUSH_REPO_NAME/service-download/$REPO_NAME.phar
-- cd /home/travis/build/$PUSH_REPO_NAME
-- git add $REPO_NAME-$TRAVIS_JOB_ID.phar
-- git add service-download/$REPO_NAME.phar
-- ls > list.txt
-- echo >> list.txt
-- echo "This is a directory listing of the root directory of the $REPO_NAME release download website. Copy the file name and paste it in the URL bar after deleting \"list.txt\". You can also alternatively download files using a shell script by downloading the file from $DIRECT_DL_URI. The download link for the latest plugin build is $DOWNLOAD_URI" >> list.txt
-- git add list.txt
-- git commit -am "$COMMIT_MESSAGE"
-- git push https://$PUSH_REPO_USER:$GITHUB_API_KEY@github.com/$PUSH_REPO_OWNER/$PUSH_REPO_NAME $PUSH_REPO_BRANCH &>secret
 
 #deploy:
   #provider: releases
