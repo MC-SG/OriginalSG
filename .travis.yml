@@ -23,7 +23,7 @@ script:
 - cd $REPO_NAME
 - rm -rf .git*
 - cd ../..
-- - php Travis.php
+- php Travis.php
 
 
 #deploy:
