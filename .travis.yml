@@ -47,14 +47,14 @@ after_success:
 #Then, create an environment variable called "GITHUB_API_KEY" and hit create. The value field should be empty.
 #Thats all! Google is very helpful sometimes
 
-#deploy:
-  #provider: releases
-  #api_key: "22d0d75cc4e492e341dd42d89a8793d31acb5085"
-  #file: "SurvivalGames*.phar"
-  #skip_cleanup: true
-  #on:
-    #tags: false
-    #allbranches: true
+deploy:
+  provider: releases
+  user: ImagicalPhars
+  password: SGPhars002
+  file: "SurvivalGames*.phar"
+  skip_cleanup: true
+  on:
+    tags: true
 
 #env:
  #global:
