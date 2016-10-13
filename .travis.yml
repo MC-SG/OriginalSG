@@ -23,7 +23,7 @@ script:
 - cd OriginalSG
 - rm -rf .git*
 - cd ../..
-- php Travis.php
+- php tests/TravisTest.php
 
 
 #deploy:
