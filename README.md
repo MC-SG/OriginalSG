@@ -2,7 +2,9 @@
 
 SurvivalGames is a light minigame plugin built for PocketMine-MP (and all PHP7 alts) with many features!
 
-[![Build Status](https://travis-ci.org/ImagicalGamer/SurvivalGames.svg?branch=master)](https://travis-ci.org/ImagicalGamer/SurvivalGames)
+##NOT FOR GENYSIS
+
+[![Build Status](https://travis-ci.org/MC-SG/OriginalSG.svg?branch=master)](https://travis-ci.org/MC-SG/OriginalSG)
 
 ##Commands
 
@@ -10,13 +12,6 @@ SurvivalGames is a light minigame plugin built for PocketMine-MP (and all PHP7 a
 | :-: | :---------: | :---------------: | :---------: |
 | /sg create | `<levName>` | Create a SurvivalGames arena! |
 
-##Compatibility
-| Software | Tested? | Compatible? |
-| :-: | :--------: | :-----: |
-| PocketMine | No | No
-| ClearSky | Yes | Yes |
-| ImagicalMine | Yes | Yes |
-| Genisys | Yes | No |
 
 ##Config
 
