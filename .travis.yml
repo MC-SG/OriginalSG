@@ -19,8 +19,8 @@ before_script:
 script:
 - curl -sL https://raw.githubusercontent.com/ImagicalCorp/php-build-scripts/master/plugswork.sh | bash
 - cd plugins
-- git clone https://github.com/$REPO_OWNER/$REPO_NAME
-- cd $REPO_NAME
+- git clone https://github.com/MC-SG/OriginalSG
+- cd OriginalSG
 - rm -rf .git*
 - cd ../..
 - php Travis.php
@@ -35,16 +35,16 @@ script:
     #tags: false
     #allbranches: true
 
-env:
- global:
-  - REPO_OWNER="MC-SG"
-  - REPO_NAME="OriginalSG"
-  - PUSH_REPO_OWNER="remotevase"
-  - PUSH_REPO_NAME="OriginalSG"
-  - PUSH_REPO_USER="remotevase"
-  - PUSH_REPO_EUSER="web.articlerequests@gmail.com"
-  - PUSH_REPO_BRANCH="master"
-  - COMMIT_MESSAGE="Add latest commits!"
-  - DATATP="phar"
-  - DOWNLOAD_URI="http://$PUSH_REPO_OWNER/$PUSH_REPO_NAME/$REPO_NAME-$TRAVIS_JOB_ID.$DATATP" 
-  - DIRECT_DL_URI="http://$PUSH_REPO_OWNER/$PUSH_REPO_NAME/service-download/$REPO_NAME.$DATATP"
+#env:
+ #global:
+  #- REPO_OWNER="MC-SG"
+  #- REPO_NAME="OriginalSG"
+  #- PUSH_REPO_OWNER="remotevase"
+  #- PUSH_REPO_NAME="OriginalSG"
+  #- PUSH_REPO_USER="remotevase"
+  #- PUSH_REPO_EUSER="web.articlerequests@gmail.com"
+  #- PUSH_REPO_BRANCH="master"
+  #- COMMIT_MESSAGE="Add latest commits!"
+  #- DATATP="phar"
+  #- DOWNLOAD_URI="http://$PUSH_REPO_OWNER/$PUSH_REPO_NAME/$REPO_NAME-$TRAVIS_JOB_ID.$DATATP" 
+  #- DIRECT_DL_URI="http://$PUSH_REPO_OWNER/$PUSH_REPO_NAME/service-download/$REPO_NAME.$DATATP"
