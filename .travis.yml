@@ -51,7 +51,7 @@ deploy:
   provider: releases
   user: ImagicalPhars
   password: SGPhars002
-  file: "SurvivalGames*.phar"
+  file: "SurvivalGames_v0.0.2.phar"
   skip_cleanup: true
   on:
     tags: true
