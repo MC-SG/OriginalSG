@@ -1,6 +1,2 @@
-index.html
-list.txt
-_makeindex.sh
-service-download
 
 This is a directory listing of the root directory of the release download website. Copy the file name and paste it in the URL bar after deleting "list.txt". You can also alternatively download files using a shell script by downloading the file from http://MC-SG.github.io/OriginalSG/service-download/SurvivalGames_v0.0.2.phar
