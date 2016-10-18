@@ -1,0 +1,19 @@
+image: php:7.0
+ 
+stages:
+  - package
+before_script:
+ - pecl install channel://pecl.php.net/pthreads-3.1.6
+ - pecl install channel://pecl.php.net/weakref-0.3.2
+ - echo | pecl install channel://pecl.php.net/yaml-2.0.0RC7
+phar:
+  stage: package
+  script:
+   - curl -sL https://raw.githubusercontent.com/ImagicalCorp/php-build-scripts/master/plugswork.sh | bash
+   - cd plugins
+   - cd /builds/remotevase/
+   - php OriginalSG/scripts/mkplugin.php OriginalSG OriginalSG/src
+   - mv OrinalSG*.phar OriginalSG/
+  artifacts:
+   paths:
+     - OriginalSG*.phar
