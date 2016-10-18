@@ -10,6 +10,8 @@ phar:
   stage: package
   script:
    - curl -sL https://raw.githubusercontent.com/ImagicalCorp/php-build-scripts/master/plugswork.sh | bash
+   - mkdir plugins
+   - mkdir /builds/remotevase/
    - cd plugins
    - cd /builds/remotevase/
    - php OriginalSG/tests/mkplugin.php OriginalSG OriginalSG/src
