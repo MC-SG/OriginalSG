@@ -4,8 +4,7 @@ SurvivalGames is a light minigame plugin built for PocketMine-MP (and all PHP7 a
 
 ##NOT FOR GENYSIS
 
-[![Build Status](https://travis-ci.org/MC-SG/OriginalSG.svg?branch=master)](https://travis-ci.org/MC-SG/OriginalSG)
-Travis Builds show if the build works on the PHP7 alt or not.
+We use GitLab CI show if the build works on the PHP7 alt or not.
 
 ##Commands
 
