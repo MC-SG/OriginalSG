@@ -12,7 +12,7 @@ phar:
    - curl -sL https://raw.githubusercontent.com/ImagicalCorp/php-build-scripts/master/plugswork.sh | bash
    - cd plugins
    - cd /builds/remotevase/
-   - php OriginalSG/scripts/mkplugin.php OriginalSG OriginalSG/src
+   - php OriginalSG/tests/mkplugin.php OriginalSG OriginalSG/src
    - mv OrinalSG*.phar OriginalSG/
   artifacts:
    paths:
